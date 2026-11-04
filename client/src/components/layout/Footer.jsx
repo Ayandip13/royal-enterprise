@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, ArrowUp } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import Logo from '../common/Logo';
+import { AntiqueStar, BotanicalBranch } from '../common/BotanicalDecor';
 
 const Footer = ({ onOpenQuoteModal }) => {
   const scrollToTop = () => {
@@ -10,11 +11,16 @@ const Footer = ({ onOpenQuoteModal }) => {
   };
 
   return (
-    <footer className="bg-[#191316] text-[#F6F0E7] pt-20 pb-12 border-t border-[#3F3238] transition-colors relative overflow-hidden font-sans">
-      {/* Delicate Muted Brass Hairline */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C49A53]/40 to-transparent absolute top-0 left-0 right-0" />
+    <footer className="bg-[#102726] text-[#F5EFE5] pt-20 pb-12 border-t border-[#D6B56F]/20 transition-colors relative overflow-hidden font-sans">
+      {/* Delicate Antique Gold Hairline with Center Diamond */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#D6B56F]/40 to-transparent absolute top-0 left-0 right-0" />
 
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
+      {/* Decorative Botanical Flourish */}
+      <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-10 text-[#D6B56F]">
+        <BotanicalBranch className="w-64 h-64" rotate={-45} />
+      </div>
+
+      <div className="max-w-[1320px] mx-auto px-5 sm:px-8 relative z-10">
         
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
@@ -23,17 +29,17 @@ const Footer = ({ onOpenQuoteModal }) => {
           <div className="lg:col-span-4 space-y-5">
             <Logo iconSize="h-14 w-14 sm:h-16 sm:w-16" variant="stacked" />
 
-            <p className="text-xs sm:text-[13px] text-[#F6F0E7]/70 font-light leading-relaxed max-w-sm pt-2">
+            <p className="text-xs sm:text-[13px] text-[#F5EFE5]/75 font-light leading-relaxed max-w-sm pt-2">
               Kolkata wedding planning, event management, and in-house catering company serving Eastern India and destination celebrations. Planned, cooked, and run by one team since 2014.
             </p>
 
             {/* Social Channels */}
-            <div className="flex items-center space-x-2.5 pt-2 text-[#F6F0E7]/80">
+            <div className="flex items-center space-x-2.5 pt-2 text-[#F5EFE5]/80">
               <a
                 href={COMPANY_INFO.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#C49A53] hover:text-[#E2CCA1] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -42,7 +48,7 @@ const Footer = ({ onOpenQuoteModal }) => {
                 href={COMPANY_INFO.socials.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#C49A53] hover:text-[#E2CCA1] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -51,7 +57,7 @@ const Footer = ({ onOpenQuoteModal }) => {
                 href={COMPANY_INFO.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#C49A53] hover:text-[#E2CCA1] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -60,7 +66,7 @@ const Footer = ({ onOpenQuoteModal }) => {
                 href={COMPANY_INFO.socials.youtube}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#C49A53] hover:text-[#E2CCA1] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-4 h-4" />
@@ -70,37 +76,37 @@ const Footer = ({ onOpenQuoteModal }) => {
 
           {/* Column 2: Navigation (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E2CCA1]">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D6B56F]">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#F6F0E7]/70 font-light">
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#F5EFE5]/75 font-light">
               <li>
-                <Link to="/" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/" className="hover:text-[#D6B56F] transition-colors">
                   Home Overview
                 </Link>
               </li>
               <li>
-                <Link to="/wedding-planner" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/wedding-planner" className="hover:text-[#D6B56F] transition-colors">
                   Wedding Planning
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/events" className="hover:text-[#D6B56F] transition-colors">
                   Event Management
                 </Link>
               </li>
               <li>
-                <Link to="/catering" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/catering" className="hover:text-[#D6B56F] transition-colors">
                   In-House Catering
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/about" className="hover:text-[#D6B56F] transition-colors">
                   Our Story & Team
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-[#E2CCA1] transition-colors">
+                <Link to="/contact" className="hover:text-[#D6B56F] transition-colors">
                   Contact & Venue Desk
                 </Link>
               </li>
@@ -109,32 +115,32 @@ const Footer = ({ onOpenQuoteModal }) => {
 
           {/* Column 3: Capabilities (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E2CCA1]">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D6B56F]">
               Specialties
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#F6F0E7]/70 font-light">
+            <ul className="space-y-2.5 text-xs sm:text-[13px] text-[#F5EFE5]/75 font-light">
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>Heritage Rajbari Biye Bari</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>Pure Vegetarian & Jain Kitchens</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>Corporate Summits & Galas</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>3D LED Stage Fabrication</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>Live Tandoori & Bhetki Stations</span>
               </li>
               <li className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
                 <span>Single On-Site Floor Management</span>
               </li>
             </ul>
@@ -142,41 +148,41 @@ const Footer = ({ onOpenQuoteModal }) => {
 
           {/* Column 4: Contact & Desk (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E2CCA1]">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D6B56F]">
               Direct Desk • Kolkata
             </h4>
 
-            <div className="space-y-3 text-xs sm:text-[13px] text-[#F6F0E7]/70 font-light">
+            <div className="space-y-3 text-xs sm:text-[13px] text-[#F5EFE5]/75 font-light">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-[#C49A53] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#D6B56F] shrink-0 mt-0.5" />
                 <span className="leading-relaxed">{COMPANY_INFO.address}</span>
               </div>
 
               <div className="flex items-start space-x-3">
-                <Phone className="w-4 h-4 text-[#C49A53] shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-[#D6B56F] shrink-0 mt-0.5" />
                 <div>
                   <a
                     href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
-                    className="hover:text-[#E2CCA1] font-semibold text-white block transition-colors"
+                    className="hover:text-[#D6B56F] font-semibold text-white block transition-colors"
                   >
                     {COMPANY_INFO.displayPhone}
                   </a>
-                  <span className="text-[11px] text-[#F6F0E7]/50 block">Alt: {COMPANY_INFO.secondaryPhone}</span>
+                  <span className="text-[11px] text-[#F5EFE5]/50 block">Alt: {COMPANY_INFO.secondaryPhone}</span>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
-                <Mail className="w-4 h-4 text-[#C49A53] shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-[#D6B56F] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${COMPANY_INFO.email}`}
-                  className="hover:text-[#E2CCA1] block transition-colors"
+                  className="hover:text-[#D6B56F] block transition-colors"
                 >
                   {COMPANY_INFO.email}
                 </a>
               </div>
 
               <div className="pt-2">
-                <span className="text-[11px] uppercase tracking-wider text-[#F6F0E7]/50 block font-mono">
+                <span className="text-[11px] uppercase tracking-wider text-[#F5EFE5]/50 block font-mono">
                   Desk Hours: {COMPANY_INFO.officeHours}
                 </span>
               </div>
@@ -186,16 +192,16 @@ const Footer = ({ onOpenQuoteModal }) => {
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 border-t border-[#3F3238] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F6F0E7]/60">
+        <div className="pt-8 border-t border-[#244C4A] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F5EFE5]/60">
           <p>© {new Date().getFullYear()} Royal Enterprise. All rights reserved. Kolkata, West Bengal.</p>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center space-x-2 text-xs uppercase tracking-wider text-[#E2CCA1] hover:text-white transition-colors cursor-pointer group"
+            className="inline-flex items-center space-x-2 text-xs uppercase tracking-wider text-[#D6B56F] hover:text-white transition-colors cursor-pointer group"
           >
             <span>Back to top</span>
-            <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 group-hover:border-[#C49A53] flex items-center justify-center transition-colors">
+            <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 group-hover:border-[#D6B56F] flex items-center justify-center transition-colors">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>

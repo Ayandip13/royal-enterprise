@@ -1,56 +1,76 @@
 import React from 'react';
 import { TESTIMONIALS, REAL_WEDDINGS } from '../../data/mockData';
-import { MapPin } from 'lucide-react';
+import { MapPin, Users, Sparkles } from 'lucide-react';
+import { BotanicalBranch, AntiqueStar } from '../common/BotanicalDecor';
 
 const ClientReviews = () => {
   return (
-    <section className="py-10 sm:py-16 bg-[#F6F0E7] dark:bg-[#191316] border-b border-[#E8DFD3] dark:border-[#3F3238] transition-colors">
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 space-y-12 sm:space-y-16">
+    <section className="py-16 sm:py-24 bg-[#FAF5ED] dark:bg-[#143130] border-b border-[#E8DFD3] dark:border-[#244C4A] transition-colors relative overflow-hidden">
+      {/* Decorative Botanical Flourish */}
+      <div className="absolute top-10 right-6 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalBranch className="w-56 h-56" rotate={-45} />
+      </div>
+
+      <div className="max-w-[1320px] mx-auto px-5 sm:px-8 space-y-16 sm:space-y-24">
         
-        {/* Editorial Section Header */}
-        <div className="max-w-2xl space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] block">
-            Stories from Kolkata families
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#292323] dark:text-[#F6F0E7] font-normal tracking-tight leading-[1.08]">
-            What families say after the last plate is cleared.
+        {/* ======================================================================= */}
+        {/* EDITORIAL QUOTES HEADER */}
+        {/* ======================================================================= */}
+        <div className="max-w-3xl space-y-4 text-left">
+          <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
+            <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />
+            <span>Stories from Kolkata families</span>
+          </div>
+
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#292323] dark:text-[#F5EFE5] font-normal tracking-tight leading-[1.08]">
+            What families say after the <br />
+            <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
+              last plate is cleared.
+            </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#665C5C] dark:text-[#D4CCC2] font-light leading-relaxed font-sans">
+
+          <p className="text-base sm:text-lg text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed font-sans">
             Real weddings and celebrations we had the honor of planning and cooking for across Kolkata.
           </p>
         </div>
 
-        {/* Typography-Led Editorial Quotes (No generic AI star icons) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        {/* ======================================================================= */}
+        {/* LITERARY EDITORIAL TESTIMONIAL COMPOSITION */}
+        {/* ======================================================================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {TESTIMONIALS.map((t, idx) => (
             <div
               key={idx}
-              className="relative p-7 sm:p-8 rounded-xl bg-white/70 dark:bg-[#231B1F] border border-[#E8DFD3] dark:border-[#3F3238] flex flex-col justify-between hover:border-[#401D2C]/40 dark:hover:border-[#E2CCA1]/40 transition-all duration-300 group"
+              className="relative p-8 sm:p-9 rounded-2xl bg-[#F5EFE5] dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
+              {/* Giant antique quote mark */}
               <div className="space-y-4">
-                <span className="font-display text-5xl text-[#C49A53]/35 leading-none select-none block -mb-2">
+                <span className="font-display text-6xl text-[#D6B56F]/40 leading-none select-none block -mb-4">
                   “
                 </span>
 
-                <p className="font-display text-xl sm:text-2xl text-[#292323] dark:text-[#F6F0E7] font-normal italic leading-relaxed">
+                <p className="font-display text-xl sm:text-2xl text-[#292323] dark:text-[#F5EFE5] font-normal italic leading-relaxed">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#E8DFD3] dark:border-[#3F3238] space-y-1 font-sans">
+              {/* Author & Event Metadata */}
+              <div className="pt-6 mt-8 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-1.5 font-sans">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-sm text-[#292323] dark:text-[#F6F0E7]">
+                  <h4 className="font-semibold text-sm sm:text-base text-[#193C3B] dark:text-[#D6B56F]">
                     {t.name}
                   </h4>
-                  <span className="text-[11px] font-medium text-[#D65B43] dark:text-[#E2CCA1]">
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#D66D59]/10 text-[#D66D59]">
                     {t.guests}
                   </span>
                 </div>
-                <div className="flex items-center space-x-1.5 text-xs text-[#665C5C] dark:text-[#D4CCC2]">
-                  <MapPin className="w-3.5 h-3.5 text-[#C49A53] shrink-0" />
+
+                <div className="flex items-center space-x-1.5 text-xs text-[#665C5C] dark:text-[#C8D6D5]">
+                  <MapPin className="w-3.5 h-3.5 text-[#D6B56F] shrink-0" />
                   <span>{t.venue}</span>
                 </div>
-                <span className="text-[11px] text-[#8C8282] dark:text-[#9E9488] block">
+
+                <span className="text-[11px] text-[#8C8282] dark:text-[#8FA4A3] block">
                   {t.event}
                 </span>
               </div>
@@ -58,45 +78,48 @@ const ClientReviews = () => {
           ))}
         </div>
 
-        {/* Real Celebrations Multi-Photo Gallery */}
-        <div className="pt-10 border-t border-[#E8DFD3] dark:border-[#3F3238]">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
-            <div>
-              <span className="text-[11px] uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] block mb-1">
+        {/* ======================================================================= */}
+        {/* REAL CELEBRATIONS JOURNAL CATALOG */}
+        {/* ======================================================================= */}
+        <div className="pt-12 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-10">
+          
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
+            <div className="space-y-2">
+              <span className="text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] block font-sans">
                 Real Celebrations
               </span>
-              <h3 className="font-display text-3xl sm:text-4xl font-normal text-[#292323] dark:text-[#F6F0E7]">
+              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-[#292323] dark:text-[#F5EFE5]">
                 Real Weddings & Events by Royal Enterprise
               </h3>
             </div>
-            <span className="text-xs text-[#8C8282] dark:text-[#9E9488] font-sans">
+            <span className="text-xs sm:text-sm text-[#8C8282] dark:text-[#8FA4A3] font-sans max-w-md">
               Real celebrations across Kolkata rajbaris, heritage lawns & hotel ballrooms
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {REAL_WEDDINGS.map((w, idx) => (
               <div
                 key={idx}
-                className="group rounded-xl overflow-hidden bg-white/70 dark:bg-[#231B1F] border border-[#E8DFD3] dark:border-[#3F3238] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden bg-[#F5EFE5] dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
               >
                 <div>
-                  {/* Main Hero Photo */}
-                  <div className="relative h-56 sm:h-60 overflow-hidden bg-stone-200 dark:bg-stone-800">
+                  {/* Hero Photo */}
+                  <div className="relative h-60 sm:h-64 overflow-hidden bg-stone-200 dark:bg-stone-800">
                     <img
                       src={w.mainImage}
                       alt={`${w.couple} at ${w.location}`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute bottom-3 left-3 bg-[#401D2C]/90 text-[#F6F0E7] text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md backdrop-blur-sm">
+                    <div className="absolute top-3 left-3 bg-[#193C3B]/90 text-white text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full backdrop-blur-md border border-[#D6B56F]/30 font-sans">
                       {w.category}
                     </div>
                   </div>
 
-                  {/* 2 Side-by-Side Thumbnail Photos */}
-                  <div className="grid grid-cols-2 gap-1 p-1 bg-[#EFE7DA] dark:bg-[#191316]">
-                    <div className="h-24 overflow-hidden rounded">
+                  {/* 2 Side-by-side Thumbnails */}
+                  <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-[#ECE3D5] dark:bg-[#143130]">
+                    <div className="h-24 overflow-hidden rounded-lg">
                       <img
                         src={w.thumb1}
                         alt={`${w.couple} moment`}
@@ -104,35 +127,36 @@ const ClientReviews = () => {
                         loading="lazy"
                       />
                     </div>
-                    <div className="relative h-24 overflow-hidden rounded">
+                    <div className="relative h-24 overflow-hidden rounded-lg">
                       <img
                         src={w.thumb2}
                         alt={`${w.couple} celebration`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] flex flex-col items-center justify-center text-white text-xs font-semibold">
-                        <span className="text-[13px] font-bold">+{w.photoCount.split(' ')[0]}</span>
-                        <span className="text-[10px] font-normal tracking-wide">Photos</span>
+                      <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px] flex flex-col items-center justify-center text-white text-xs font-semibold font-sans">
+                        <span className="text-sm font-bold">{w.photoCount}</span>
+                        <span className="text-[10px] font-light text-white/80">Archived</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Details: Couple Name & Location */}
-                  <div className="p-5 font-sans">
-                    <h4 className="font-display text-2xl text-[#292323] dark:text-[#F6F0E7]">
+                  {/* Details */}
+                  <div className="p-6 font-sans space-y-3">
+                    <h4 className="font-display text-2xl text-[#292323] dark:text-[#F5EFE5]">
                       {w.couple}
                     </h4>
-                    <div className="flex items-center space-x-1.5 text-xs text-[#401D2C] dark:text-[#E2CCA1] font-medium mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#C49A53] shrink-0" />
+                    
+                    <div className="flex items-center space-x-1.5 text-xs text-[#193C3B] dark:text-[#D6B56F] font-medium">
+                      <MapPin className="w-3.5 h-3.5 text-[#D66D59] shrink-0" />
                       <span>{w.location}</span>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-[#E8DFD3] dark:border-[#3F3238]">
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#E8DFD3] dark:border-[#244C4A]">
                       {w.tags.map((tag, tIdx) => (
                         <span
                           key={tIdx}
-                          className="text-[10.5px] bg-[#FAF6F0] dark:bg-[#191316] border border-[#E8DFD3] dark:border-[#3F3238] px-2.5 py-0.5 rounded text-[#665C5C] dark:text-[#D4CCC2]"
+                          className="text-[10.5px] bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] px-2.5 py-1 rounded-full text-[#665C5C] dark:text-[#C8D6D5]"
                         >
                           {tag}
                         </span>
@@ -143,6 +167,7 @@ const ClientReviews = () => {
               </div>
             ))}
           </div>
+
         </div>
 
       </div>

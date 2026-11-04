@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import SectionHeader from '../components/common/SectionHeader';
 import CateringMenuSection from '../components/catering/CateringMenuSection';
 import CateringEnquiryForm from '../components/catering/CateringEnquiryForm';
-import Button from '../components/common/Button';
 import {
   Utensils,
   Award,
@@ -15,17 +14,15 @@ import {
   ArrowRight,
   Crown,
   Leaf,
-  Drumstick,
-  Heart,
   Plus,
   X,
   ChevronLeft,
   ChevronRight,
   MessageSquare,
   Clock,
-  Wine,
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/mockData';
+import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
 
 const Catering = () => {
   const [selectedPackage, setSelectedPackage] = useState(
@@ -35,7 +32,7 @@ const Catering = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   // =========================================================================
-  // 1. CATERING SERVICES & CULINARY DISCIPLINES (ALTERNATING EDITORIAL LAYOUT)
+  // 1. CATERING SERVICES & CULINARY DISCIPLINES (EDITORIAL SHOWCASE)
   // =========================================================================
   const cateringDisciplines = [
     {
@@ -411,139 +408,153 @@ const Catering = () => {
   };
 
   return (
-    <div className="bg-[#F6F0E7] dark:bg-[#191316] min-h-screen text-[#292323] dark:text-[#F6F0E7] transition-colors font-sans">
+    <div className="bg-[#F5EFE5] dark:bg-[#102726] min-h-screen text-[#292323] dark:text-[#F5EFE5] transition-colors font-sans relative overflow-hidden">
       
-      {/* ========================================================================= */}
-      {/* 1. PREMIUM CATERING HERO SECTION */}
-      {/* ========================================================================= */}
-      <section className="relative min-h-[90vh] lg:min-h-[92vh] flex flex-col justify-between bg-[#191316] text-white overflow-hidden">
-        {/* Background Food Photography with Cinematic Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1920&q=80"
-            alt="Royal Enterprise Gourmet Wedding Catering and Banquet Setup in Kolkata"
-            className="w-full h-full object-cover filter brightness-[0.4] contrast-[1.15] scale-105 animate-fade-in"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#191316] via-black/50 to-black/75" />
-          <div className="absolute inset-0 bg-radial from-transparent via-black/30 to-black/75" />
-        </div>
+      {/* Decorative Botanical Flourish */}
+      <div className="absolute top-28 -right-12 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalBranch className="w-72 h-72" rotate={-35} />
+      </div>
 
-        {/* Top Spacer for Fixed Nav */}
-        <div className="pt-32 sm:pt-40" />
-
-        {/* Center Content */}
-        <div className="relative z-10 max-w-[1280px] mx-auto px-5 sm:px-8 text-center my-auto py-12">
-          <div className="max-w-4xl mx-auto space-y-6">
+      {/* ========================================================================= */}
+      {/* 1. PREMIUM CATERING HERO SECTION (ASYMMETRIC SPLIT) */}
+      {/* ========================================================================= */}
+      <section className="pt-36 sm:pt-44 pb-16 lg:pb-24 border-b border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] transition-colors relative z-10">
+        <div className="max-w-[1320px] mx-auto px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="inline-flex items-center space-x-2.5 bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-[#E2CCA1]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
-              <span className="text-[11px] sm:text-xs uppercase tracking-[0.24em] font-medium">
-                Kolkata & Eastern India • In-House Gourmet Feasts
-              </span>
+            {/* Left: Editorial Content */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F]">
+                <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />
+                <span>Kolkata & Eastern India • In-House Gourmet Feasts</span>
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-normal text-[#292323] dark:text-[#F5EFE5] tracking-tight leading-[1.05]">
+                Gourmet Feasts Fit For <br />
+                <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
+                  Royal Celebrations.
+                </span>
+              </h1>
+
+              <p className="font-display text-xl sm:text-2xl text-[#D66D59] dark:text-[#D6B56F] font-normal italic max-w-2xl">
+                "We cook the food ourselves. Nothing is outsourced to a stranger’s kitchen."
+              </p>
+
+              <p className="text-base sm:text-lg text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed max-w-xl">
+                From crispy Kolkata Bhetki fry and slow-simmered Mutton Kosha to fragrant Awadhi dum biryanis and dedicated pure-veg Marwari kitchens — cooked fresh on site by our veteran bawarchis.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('signature-menus');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-lg transition-all"
+                >
+                  Explore Signature Menus
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('menu-explorer');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-6 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-white/80 dark:bg-[#102726] hover:bg-white dark:hover:bg-[#193C3B] text-[#193C3B] dark:text-[#F5EFE5] border border-[#E8DFD3] dark:border-[#244C4A] transition-all"
+                >
+                  Browse All Dishes
+                </button>
+
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20our%20catering%20menu.`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-whatsapp px-5 py-3.5 text-xs uppercase tracking-[0.12em] font-semibold inline-flex items-center space-x-2 shadow-sm rounded-lg"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight leading-[1.05]">
-              Gourmet Feasts Fit For <br />
-              <span className="italic font-display text-[#E2CCA1]">Royal Celebrations.</span>
-            </h1>
-
-            <p className="font-display text-lg sm:text-2xl text-[#E2CCA1] font-normal italic max-w-2xl mx-auto">
-              "We cook the food ourselves. Nothing is outsourced to a stranger’s kitchen."
-            </p>
-
-            <p className="max-w-2xl mx-auto text-sm sm:text-base text-white/85 font-light leading-relaxed">
-              From crispy Kolkata Bhetki fry and slow-simmered Mutton Kosha to fragrant Awadhi dum biryanis and dedicated pure-veg Marwari kitchens — cooked fresh on site by our veteran bawarchis.
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
-              <Button
-                variant="primary"
-                size="md"
-                onClick={() => {
-                  const el = document.getElementById('signature-menus');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-8 py-3.5 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#D65B43] hover:bg-[#B84630] text-white shadow-lg shadow-[#D65B43]/25"
-              >
-                Explore Signature Menus
-              </Button>
-
-              <Button
-                variant="outline"
-                size="md"
-                onClick={() => {
-                  const el = document.getElementById('menu-explorer');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-6 py-3.5 text-xs uppercase tracking-wider font-semibold border-white/30 text-white hover:bg-white/15 backdrop-blur-sm"
-              >
-                Browse All Dishes
-              </Button>
-
-              <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20our%20catering%20menu.`}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-whatsapp px-6 py-3.5 text-xs uppercase tracking-wider font-semibold inline-flex items-center space-x-2 shadow-md"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp</span>
-              </a>
+            {/* Right: Arched Feast Framing with Overlapping Dish Detail */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-[420px]">
+                <div className="relative z-10 w-full aspect-[4/5] rounded-t-[190px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#102726]">
+                  <img
+                    src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
+                    alt="Royal Enterprise Gourmet Wedding Catering and Banquet Setup in Kolkata"
+                    className="w-full h-full object-cover filter brightness-[0.96]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#193C3B]/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-center text-white text-xs">
+                    <span className="text-[#D6B56F] uppercase tracking-[0.2em] font-semibold block mb-0.5">
+                      100% In-House Kitchen
+                    </span>
+                    <span className="font-display italic text-base text-[#F5EFE5]">
+                      Veteran Bawarchis & Authentic Clay Grills
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
-        </div>
 
-        {/* Bottom Banner Indicators */}
-        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-5 sm:px-8 pb-8 pt-4">
-          <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-white/80">
+          {/* Bottom Banner Indicators */}
+          <div className="pt-10 mt-10 border-t border-[#E8DFD3] dark:border-[#244C4A] grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-[#292323] dark:text-[#C8D6D5]">
             <div className="flex items-center space-x-3">
-              <ShieldCheck className="w-4 h-4 text-[#C49A53]" />
+              <ShieldCheck className="w-4 h-4 text-[#D6B56F]" />
               <span>100% In-house preparation. Never outsourced.</span>
             </div>
             <div className="flex items-center space-x-3">
-              <Leaf className="w-4 h-4 text-[#526C55]" />
+              <Leaf className="w-4 h-4 text-[#526C55] dark:text-[#D6B56F]" />
               <span>Dedicated separate kitchens for pure-veg banquets</span>
             </div>
             <div className="flex items-center space-x-3">
-              <Utensils className="w-4 h-4 text-[#C49A53]" />
+              <Utensils className="w-4 h-4 text-[#D6B56F]" />
               <span>Complimentary pre-wedding live menu tastings</span>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* Main Content Flow */}
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 py-10 sm:py-14 space-y-12 sm:space-y-16">
+      <div className="max-w-[1320px] mx-auto px-5 sm:px-8 py-14 sm:py-20 space-y-16 sm:space-y-24 relative z-10">
 
         {/* ========================================================================= */}
         {/* 2. LUXURY FOOD SHOWCASE SECTION */}
         {/* ========================================================================= */}
         <section id="food-showcase">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
             <div className="inline-flex items-center space-x-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
-              <span className="text-xs uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] font-sans">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
+              <span className="text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F]">
                 Culinary Artistry
               </span>
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl text-[#292323] dark:text-[#F6F0E7] font-normal tracking-tight leading-[1.12]">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#292323] dark:text-[#F5EFE5] font-normal tracking-tight leading-[1.08]">
               Honest Ingredients. <br />
-              <span className="italic font-display text-[#401D2C] dark:text-[#E2CCA1]">Unforgettable Flavours.</span>
+              <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
+                Unforgettable Flavours.
+              </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-[#665C5C] dark:text-[#D4CCC2] font-light leading-relaxed font-sans">
+            <p className="text-base text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
               Every dish is freshly prepared at your venue by our veteran bawarchis using pure mustard oil, morning-fresh Kolkata fish, and traditional slow-cooked spices.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {foodHighlights.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative rounded-xl overflow-hidden border border-[#E8DFD3] dark:border-[#3F3238] bg-white dark:bg-[#231B1F] shadow-sm hover:shadow-xl transition-all duration-500 group ${item.aspect}`}
+                className={`relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 group ${item.aspect}`}
               >
                 <img
                   src={item.image}
@@ -551,14 +562,14 @@ const Catering = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10px] uppercase tracking-wider font-semibold text-[#E2CCA1] font-sans">
+                <div className="absolute top-4 left-4 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10.5px] uppercase tracking-wider font-semibold text-[#D6B56F] font-sans">
                   {item.tag}
                 </div>
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 font-sans">
-                  <h3 className="font-display text-xl sm:text-2xl font-normal leading-snug text-white">
+                  <h3 className="font-display text-2xl font-normal leading-snug text-white">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#F6F0E7]/80 font-light">
+                  <p className="text-xs text-[#F5EFE5]/85 font-light">
                     {item.subtitle}
                   </p>
                 </div>
@@ -577,7 +588,7 @@ const Catering = () => {
             subtitle="From legendary Bengali Biye Bari courses to clay-oven grills, live theatres, and dedicated vegetarian kitchens."
           />
 
-          <div className="space-y-12 sm:space-y-16 pt-4">
+          <div className="space-y-14 sm:space-y-20 pt-6">
             {cateringDisciplines.map((item, idx) => {
               const isEven = idx % 2 === 1;
               return (
@@ -591,18 +602,18 @@ const Catering = () => {
                       isEven ? 'order-1 lg:order-2' : 'order-1'
                     }`}
                   >
-                    <div className="relative rounded-xl overflow-hidden border border-[#E8DFD3] dark:border-[#3F3238] bg-white dark:bg-[#231B1F] shadow-lg aspect-[16/10]">
+                    <div className="relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-lg aspect-[16/10]">
                       <img
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.96]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-sans">
-                        <span className="text-xs uppercase tracking-[0.2em] font-medium text-[#E2CCA1]">
+                      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-sans text-xs">
+                        <span className="uppercase tracking-[0.2em] font-medium text-[#D6B56F]">
                           {item.badge}
                         </span>
-                        <span className="text-[11px] bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                        <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10.5px]">
                           Fresh On-Site Preparation
                         </span>
                       </div>
@@ -615,45 +626,45 @@ const Catering = () => {
                       isEven ? 'order-2 lg:order-1' : 'order-2'
                     }`}
                   >
-                    <div className="flex items-center justify-between border-b border-[#E8DFD3] dark:border-[#3F3238] pb-2">
-                      <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] flex items-center space-x-2 font-sans">
-                        <Utensils className="w-3.5 h-3.5 text-[#C49A53]" />
+                    <div className="flex items-center justify-between border-b border-[#E8DFD3] dark:border-[#244C4A] pb-2">
+                      <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] flex items-center space-x-2 font-sans">
+                        <Utensils className="w-3.5 h-3.5 text-[#D6B56F]" />
                         <span>Pillar {item.num} • {item.badge}</span>
                       </span>
-                      <span className="font-display text-4xl font-light text-[#C49A53]/30 select-none">
+                      <span className="font-display text-4xl font-light text-[#D6B56F]/40 select-none">
                         {item.num}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl font-normal text-[#292323] dark:text-[#F6F0E7] leading-snug">
+                    <h3 className="font-display text-2xl sm:text-3xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#C49A53] font-medium font-sans">
+                    <p className="text-xs sm:text-sm text-[#D6B56F] font-semibold font-sans">
                       {item.subtitle}
                     </p>
 
-                    <p className="text-xs sm:text-[13.5px] text-[#665C5C] dark:text-[#D4CCC2] font-light leading-relaxed font-sans">
+                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed font-sans">
                       {item.description}
                     </p>
 
-                    <div className="space-y-2 pt-1 font-sans">
+                    <div className="space-y-2 pt-2 font-sans">
                       {item.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className="flex items-center space-x-2 text-xs text-[#292323] dark:text-[#D4CCC2]">
-                          <Check className="w-3.5 h-3.5 text-[#D65B43] shrink-0" />
+                        <div key={hIdx} className="flex items-center space-x-2 text-xs text-[#292323] dark:text-[#C8D6D5]">
+                          <Check className="w-3.5 h-3.5 text-[#D66D59] shrink-0" />
                           <span>{h}</span>
                         </div>
                       ))}
                     </div>
 
-                    <div className="pt-2">
+                    <div className="pt-3">
                       <button
                         type="button"
                         onClick={() => handleSelectPackage('Package B: The Grand Imperial Royal Spread (Premium Non-Veg)')}
-                        className="px-5 py-2.5 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#401D2C] hover:bg-[#2A101C] text-[#F6F0E7] shadow-sm inline-flex items-center space-x-2 transition-colors font-sans"
+                        className="px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white shadow-sm inline-flex items-center space-x-2 transition-colors font-sans"
                       >
                         <span>Inquire For This Menu</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#E2CCA1]" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F]" />
                       </button>
                     </div>
                   </div>
@@ -666,7 +677,7 @@ const Catering = () => {
         {/* ========================================================================= */}
         {/* 4. PREMIUM DINING EXPERIENCE (SPLIT-SCREEN SECTION) */}
         {/* ========================================================================= */}
-        <section id="dining-experience" className="bg-white dark:bg-[#231B1F] rounded-2xl border border-[#E8DFD3] dark:border-[#3F3238] overflow-hidden shadow-lg">
+        <section id="dining-experience" className="bg-[#FAF5ED] dark:bg-[#143130] rounded-2xl border border-[#E8DFD3] dark:border-[#244C4A] overflow-hidden shadow-lg">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Left Side: Large Luxury Dining Photography */}
@@ -677,83 +688,83 @@ const Catering = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent lg:hidden" />
-              <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 text-white font-sans">
-                <span className="text-xs font-display italic text-[#E2CCA1] block">The Dining Standard</span>
-                <span className="text-[11px] font-medium text-white">Fine Bone China & Polished Serviceware</span>
+              <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white font-sans">
+                <span className="text-xs font-display italic text-[#D6B56F] block">The Dining Standard</span>
+                <span className="text-xs font-medium text-white">Fine Bone China & Polished Serviceware</span>
               </div>
             </div>
 
             {/* Right Side: Editorial Content */}
             <div className="lg:col-span-6 p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-6">
-              <div className="space-y-3">
+              <div className="space-y-3.5">
                 <div className="inline-flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
-                  <span className="text-xs uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] font-sans">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
+                  <span className="text-xs uppercase tracking-[0.22em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
                     Hospitality & Tablecraft
                   </span>
                 </div>
 
-                <h2 className="font-display text-3xl sm:text-4xl font-normal text-[#292323] dark:text-[#F6F0E7] leading-tight">
+                <h2 className="font-display text-3xl sm:text-4xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-tight">
                   The Art of Refined <br />
-                  <span className="italic font-display text-[#401D2C] dark:text-[#E2CCA1]">Banquet Hospitality.</span>
+                  <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">Banquet Hospitality.</span>
                 </h2>
 
-                <p className="text-xs sm:text-sm text-[#665C5C] dark:text-[#D4CCC2] font-light leading-relaxed font-sans">
+                <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed font-sans">
                   Great catering is not merely what is on the plate—it is the grace with which your guests are received, the warmth of the serving captains, and the immaculate presentation of the dining floor.
                 </p>
               </div>
 
               {/* 4 Pillars of Tablecraft */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs text-[#292323] dark:text-[#D4CCC2] font-sans">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs text-[#292323] dark:text-[#C8D6D5] font-sans">
                 <div className="space-y-1">
-                  <div className="flex items-center space-x-2 text-[#401D2C] dark:text-[#E2CCA1] font-semibold">
-                    <Award className="w-4 h-4 text-[#C49A53]" />
+                  <div className="flex items-center space-x-2 text-[#193C3B] dark:text-[#D6B56F] font-semibold text-sm">
+                    <Award className="w-4 h-4 text-[#D6B56F]" />
                     <span>Fine Serviceware</span>
                   </div>
-                  <p className="text-[#665C5C] dark:text-[#A8A29E] font-light leading-relaxed">
+                  <p className="text-[#665C5C] dark:text-[#8FA4A3] font-light leading-relaxed">
                     Fine bone china, polished copper buffet warmers, and hammered brass handis.
                   </p>
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center space-x-2 text-[#401D2C] dark:text-[#E2CCA1] font-semibold">
-                    <ChefHat className="w-4 h-4 text-[#C49A53]" />
+                  <div className="flex items-center space-x-2 text-[#193C3B] dark:text-[#D6B56F] font-semibold text-sm">
+                    <ChefHat className="w-4 h-4 text-[#D6B56F]" />
                     <span>Trained Stewards</span>
                   </div>
-                  <p className="text-[#665C5C] dark:text-[#A8A29E] font-light leading-relaxed">
+                  <p className="text-[#665C5C] dark:text-[#8FA4A3] font-light leading-relaxed">
                     Polite, uniformed bilingual serving captains and swift clearing staff.
                   </p>
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center space-x-2 text-[#401D2C] dark:text-[#E2CCA1] font-semibold">
-                    <ShieldCheck className="w-4 h-4 text-[#C49A53]" />
+                  <div className="flex items-center space-x-2 text-[#193C3B] dark:text-[#D6B56F] font-semibold text-sm">
+                    <ShieldCheck className="w-4 h-4 text-[#D6B56F]" />
                     <span>Sanitized Holding</span>
                   </div>
-                  <p className="text-[#665C5C] dark:text-[#A8A29E] font-light leading-relaxed">
+                  <p className="text-[#665C5C] dark:text-[#8FA4A3] font-light leading-relaxed">
                     Temperature-monitored holding units and strict kitchen cleanliness.
                   </p>
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center space-x-2 text-[#401D2C] dark:text-[#E2CCA1] font-semibold">
-                    <GlassWater className="w-4 h-4 text-[#C49A53]" />
+                  <div className="flex items-center space-x-2 text-[#193C3B] dark:text-[#D6B56F] font-semibold text-sm">
+                    <GlassWater className="w-4 h-4 text-[#D6B56F]" />
                     <span>Beverage Care</span>
                   </div>
-                  <p className="text-[#665C5C] dark:text-[#A8A29E] font-light leading-relaxed">
+                  <p className="text-[#665C5C] dark:text-[#8FA4A3] font-light leading-relaxed">
                     Branded packaged water dispensers and imported glassware for mocktails.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-[#E8DFD3] dark:border-[#3F3238]">
+              <div className="pt-3 border-t border-[#E8DFD3] dark:border-[#244C4A]">
                 <button
                   type="button"
                   onClick={() => {
                     const el = document.getElementById('catering-enquiry-form');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#401D2C] hover:bg-[#2A101C] text-[#F6F0E7] shadow-sm transition-colors font-sans"
+                  className="px-7 py-3.5 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-md transition-colors font-sans"
                 >
                   Reserve Your Event Date
                 </button>
@@ -773,46 +784,46 @@ const Catering = () => {
             subtitle="Curated menu sequences featuring authentic Kolkata Bhetki, slow-cooked Mutton Kosha, and hot artisanal mishti."
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {signaturePackages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 font-sans ${
+                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 font-sans ${
                   pkg.popular
-                    ? 'bg-white dark:bg-[#231B1F] border-2 border-[#401D2C] dark:border-[#C49A53] shadow-xl'
-                    : 'bg-white dark:bg-[#231B1F] border border-[#E8DFD3] dark:border-[#3F3238] hover:border-[#401D2C]/40 dark:hover:border-[#C49A53]/50 shadow-sm'
+                    ? 'bg-[#FAF5ED] dark:bg-[#143130] border-2 border-[#193C3B] dark:border-[#D6B56F] shadow-2xl'
+                    : 'bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B]/40 dark:hover:border-[#D6B56F]/50 shadow-sm'
                 }`}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#401D2C] text-white font-semibold text-xs px-4 py-1 rounded-full shadow-md flex items-center">
-                    <Crown className="w-3.5 h-3.5 mr-1 text-[#E2CCA1]" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#193C3B] text-white font-semibold text-xs px-4 py-1 rounded-full shadow-md flex items-center">
+                    <Crown className="w-3.5 h-3.5 mr-1.5 text-[#D6B56F]" />
                     {pkg.badge}
                   </div>
                 )}
 
                 <div>
-                  <div className="mb-5">
-                    <span className="text-xs uppercase tracking-wider font-semibold text-[#401D2C] dark:text-[#E2CCA1] block mb-1">
+                  <div className="mb-6">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-[#D66D59] dark:text-[#D6B56F] block mb-1">
                       {pkg.code}
                     </span>
-                    <h3 className="font-display text-2xl font-normal text-[#292323] dark:text-[#F6F0E7] mb-2 leading-snug">
+                    <h3 className="font-display text-3xl font-normal text-[#292323] dark:text-[#F5EFE5] mb-2 leading-snug">
                       {pkg.name}
                     </h3>
-                    <p className="text-xs text-[#665C5C] dark:text-[#D4CCC2] bg-[#F6F0E7]/60 dark:bg-[#191316] p-3 rounded-lg border border-[#E8DFD3] dark:border-[#3F3238] font-light">
-                      <strong className="text-[#292323] dark:text-[#F6F0E7] font-semibold">Best for:</strong> {pkg.bestFor}
+                    <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] bg-white/70 dark:bg-[#102726] p-3.5 rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] font-light">
+                      <strong className="text-[#292323] dark:text-[#F5EFE5] font-semibold">Best for:</strong> {pkg.bestFor}
                     </p>
                   </div>
 
-                  <div className="space-y-3.5 mb-6">
+                  <div className="space-y-4 mb-6">
                     {pkg.sections.map((sec, secIdx) => (
-                      <div key={secIdx} className="border-b border-[#E8DFD3] dark:border-[#3F3238] pb-3 last:border-b-0">
-                        <h5 className="text-xs uppercase tracking-wider font-semibold text-[#401D2C] dark:text-[#E2CCA1] mb-2">
+                      <div key={secIdx} className="border-b border-[#E8DFD3] dark:border-[#244C4A] pb-3.5 last:border-b-0">
+                        <h5 className="text-xs uppercase tracking-wider font-semibold text-[#193C3B] dark:text-[#D6B56F] mb-2">
                           {sec.heading}:
                         </h5>
-                        <ul className="space-y-1.5 text-xs text-[#665C5C] dark:text-[#D4CCC2] font-light">
+                        <ul className="space-y-1.5 text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light">
                           {sec.items.map((item, itemIdx) => (
                             <li key={itemIdx} className="flex items-start">
-                              <span className="w-1.5 h-1.5 bg-[#D65B43] mr-2 mt-1.5 shrink-0 rounded-full" />
+                              <span className="w-1.5 h-1.5 bg-[#D66D59] mr-2 mt-1.5 shrink-0 rounded-full" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -825,10 +836,10 @@ const Catering = () => {
                 <button
                   type="button"
                   onClick={() => handleSelectPackage(pkg.fullName)}
-                  className={`w-full py-3 text-xs uppercase tracking-wider font-semibold rounded-lg transition-colors ${
+                  className={`w-full py-3.5 text-xs uppercase tracking-wider font-semibold rounded-lg transition-colors ${
                     pkg.popular
-                      ? 'bg-[#401D2C] hover:bg-[#2A101C] text-[#F6F0E7] shadow-sm'
-                      : 'border border-[#C8BCAF] dark:border-[#5A4E45] text-[#292323] dark:text-[#F6F0E7] hover:bg-[#F6F0E7] dark:hover:bg-[#191316]'
+                      ? 'bg-[#193C3B] hover:bg-[#102726] text-white shadow-md'
+                      : 'border border-[#CBBFB0] dark:border-[#2B5755] text-[#292323] dark:text-[#F5EFE5] hover:bg-white dark:hover:bg-[#102726]'
                   }`}
                 >
                   Choose Menu & Request Tasting
@@ -842,15 +853,15 @@ const Catering = () => {
         {/* 6. EDITORIAL CATERING PHOTOGRAPHY GALLERY WITH LIGHTBOX */}
         {/* ========================================================================= */}
         <section id="catering-gallery">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-            <div className="space-y-2 max-w-xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div className="space-y-2 max-w-xl text-left">
               <div className="inline-flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
-                <span className="text-xs uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
+                <span className="text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
                   Culinary Portfolio
                 </span>
               </div>
-              <h3 className="font-display text-3xl sm:text-4xl text-[#292323] dark:text-[#F6F0E7] font-normal">
+              <h3 className="font-display text-4xl sm:text-5xl text-[#292323] dark:text-[#F5EFE5] font-normal">
                 Feast Presentation & Tablecraft
               </h3>
             </div>
@@ -861,10 +872,10 @@ const Catering = () => {
                   key={cat}
                   type="button"
                   onClick={() => setGalleryCategory(cat)}
-                  className={`text-xs uppercase tracking-wider font-medium px-4 py-2 rounded-full transition-all duration-200 ${
+                  className={`text-xs uppercase tracking-wider font-medium px-4 py-2.5 rounded-lg transition-all duration-300 ${
                     galleryCategory === cat
-                      ? 'bg-[#401D2C] text-[#F6F0E7] shadow-sm'
-                      : 'bg-white dark:bg-[#231B1F] text-[#665C5C] dark:text-[#D4CCC2] border border-[#E8DFD3] dark:border-[#3F3238] hover:border-[#401D2C]'
+                      ? 'bg-[#193C3B] text-white shadow-sm'
+                      : 'bg-[#FAF5ED] dark:bg-[#143130] text-[#665C5C] dark:text-[#C8D6D5] border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B]'
                   }`}
                 >
                   {cat}
@@ -878,7 +889,7 @@ const Catering = () => {
               <div
                 key={item.id}
                 onClick={() => setLightboxIndex(idx)}
-                className={`group relative rounded-xl overflow-hidden border border-[#E8DFD3] dark:border-[#3F3238] bg-white dark:bg-[#231B1F] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${item.aspect}`}
+                className={`group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${item.aspect}`}
               >
                 <img
                   src={item.image}
@@ -887,11 +898,11 @@ const Catering = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md text-[#E2CCA1] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
                   <Plus className="w-4 h-4 stroke-[2]" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#E2CCA1] block mb-1">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#D6B56F] block mb-1">
                     {item.category} • {item.location}
                   </span>
                   <h4 className="font-display text-lg font-normal leading-snug">
@@ -906,7 +917,7 @@ const Catering = () => {
         {/* ========================================================================= */}
         {/* 7. INTERACTIVE DISH EXPLORER */}
         {/* ========================================================================= */}
-        <section id="menu-explorer" className="bg-white dark:bg-[#231B1F] border border-[#E8DFD3] dark:border-[#3F3238] rounded-xl p-6 sm:p-10 shadow-sm">
+        <section id="menu-explorer" className="bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl p-8 sm:p-12 shadow-sm">
           <SectionHeader
             badge="Full Culinary Repertoire"
             title="Browse Our Dish Library"
@@ -918,33 +929,33 @@ const Catering = () => {
         {/* ========================================================================= */}
         {/* 8. CATERING PRICING GUIDE */}
         {/* ========================================================================= */}
-        <section id="pricing-guide" className="bg-white dark:bg-[#231B1F] border border-[#E8DFD3] dark:border-[#3F3238] rounded-xl p-6 sm:p-10 shadow-sm">
+        <section id="pricing-guide" className="bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl p-8 sm:p-12 shadow-sm">
           <SectionHeader
             badge="Menu Benchmarks"
             title="Catering Menu Guide"
             subtitle="Standard course breakdowns to help plan your wedding or milestone banquet."
           />
 
-          <div className="overflow-x-auto rounded-lg border border-[#E8DFD3] dark:border-[#3F3238] bg-[#F6F0E7]/40 dark:bg-[#191316] font-sans">
+          <div className="overflow-x-auto rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] bg-white/70 dark:bg-[#102726] font-sans">
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead className="bg-[#F6F0E7] dark:bg-[#231B1F] text-[#401D2C] dark:text-[#E2CCA1] uppercase tracking-[0.16em] font-semibold border-b border-[#E8DFD3] dark:border-[#3F3238]">
+              <thead className="bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] uppercase tracking-[0.16em] font-semibold border-b border-[#E8DFD3] dark:border-[#244C4A]">
                 <tr>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#3F3238] text-[11px] w-1/3">Package Category</th>
+                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/3">Package Category</th>
                   <th className="p-4 text-[11px]">Typical Menu Highlights</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E8DFD3] dark:divide-[#3F3238] text-[#292323] dark:text-[#D4CCC2]">
+              <tbody className="divide-y divide-[#E8DFD3] dark:divide-[#244C4A] text-[#292323] dark:text-[#C8D6D5]">
                 {pricingGuide.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-white/60 dark:hover:bg-[#231B1F]/60 transition-colors">
-                    <td className="p-4 font-semibold text-[#292323] dark:text-[#F6F0E7] border-r border-[#E8DFD3] dark:border-[#3F3238]">{row.category}</td>
-                    <td className="p-4 font-light text-[#665C5C] dark:text-[#D4CCC2] leading-relaxed">{row.highlights}</td>
+                  <tr key={idx} className="hover:bg-white/60 dark:hover:bg-[#193C3B]/40 transition-colors">
+                    <td className="p-4 font-semibold text-[#292323] dark:text-[#F5EFE5] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.category}</td>
+                    <td className="p-4 font-light text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed">{row.highlights}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="text-center text-xs text-[#827771] dark:text-[#A8A29E] italic mt-6 font-light">
+          <p className="text-center text-xs text-[#8C8282] italic mt-6 font-light font-sans">
             (Note: Pricing adjusts based on guest count, fish selection such as Vetki vs. Katla, and live counter additions).
           </p>
         </section>
@@ -970,10 +981,10 @@ const Catering = () => {
           onClick={() => setLightboxIndex(null)}
         >
           <div
-            className="flex items-center justify-between text-white/80 max-w-[1280px] w-full mx-auto"
+            className="flex items-center justify-between text-white/80 max-w-[1320px] w-full mx-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-xs uppercase tracking-[0.2em] text-[#E0CFA6] font-mono">
+            <div className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-mono">
               0{lightboxIndex + 1} / 0{filteredGallery.length}
             </div>
             <button
@@ -993,7 +1004,7 @@ const Catering = () => {
             <img
               src={filteredGallery[lightboxIndex].image}
               alt={filteredGallery[lightboxIndex].title}
-              className="max-h-full max-w-full object-contain rounded-lg shadow-2xl animate-fade-in"
+              className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/20"
             />
             <button
               type="button"
@@ -1020,13 +1031,13 @@ const Catering = () => {
           </div>
 
           <div
-            className="text-center text-white max-w-xl mx-auto pb-4"
+            className="text-center text-white max-w-xl mx-auto pb-4 font-sans"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-xs uppercase tracking-[0.2em] text-[#E0CFA6] font-semibold block mb-1">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-semibold block mb-1">
               {filteredGallery[lightboxIndex].category} • {filteredGallery[lightboxIndex].location}
             </span>
-            <h4 className="font-serif text-xl sm:text-2xl font-normal text-white">
+            <h4 className="font-display text-xl sm:text-2xl font-normal text-white">
               {filteredGallery[lightboxIndex].title}
             </h4>
           </div>

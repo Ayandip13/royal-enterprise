@@ -12,6 +12,7 @@ import {
   submitContactEnquiry,
 } from '../../services/api';
 import { Calendar, Users, MapPin, DollarSign, Send } from 'lucide-react';
+import { AntiqueStar } from '../common/BotanicalDecor';
 
 const QuickQuoteModal = ({ isOpen, onClose }) => {
   const { showToast } = useNotification();
@@ -67,9 +68,8 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
     setLoading(true);
 
     try {
-      let res;
       if (activeTab === 'events') {
-        res = await submitEventEnquiry({
+        await submitEventEnquiry({
           customerName: formData.customerName,
           phone: formData.phone,
           email: formData.email,
@@ -81,7 +81,7 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
           additionalRequirements: formData.additionalRequirements,
         });
       } else if (activeTab === 'catering') {
-        res = await submitCateringEnquiry({
+        await submitCateringEnquiry({
           customerName: formData.customerName,
           phone: formData.phone,
           email: formData.email,
@@ -94,7 +94,7 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
           additionalRequirements: formData.additionalRequirements,
         });
       } else if (activeTab === 'wedding') {
-        res = await submitWeddingEnquiry({
+        await submitWeddingEnquiry({
           customerName: formData.customerName,
           phone: formData.phone,
           email: formData.email,
@@ -106,7 +106,7 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
           additionalRequirements: formData.additionalRequirements,
         });
       } else {
-        res = await submitContactEnquiry({
+        await submitContactEnquiry({
           customerName: formData.customerName,
           phone: formData.phone,
           email: formData.email,
@@ -137,14 +137,14 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
       maxWidth="max-w-2xl"
     >
       {/* Division Tabs */}
-      <div className="grid grid-cols-3 gap-1.5 bg-[#FAF7F2] dark:bg-[#141210] p-1.5 rounded border border-[#E5DED3] dark:border-[#38312B] mb-6">
+      <div className="grid grid-cols-3 gap-2 bg-[#FAF5ED] dark:bg-[#102726] p-1.5 rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] mb-6 font-sans">
         <button
           type="button"
           onClick={() => setActiveTab('wedding')}
-          className={`py-2 text-xs rounded transition-all font-semibold ${
+          className={`py-2 text-xs rounded-lg transition-all font-semibold uppercase tracking-wider ${
             activeTab === 'wedding'
-              ? 'bg-[#6E1423] text-white shadow-sm'
-              : 'text-[#524C44] dark:text-[#A8A29E] hover:text-[#1F1D1A] dark:hover:text-[#FAF7F2] hover:bg-white/60 dark:hover:bg-white/5'
+              ? 'bg-[#193C3B] text-white shadow-sm'
+              : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-white'
           }`}
         >
           Weddings
@@ -152,10 +152,10 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
         <button
           type="button"
           onClick={() => setActiveTab('catering')}
-          className={`py-2 text-xs rounded transition-all font-semibold ${
+          className={`py-2 text-xs rounded-lg transition-all font-semibold uppercase tracking-wider ${
             activeTab === 'catering'
-              ? 'bg-[#6E1423] text-white shadow-sm'
-              : 'text-[#524C44] dark:text-[#A8A29E] hover:text-[#1F1D1A] dark:hover:text-[#FAF7F2] hover:bg-white/60 dark:hover:bg-white/5'
+              ? 'bg-[#193C3B] text-white shadow-sm'
+              : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-white'
           }`}
         >
           Catering
@@ -163,17 +163,17 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
         <button
           type="button"
           onClick={() => setActiveTab('events')}
-          className={`py-2 text-xs rounded transition-all font-semibold ${
+          className={`py-2 text-xs rounded-lg transition-all font-semibold uppercase tracking-wider ${
             activeTab === 'events'
-              ? 'bg-[#6E1423] text-white shadow-sm'
-              : 'text-[#524C44] dark:text-[#A8A29E] hover:text-[#1F1D1A] dark:hover:text-[#FAF7F2] hover:bg-white/60 dark:hover:bg-white/5'
+              ? 'bg-[#193C3B] text-white shadow-sm'
+              : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-white'
           }`}
         >
           Events
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 font-sans text-left">
         {/* Contact info row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input
@@ -200,11 +200,11 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="concierge@example.com"
+          placeholder="e.g. client@example.com"
           required
         />
 
-        {/* Division specific fields */}
+        {/* Tab-specific fields */}
         {activeTab === 'events' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Select
@@ -214,9 +214,9 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               options={[
                 'Corporate Events',
-                'Media Events',
-                'Other Events and Programs',
-                'Stage and Set Design',
+                'Private Celebrations',
+                'Entertainment & Concerts',
+                'Public Festivals',
               ]}
               required
             />
@@ -229,15 +229,15 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
               required
             />
             <Input
-              label="Event City / Venue"
+              label="Event Location / City"
               name="eventLocation"
               value={formData.eventLocation}
               onChange={handleChange}
-              placeholder="e.g. Mumbai, New Delhi, Palace Lawn"
+              placeholder="e.g. Kolkata, Rajbari Bawali"
               required
             />
             <Input
-              label="Estimated Guests"
+              label="Estimated Guest Count"
               name="guestCount"
               type="number"
               value={formData.guestCount}
@@ -249,20 +249,12 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
 
         {activeTab === 'catering' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Select
-              label="Occasion / Event Type"
+            <Input
+              label="Event Occasion"
               name="eventType"
               value={formData.eventType}
               onChange={handleChange}
-              options={[
-                'Wedding Ceremony',
-                'Reception Party',
-                'Corporate Gala',
-                'Birthday Party',
-                'Anniversary Celebration',
-                'Engagement Ceremony',
-                'Private Gathering',
-              ]}
+              placeholder="e.g. Reception, Annaprashan"
               required
             />
             <Input
@@ -274,7 +266,7 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
               required
             />
             <Input
-              label="Expected Guests"
+              label="Guest Count"
               name="guestCount"
               type="number"
               value={formData.guestCount}
@@ -283,15 +275,15 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
               required
             />
             <Select
-              label="Culinary Preference"
+              label="Dietary Focus"
               name="foodPreference"
               value={formData.foodPreference}
               onChange={handleChange}
               options={[
-                'Vegetarian Only',
-                'Non-Vegetarian Included',
                 'Both / Multi-Cuisine',
-                'Pure Jain Feast Available',
+                'Traditional Bengali (Fish & Mutton)',
+                '100% Pure Vegetarian / Jain',
+                'Awadhi & Dum Biryani Focus',
               ]}
               required
             />
@@ -301,22 +293,11 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
         {activeTab === 'wedding' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input
-              label="Wedding Date"
+              label="Target Wedding Date"
               name="weddingDate"
               type="date"
               value={formData.weddingDate}
               onChange={handleChange}
-              required
-            />
-            <Select
-              label="Service Scope"
-              name="packageType"
-              value={formData.packageType}
-              onChange={handleChange}
-              options={[
-                'Complete Wedding Package (End-to-End)',
-                'Custom Individual Services',
-              ]}
               required
             />
             <Input
@@ -324,7 +305,7 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
               name="eventLocation"
               value={formData.eventLocation}
               onChange={handleChange}
-              placeholder="e.g. Udaipur, Jaipur, Goa, Local Palace"
+              placeholder="e.g. Kolkata Rajbari, Heritage Resort"
             />
             <Input
               label="Estimated Guest Count"
@@ -351,16 +332,14 @@ const QuickQuoteModal = ({ isOpen, onClose }) => {
           <Button variant="ghost" size="sm" onClick={onClose} disabled={loading}>
             Cancel
           </Button>
-          <Button
+          <button
             type="submit"
-            variant="primary"
-            size="md"
-            loading={loading}
-            icon={Send}
-            iconPosition="right"
+            disabled={loading}
+            className="px-6 py-2.5 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-md inline-flex items-center space-x-2 transition-all"
           >
-            Submit Enquiry
-          </Button>
+            <span>{loading ? 'Submitting...' : 'Submit Enquiry'}</span>
+            <Send className="w-3.5 h-3.5" />
+          </button>
         </div>
       </form>
     </Modal>

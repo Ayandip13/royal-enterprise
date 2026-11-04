@@ -5,80 +5,69 @@
 @layer base {
   :root {
     /* =========================================================================
-       DESIGN TOKENS — Contemporary Indian Celebration Studio
-       Palette: Warm Ivory, Deep Wine, Terracotta, Muted Brass, Botanical Green
+       DESIGN TOKENS — BOTANICAL EDITORIAL LUXURY
+       Palette:
+       - Warm Ivory: #F5EFE5 (Editorial content sections)
+       - Forest Teal: #193C3B (Selected dramatic sections)
+       - Deep Wine: #401D2C (Selected contrast elements)
+       - Terracotta: #D66D59 (Highlights & primary CTAs)
+       - Antique Gold: #D6B56F (Delicate decorative details)
+       - Charcoal: #292323 (Primary dark typography)
        ========================================================================= */
 
-    /* Primary Canvas & Neutral Base: Warm Ivory */
-    --bg-base: #F6F0E7;          /* Warm Ivory primary canvas */
+    --bg-base: #F5EFE5;          /* Warm Ivory primary canvas */
     --bg-surface: #FFFFFF;       /* Clean elevated surface */
-    --bg-card: #FAF6F0;          /* Sub-card fill */
-    --bg-elevated: #EFE7DA;      /* Elevated component background */
-    --bg-warm-tint: #F3ECE1;     /* Tinted container */
+    --bg-card: #FAF5ED;          /* Sub-card fill */
+    --bg-elevated: #ECE3D5;      /* Elevated component background */
+    --bg-warm-tint: #F2EADB;     /* Tinted container */
     
     --border-subtle: #E8DFD3;    /* Refined subtle divider */
-    --border-card: #DFD5C7;      /* Card outline */
-    --border-strong: #C8BCAF;    /* Interactive border */
+    --border-card: #E0D5C5;      /* Card outline */
+    --border-strong: #CBBFB0;    /* Interactive border */
 
-    /* Primary Contrast: Deep Wine */
-    --primary: #401D2C;          /* Deep rich wine */
-    --primary-hover: #2A101C;    /* Darker wine on hover */
-    --primary-deep: #1F0B14;     /* Deepest shade for dramatic sections */
-    --primary-light: #5C283F;    /* Soft wine */
-    --primary-soft: #F4ECEF;     /* Subtle wine pastel tint */
-    --primary-contrast: #FFFFFF; /* High contrast text on primary */
+    /* Dramatic Accents */
+    --color-forest: #193C3B;     /* Forest Teal */
+    --color-wine: #401D2C;       /* Deep Wine */
+    --color-terracotta: #D66D59; /* Terracotta CTA */
+    --color-gold: #D6B56F;       /* Antique Gold */
 
-    /* Celebration Accents */
-    --accent-terracotta: #D65B43; /* Terracotta CTA & energy accent */
-    --accent-terracotta-hover: #B84630;
-    --accent-gold: #C49A53;       /* Muted Brass / Antique Gold */
-    --accent-gold-hover: #A8813D; /* Deep antique brass */
-    --accent-gold-light: #E2CCA1; /* Pale brass highlight */
-    --accent-gold-soft: #FDF8EE;  /* Soft champagne tint */
-    --accent-gold-border: rgba(196, 154, 83, 0.35);
-    --accent-botanical: #526C55;  /* Botanical Green */
+    /* Standard references */
+    --primary: #401D2C;          /* Deep Wine */
+    --primary-hover: #2A101C;
+    --primary-contrast: #FFFFFF;
 
-    /* Text Hierarchy: Dark Charcoal */
-    --text-primary: #292323;     /* Dark Charcoal primary text (WCAG AAA compliant) */
-    --text-secondary: #665C5C;   /* Medium charcoal for body copy */
+    /* Text Hierarchy */
+    --text-primary: #292323;     /* Dark Charcoal */
+    --text-secondary: #665C5C;   /* Medium charcoal for body */
     --text-muted: #8C8282;       /* Metadata / subtle caption */
-    --text-on-dark: #F6F0E7;     /* Warm Ivory text on Deep Wine */
+    --text-on-dark: #F5EFE5;     /* Warm Ivory text on dark */
 
-    /* Shadows: Soft, natural diffuse paper shadows (no harsh AI glows) */
-    --shadow-sm: 0 1px 3px rgba(43, 38, 37, 0.04), 0 1px 2px rgba(43, 38, 37, 0.02);
-    --shadow-md: 0 4px 16px -2px rgba(43, 38, 37, 0.06), 0 2px 6px -1px rgba(43, 38, 37, 0.03);
-    --shadow-lg: 0 12px 32px -6px rgba(43, 38, 37, 0.09), 0 4px 12px -2px rgba(43, 38, 37, 0.04);
+    /* Soft natural shadows */
+    --shadow-sm: 0 1px 3px rgba(41, 35, 35, 0.04), 0 1px 2px rgba(41, 35, 35, 0.02);
+    --shadow-md: 0 6px 20px -2px rgba(41, 35, 35, 0.06), 0 2px 6px -1px rgba(41, 35, 35, 0.03);
+    --shadow-lg: 0 16px 36px -6px rgba(41, 35, 35, 0.09), 0 4px 14px -2px rgba(41, 35, 35, 0.04);
   }
 
   .dark {
-    /* Dark Mode: Warm Obsidian, Charcoal & Glowing Antique Gold */
-    --bg-base: #141210;
-    --bg-surface: #1C1917;
-    --bg-card: #231F1C;
-    --bg-elevated: #2C2622;
-    --bg-warm-tint: #1F1B18;
+    /* Dark Mode: Deep Forest Obsidian, Charcoal & Glowing Antique Gold */
+    --bg-base: #102726;
+    --bg-surface: #143130;
+    --bg-card: #193C3B;
+    --bg-elevated: #1F4746;
+    --bg-warm-tint: #163635;
 
-    --border-subtle: #38312B;
-    --border-card: #453C35;
-    --border-strong: #5A4E45;
+    --border-subtle: #244C4A;
+    --border-card: #2B5755;
+    --border-strong: #386E6C;
 
-    --primary: #9B2C42;
-    --primary-hover: #B43650;
-    --primary-deep: #1F070B;
-    --primary-light: #C4435F;
-    --primary-soft: #281216;
-    --primary-contrast: #FFFFFF;
+    --primary: #D6B56F;
+    --primary-hover: #E8CF96;
+    --primary-contrast: #102726;
 
-    --accent-gold: #D4AF37;
-    --accent-gold-hover: #E5C359;
-    --accent-gold-light: #F2DE92;
-    --accent-gold-soft: #2B2416;
-    --accent-gold-border: rgba(212, 175, 55, 0.45);
-
-    --text-primary: #FAF8F5;
-    --text-secondary: #D4CCC2;
-    --text-muted: #9E9488;
-    --text-on-dark: #FAF8F5;
+    --text-primary: #F5EFE5;
+    --text-secondary: #C8D6D5;
+    --text-muted: #8FA4A3;
+    --text-on-dark: #F5EFE5;
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 6px 20px -3px rgba(0, 0, 0, 0.5);
@@ -105,19 +94,14 @@
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
-  .dark body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
-  }
-
   ::selection {
-    background-color: #F4D3C4;
-    color: #401D2C;
+    background-color: #E28472;
+    color: #FFFFFF;
   }
 
   .dark ::selection {
-    background-color: #401D2C;
-    color: #E2CCA1;
+    background-color: #D6B56F;
+    color: #102726;
   }
 
   /* Headings: Instrument Serif display & Cormorant Garamond editorial serifs */
@@ -139,80 +123,99 @@
 }
 
 @layer utilities {
-  /* Subtle handcrafted paper texture and divider */
-  .paper-divider {
+  /* Editorial arch & oval image frames */
+  .frame-arch {
+    border-radius: 9999px 9999px 12px 12px;
+  }
+  .frame-oval {
+    border-radius: 50% / 40%;
+  }
+  .frame-pill {
+    border-radius: 9999px;
+  }
+
+  /* Subtle handcrafted paper divider */
+  .editorial-divider {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
-  .paper-divider::before,
-  .paper-divider::after {
+  .editorial-divider::before,
+  .editorial-divider::after {
     content: '';
     height: 1px;
     flex: 1;
     background: var(--border-subtle);
   }
 
-  /* Authentic Primary Button: Deep Heritage Burgundy */
-  .btn-maroon,
-  .btn-brand {
-    background-color: var(--primary);
-    color: var(--primary-contrast);
+  /* Buttons */
+  .btn-terracotta {
+    background-color: #D66D59;
+    color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     border-radius: 8px;
-    border: 1px solid var(--primary-hover);
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.25s ease;
+  }
+  .btn-terracotta:hover {
+    background-color: #BA5643;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(214, 109, 89, 0.35);
+  }
+
+  .btn-forest {
+    background-color: #193C3B;
+    color: #F5EFE5;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 8px;
+    border: 1px solid rgba(214, 181, 111, 0.3);
+    transition: all 0.25s ease;
+  }
+  .btn-forest:hover {
+    background-color: #102726;
+    border-color: #D6B56F;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(25, 60, 59, 0.4);
+  }
+
+  .btn-maroon,
+  .btn-wine,
+  .btn-brand {
+    background-color: #401D2C;
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 8px;
+    border: 1px solid #2A101C;
+    transition: all 0.25s ease;
   }
   .btn-maroon:hover,
+  .btn-wine:hover,
   .btn-brand:hover {
-    background-color: var(--primary-hover);
+    background-color: #2A101C;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(107, 29, 47, 0.25);
-  }
-  .dark .btn-maroon,
-  .dark .btn-brand {
-    background-color: var(--primary);
-    border-color: var(--primary-light);
-  }
-  .dark .btn-maroon:hover,
-  .dark .btn-brand:hover {
-    background-color: var(--primary-hover);
-    box-shadow: 0 4px 16px rgba(155, 44, 66, 0.4);
+    box-shadow: 0 6px 18px rgba(64, 29, 44, 0.35);
   }
 
-  /* Accent Button: Antique Champagne Gold */
-  .btn-marigold,
-  .btn-gold {
-    background-color: var(--accent-gold);
-    color: #1F1D1A;
+  .btn-gold,
+  .btn-marigold {
+    background-color: #D6B56F;
+    color: #193C3B;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     border-radius: 8px;
-    border: 1px solid var(--accent-gold-hover);
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #B8964E;
+    transition: all 0.25s ease;
   }
-  .btn-marigold:hover,
-  .btn-gold:hover {
-    background-color: var(--accent-gold-hover);
+  .btn-gold:hover,
+  .btn-marigold:hover {
+    background-color: #B8964E;
     color: #FFFFFF;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
-  }
-  .dark .btn-marigold,
-  .dark .btn-gold {
-    background-color: var(--accent-gold);
-    color: #141210;
-    border-color: var(--accent-gold-light);
-    font-weight: 700;
-  }
-  .dark .btn-marigold:hover,
-  .dark .btn-gold:hover {
-    background-color: var(--accent-gold-hover);
-    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(214, 181, 111, 0.35);
   }
 
-  /* Secondary Outline Button */
   .btn-outline {
     background-color: transparent;
     color: var(--text-primary);
@@ -223,20 +226,10 @@
   }
   .btn-outline:hover {
     background-color: var(--bg-elevated);
-    border-color: var(--primary);
-    color: var(--primary);
-  }
-  .dark .btn-outline {
-    color: var(--text-primary);
-    border-color: var(--border-subtle);
-  }
-  .dark .btn-outline:hover {
-    background-color: var(--bg-card);
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
+    border-color: #401D2C;
+    color: #401D2C;
   }
 
-  /* Direct WhatsApp Button */
   .btn-whatsapp {
     background-color: #1B8A5A;
     color: #FFFFFF;
@@ -249,7 +242,6 @@
     transform: translateY(-1px);
   }
 
-  /* High-contrast, soft rounded form inputs */
   .input-clean {
     border: 1.5px solid var(--border-card);
     border-radius: 8px;
@@ -261,8 +253,8 @@
   }
   .input-clean:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.12);
+    border-color: #193C3B;
+    box-shadow: 0 0 0 3px rgba(25, 60, 59, 0.15);
   }
   .dark .input-clean {
     background-color: var(--bg-surface);
@@ -270,27 +262,49 @@
     color: var(--text-primary);
   }
   .dark .input-clean:focus {
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+    border-color: #D6B56F;
+    box-shadow: 0 0 0 3px rgba(214, 181, 111, 0.2);
   }
 
-  /* Editorial stamp tag */
   .stamp-tag {
     display: inline-block;
     padding: 4px 12px;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     border: 1px solid var(--border-card);
-    color: var(--primary);
-    background-color: var(--primary-soft);
-    border-radius: 6px;
+    color: #401D2C;
+    background-color: #FAF5ED;
+    border-radius: 9999px;
   }
-  .dark .stamp-tag {
-    border-color: var(--accent-gold-border);
-    color: var(--accent-gold-light);
-    background-color: var(--accent-gold-soft);
+}
+
+/* Botanical floating subtle keyframes */
+@keyframes botanical-sway {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0px);
   }
+  50% {
+    transform: rotate(2deg) translateY(-4px);
+  }
+}
+
+@keyframes botanical-drift {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+.animate-botanical-sway {
+  animation: botanical-sway 7s ease-in-out infinite;
+}
+
+.animate-botanical-drift {
+  animation: botanical-drift 9s ease-in-out infinite;
 }
 
 /* Minimal subtle scrollbar */
@@ -301,18 +315,15 @@
   background: var(--bg-base);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
+  background: #CBBFB0;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
-.dark ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: #193C3B;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
+  background: #244C4A;
 }
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-gold);
+  background: #D6B56F;
 }

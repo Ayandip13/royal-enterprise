@@ -1,4 +1,5 @@
 import React from 'react';
+import { AntiqueStar } from './BotanicalDecor';
 
 const SectionHeader = ({
   badge,
@@ -17,13 +18,13 @@ const SectionHeader = ({
   const isLight = theme === 'light';
 
   return (
-    <div className={`flex flex-col max-w-3xl mb-8 md:mb-10 ${alignmentClasses} ${className}`}>
+    <div className={`flex flex-col max-w-3xl mb-10 md:mb-12 ${alignmentClasses} ${className}`}>
       {badge && (
-        <div className="inline-flex items-center space-x-2.5 mb-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#C49A53]" />
+        <div className="inline-flex items-center space-x-2 mb-3">
+          <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />
           <span
-            className={`text-[10.5px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase font-sans ${
-              isLight ? 'text-[#401D2C] dark:text-[#E2CCA1]' : 'text-[#E2CCA1]'
+            className={`text-xs font-semibold tracking-[0.24em] uppercase font-sans ${
+              isLight ? 'text-[#D66D59] dark:text-[#D6B56F]' : 'text-[#D6B56F]'
             }`}
           >
             {badge}
@@ -32,8 +33,8 @@ const SectionHeader = ({
       )}
 
       <h2
-        className={`font-display text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight leading-[1.12] ${
-          isLight ? 'text-[#292323] dark:text-[#F6F0E7]' : 'text-[#F6F0E7]'
+        className={`font-display text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight leading-[1.08] ${
+          isLight ? 'text-[#292323] dark:text-[#F5EFE5]' : 'text-[#F5EFE5]'
         }`}
       >
         {title}
@@ -41,8 +42,8 @@ const SectionHeader = ({
 
       {subtitle && (
         <p
-          className={`text-sm sm:text-base font-light leading-relaxed max-w-2xl mt-3 font-sans ${
-            isLight ? 'text-[#665C5C] dark:text-[#D4CCC2]' : 'text-[#F6F0E7]/80'
+          className={`text-base sm:text-lg font-light leading-relaxed max-w-2xl mt-3.5 font-sans ${
+            isLight ? 'text-[#665C5C] dark:text-[#C8D6D5]' : 'text-[#F5EFE5]/85'
           }`}
         >
           {subtitle}

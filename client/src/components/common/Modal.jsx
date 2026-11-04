@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
+import { AntiqueStar } from './BotanicalDecor';
 
 const Modal = ({ isOpen, onClose, title, subtitle, children, maxWidth = 'max-w-2xl' }) => {
   useEffect(() => {
@@ -29,33 +30,35 @@ const Modal = ({ isOpen, onClose, title, subtitle, children, maxWidth = 'max-w-2
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Card */}
       <div
-        className={`relative w-full ${maxWidth} bg-[#FFFDF9] dark:bg-[#1C1917] border border-[#E8E1D5] dark:border-[#38312B] rounded-[4px] shadow-2xl z-10 my-8 overflow-hidden`}
+        className={`relative w-full ${maxWidth} bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl shadow-2xl z-10 my-8 overflow-hidden`}
       >
-        {/* Top Maroon/Gold Line Accent */}
-        <div className="h-[3px] bg-gradient-to-r from-maroon via-gold-base to-maroon" />
+        {/* Top Antique Gold Line Accent */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#D6B56F] to-transparent" />
 
         {/* Header */}
-        <div className="flex items-start justify-between p-6 sm:p-7 border-b border-[#E8E1D5] dark:border-[#38312B] bg-[#FAF8F4] dark:bg-[#141210]">
-          <div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141414] dark:text-[#FAF7F2] tracking-tight">
+        <div className="flex items-start justify-between p-6 sm:p-8 border-b border-[#E8DFD3] dark:border-[#244C4A] bg-[#F5EFE5] dark:bg-[#102726]">
+          <div className="space-y-1 text-left">
+            <h3 className="font-display text-2xl sm:text-3xl font-normal text-[#292323] dark:text-[#F5EFE5] tracking-tight">
               {title}
             </h3>
             {subtitle && (
-              <p className="text-xs sm:text-sm text-[#6B645C] dark:text-[#A8A29E] mt-1 font-light">{subtitle}</p>
+              <p className="text-xs sm:text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+                {subtitle}
+              </p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="text-[#6B645C] dark:text-[#A8A29E] hover:text-maroon dark:hover:text-gold-light transition-colors p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/5"
+            className="text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-[#D6B56F] transition-colors p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5"
             aria-label="Close modal"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 

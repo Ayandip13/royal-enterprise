@@ -2,66 +2,89 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FOUNDER_NOTE } from '../../data/mockData';
 import { ArrowRight } from 'lucide-react';
+import { BotanicalBranch, AntiqueStar } from '../common/BotanicalDecor';
 
 const FounderNote = () => {
   return (
-    <section className="py-10 sm:py-16 bg-[#FAF6F0] dark:bg-[#191316] border-b border-[#E8DFD3] dark:border-[#3F3238] transition-colors">
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+    <section className="py-16 sm:py-24 bg-[#F5EFE5] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A] transition-colors relative overflow-hidden">
+      {/* Decorative Botanical Flourish */}
+      <div className="absolute -bottom-8 -left-8 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalBranch className="w-56 h-56" rotate={60} />
+      </div>
+
+      <div className="max-w-[1320px] mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left: Authentic Working Photo with Editorial Framing */}
+          {/* Left Column: Authentic Working Photo in Arched Editorial Frame */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-xl overflow-hidden bg-white dark:bg-[#231B1F] shadow-lg border border-[#E8DFD3] dark:border-[#3F3238]">
-              <img
-                src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80"
-                alt="Behind the scenes in the Royal Enterprise kitchen in Kolkata"
-                className="w-full h-80 sm:h-[440px] object-cover"
-              />
-              <div className="p-5 bg-white/95 dark:bg-[#231B1F]/95 backdrop-blur-sm border-t border-[#E8DFD3] dark:border-[#3F3238]">
-                <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#D65B43] dark:text-[#E2CCA1] block font-sans">
-                  On-ground in Kolkata
-                </span>
-                <p className="text-xs text-[#665C5C] dark:text-[#D4CCC2] mt-1 font-light leading-relaxed font-sans">
-                  Our own cooks at the stove and our own floor managers with your family until the last guest is warmly fed.
-                </p>
+            <div className="relative mx-auto max-w-[420px]">
+              
+              {/* Antique gold double border frame */}
+              <div className="relative rounded-t-[180px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#FAF5ED] dark:bg-[#143130]">
+                <img
+                  src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80"
+                  alt="Behind the scenes in the Royal Enterprise kitchen in Kolkata"
+                  className="w-full h-80 sm:h-[460px] object-cover filter brightness-[0.96]"
+                />
+                
+                {/* On-ground caption plaque */}
+                <div className="p-5 bg-[#FAF5ED]/95 dark:bg-[#143130]/95 backdrop-blur-sm border-t border-[#E8DFD3] dark:border-[#244C4A]">
+                  <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] block font-sans">
+                    On-ground in Kolkata
+                  </span>
+                  <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] mt-1 font-light leading-relaxed font-sans">
+                    Our own cooks at the stove and our own floor managers with your family until the last guest is warmly fed.
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating seal */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-[#193C3B] text-[#F5EFE5] border-2 border-[#D6B56F] flex flex-col items-center justify-center text-center shadow-lg font-sans">
+                <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
+                <span className="text-[8px] uppercase tracking-wider font-semibold">In-House</span>
+                <span className="text-[7.5px] text-[#D6B56F]">Pledge</span>
               </div>
             </div>
           </div>
 
-          {/* Right: Personal First-Person Founder's Note */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-[#401D2C] dark:text-[#E2CCA1] block">
-              A personal note from our team
-            </span>
+          {/* Right Column: Personal First-Person Founder's Note */}
+          <div className="lg:col-span-7 space-y-7 text-left font-sans">
+            <div className="space-y-2">
+              <span className="text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] block">
+                A personal note from our team
+              </span>
 
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#292323] dark:text-[#F6F0E7] font-normal tracking-tight leading-[1.12]">
-              {FOUNDER_NOTE.headline}
-            </h2>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#292323] dark:text-[#F5EFE5] font-normal tracking-tight leading-[1.12]">
+                {FOUNDER_NOTE.headline}
+              </h2>
+            </div>
 
-            <div className="space-y-4 text-sm sm:text-base text-[#665C5C] dark:text-[#D4CCC2] leading-relaxed font-light font-sans">
+            <div className="space-y-4 text-base sm:text-lg text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed font-light">
               <p>
-                Weddings and celebrations in Kolkata are built on two things that never change: <strong className="font-semibold text-[#292323] dark:text-[#F6F0E7]">genuine family warmth and unforgettable food</strong>.
+                Weddings and milestone celebrations in Kolkata are built on two things that never change: <strong className="font-semibold text-[#292323] dark:text-[#F5EFE5]">genuine family warmth and unforgettable food</strong>.
               </p>
               <p>
-                Years ago, I saw so many families stressed on their daughter’s or son’s wedding day because the event planner was merely a broker—hiring outside sound guys who arrived late, and outside caterers who didn’t care whether the fish fry was hot or the mutton was tender.
+                Years ago, I saw so many families stressed on their daughter’s or son’s wedding day because the event planner was merely a broker—hiring outside contractors who didn’t coordinate and caterers who didn’t care whether the fish was fresh or the mutton was tender.
               </p>
               <p>
-                I started Royal Enterprise with one simple promise: <strong className="font-semibold text-[#292323] dark:text-[#F6F0E7]">when you trust us with your family’s biggest celebration, our own team is on the floor and our own cooks are in the kitchen</strong>. From your first cup of tea with us to the final plate served at your Boubhat, you have our personal word that your guests will be treated like royalty.
+                I started Royal Enterprise with one simple promise: <strong className="font-semibold text-[#292323] dark:text-[#F5EFE5]">when you trust us with your family’s biggest celebration, our own team is on the floor and our own cooks are at the stove</strong>. From your first cup of tea with us to the final plate served at your Boubhat, you have our personal word that your guests will be taken care of like family.
               </p>
             </div>
 
-            <div className="pt-5 border-t border-[#E8DFD3] dark:border-[#3F3238] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans">
+            {/* Signature & Role */}
+            <div className="pt-6 border-t border-[#E8DFD3] dark:border-[#244C4A] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="font-display text-xl text-[#292323] dark:text-[#F6F0E7] block">
+                <span className="font-display text-2xl text-[#193C3B] dark:text-[#D6B56F] block">
                   The Royal Enterprise Family
                 </span>
-                <span className="text-xs text-[#8C8282] dark:text-[#9E9488]">
+                <span className="text-xs text-[#8C8282] dark:text-[#8FA4A3]">
                   {FOUNDER_NOTE.signatureRole} • {FOUNDER_NOTE.location}
                 </span>
               </div>
+
               <Link
                 to="/about"
-                className="text-xs font-semibold uppercase tracking-wider text-[#401D2C] dark:text-[#E2CCA1] hover:underline inline-flex items-center space-x-1 self-start sm:self-auto"
+                className="text-xs font-semibold uppercase tracking-[0.14em] text-[#193C3B] dark:text-[#D6B56F] hover:text-[#D66D59] dark:hover:text-white inline-flex items-center space-x-1.5 transition-colors"
               >
                 <span>Read our full story</span>
                 <ArrowRight className="w-3.5 h-3.5" />

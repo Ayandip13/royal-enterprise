@@ -21,10 +21,11 @@ const PortfolioGallery = () => {
       id: 2,
       title: 'Traditional Vedic Mandap & Bridal Florals',
       category: 'Weddings',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+      image: '/images/bengali-wedding-couple.jpg',
       location: 'Heritage Rajbari Courtyard',
       featured: false,
-      ratio: 'aspect-[3/4]',
+      ratio: 'aspect-[16/9]',
+      position: 'object-center',
     },
     {
       id: 3,
@@ -33,7 +34,8 @@ const PortfolioGallery = () => {
       image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80',
       location: 'Executive Dining Setup',
       featured: false,
-      ratio: 'aspect-[4/5]',
+      ratio: 'aspect-[16/10]',
+      position: 'object-center',
     },
     {
       id: 4,
@@ -153,108 +155,58 @@ const PortfolioGallery = () => {
         </div>
 
         {/* ======================================================================= */}
-        {/* ASYMMETRIC WEDDING JOURNAL COLLAGE */}
+        {/* EDITORIAL WEDDING & EVENT JOURNAL GRID (SEAMLESS & GAP-FREE) */}
         {/* ======================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start">
-          
-          {/* Featured Large Photograph (Takes 7 columns on desktop) */}
-          {filteredItems[0] && (
-            <div
-              onClick={() => setLightboxIndex(0)}
-              className="md:col-span-7 group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
-            >
-              <div className="relative aspect-[16/11] sm:aspect-[16/10] overflow-hidden">
-                <img
-                  src={filteredItems[0].image}
-                  alt={filteredItems[0].title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {filteredItems.map((item, idx) => {
+            // First 2 items get prominent 6-column editorial stage; subsequent items take 4 columns
+            const isTopFeature = filteredItems.length > 2 ? idx < 2 : true;
+            const colSpan = isTopFeature ? 'sm:col-span-2 lg:col-span-6' : 'sm:col-span-1 lg:col-span-4';
+            const aspectClass = isTopFeature ? 'aspect-[16/10]' : 'aspect-[4/3]';
 
-                {/* Top Badge */}
-                <div className="absolute top-4 left-4 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10.5px] uppercase tracking-wider font-semibold border border-[#D6B56F]/40 font-sans">
-                  Featured Cover
-                </div>
-
-                {/* Floating View Icon */}
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <Eye className="w-4 h-4" />
-                </div>
-
-                {/* Bottom Editorial Caption */}
-                <div className="absolute bottom-5 left-5 right-5 text-white font-sans space-y-1.5">
-                  <div className="flex items-center space-x-2 text-xs text-[#D6B56F]">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span>{filteredItems[0].location}</span>
-                    <span>•</span>
-                    <span className="uppercase tracking-wider">{filteredItems[0].category}</span>
-                  </div>
-                  <h3 className="font-display text-2xl sm:text-3xl text-white font-normal">
-                    {filteredItems[0].title}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Staggered Secondary Column (Takes 5 columns on desktop) */}
-          <div className="md:col-span-5 space-y-6">
-            {filteredItems.slice(1, 3).map((item, idx) => (
+            return (
               <div
                 key={item.id}
-                onClick={() => setLightboxIndex(idx + 1)}
-                className="group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
+                onClick={() => setLightboxIndex(idx)}
+                className={`${colSpan} group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer`}
               >
-                <div className={`relative ${item.ratio} overflow-hidden`}>
+                <div className={`relative ${aspectClass} overflow-hidden`}>
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className={`w-full h-full object-cover ${item.position || 'object-center'} group-hover:scale-105 transition-transform duration-700 ease-out`}
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-75 group-hover:opacity-90 transition-opacity" />
 
-                  <div className="absolute bottom-4 left-4 right-4 text-white font-sans space-y-1">
-                    <span className="text-[10.5px] uppercase tracking-wider text-[#D6B56F] block">
-                      {item.category} • {item.location}
-                    </span>
-                    <h4 className="font-display text-xl text-white font-normal leading-snug">
+                  {/* Top Badge for Featured Items */}
+                  {(item.featured || isTopFeature) && (
+                    <div className="absolute top-4 left-4 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10.5px] uppercase tracking-wider font-semibold border border-[#D6B56F]/40 font-sans">
+                      {idx === 0 ? 'Featured Cover' : idx === 1 ? 'Heritage Wedding' : 'Curated'}
+                    </div>
+                  )}
+
+                  {/* Floating View Icon on Hover */}
+                  <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <Eye className="w-4 h-4" />
+                  </div>
+
+                  {/* Bottom Editorial Caption */}
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 text-white font-sans space-y-1">
+                    <div className="flex items-center space-x-2 text-xs text-[#D6B56F]">
+                      <MapPin className="w-3.5 h-3.5 shrink-0" />
+                      <span>{item.location}</span>
+                      <span>•</span>
+                      <span className="uppercase tracking-wider">{item.category}</span>
+                    </div>
+                    <h3 className={`font-display text-white font-normal leading-snug ${isTopFeature ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
                       {item.title}
-                    </h4>
+                    </h3>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Bottom Grid for Remaining Items in Asymmetric Rows */}
-          {filteredItems.slice(3).map((item, idx) => (
-            <div
-              key={item.id}
-              onClick={() => setLightboxIndex(idx + 3)}
-              className="md:col-span-4 group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
-
-                <div className="absolute bottom-4 left-4 right-4 text-white font-sans space-y-0.5">
-                  <span className="text-[10px] uppercase tracking-wider text-[#D6B56F] block">
-                    {item.location}
-                  </span>
-                  <h4 className="font-display text-lg text-white font-normal">
-                    {item.title}
-                  </h4>
-                </div>
-              </div>
-            </div>
-          ))}
-
+            );
+          })}
         </div>
 
       </div>

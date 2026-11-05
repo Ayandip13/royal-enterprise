@@ -25,7 +25,7 @@ const ServiceDirectory = ({ onOpenQuote }) => {
       link: '/wedding-planner',
       linkText: 'Explore Wedding Planning',
       ctaText: 'Plan Your Wedding',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+      image: '/images/bengali-wedding-hero.jpg',
       badge: 'Heritage Rajbaris & Bespoke Mandaps',
       subBadge: 'Full End-to-End Care',
       theme: 'ivory', // Warm ivory composition with arched frame
@@ -142,8 +142,8 @@ const ServiceDirectory = ({ onOpenQuote }) => {
                 {/* Arched image container */}
                 <div className="relative z-10 w-full aspect-[4/5] rounded-t-[180px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#FAF5ED] dark:bg-[#143130]">
                   <img
-                    src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80"
-                    alt="Royal Enterprise Bespoke Wedding Planning and Heritage Rajbari Biye Bari in Kolkata"
+                    src="/images/bengali-wedding-hero.jpg"
+                    alt="Royal Enterprise Bespoke Bengali Wedding Planning and Heritage Rajbari Biye Bari in Kolkata"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#193C3B]/75 via-transparent to-transparent" />

@@ -42,7 +42,7 @@ const WeddingPlanner = () => {
       id: 'makeup',
       title: 'Bridal Makeup & Styling',
       tag: 'Aesthetic Artistry',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80',
+      image: '/images/bengali-wedding-hero.jpg',
       description:
         'HD and airbrush makeup artists, floral hair adornment, and drape specialists to ensure the bride and family look flawless from morning rituals to reception.',
       highlights: ['Airbrush & HD makeup', 'Floral tresses', 'Family vanity coordination'],
@@ -338,7 +338,7 @@ const WeddingPlanner = () => {
               <div className="relative mx-auto max-w-[420px]">
                 <div className="relative z-10 w-full aspect-[4/5] rounded-t-[190px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#102726]">
                   <img
-                    src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80"
+                    src="/images/bengali-wedding-hero.jpg"
                     alt="Royal Enterprise Bespoke Wedding Planning and Heritage Rajbari Biye Bari in Kolkata"
                     className="w-full h-full object-cover filter brightness-[0.96]"
                   />

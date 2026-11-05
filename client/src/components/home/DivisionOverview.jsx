@@ -36,7 +36,7 @@ const DivisionOverview = ({ onOpenQuote }) => {
           <div className="lg:col-span-6 relative group">
             <div className="relative rounded-xl overflow-hidden bg-white dark:bg-[#231B1F] shadow-lg aspect-[4/5] sm:aspect-[16/11] lg:aspect-[4/5] max-h-[580px]">
               <img
-                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80"
+                src="/images/bengali-wedding-hero.jpg"
                 alt="Royal Enterprise Bespoke Wedding Planning and Heritage Rajbari Biye Bari in Kolkata"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.96]"
               />

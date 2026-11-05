@@ -15,32 +15,49 @@
        - Charcoal: #292323 (Primary dark typography)
        ========================================================================= */
 
-    --bg-base: #F5EFE5;          /* Warm Ivory primary canvas */
-    --bg-surface: #FFFFFF;       /* Clean elevated surface */
-    --bg-card: #FAF5ED;          /* Sub-card fill */
-    --bg-elevated: #ECE3D5;      /* Elevated component background */
-    --bg-warm-tint: #F2EADB;     /* Tinted container */
-    
-    --border-subtle: #E8DFD3;    /* Refined subtle divider */
-    --border-card: #E0D5C5;      /* Card outline */
-    --border-strong: #CBBFB0;    /* Interactive border */
+    --bg-base: #F5EFE5;
+    /* Warm Ivory primary canvas */
+    --bg-surface: #FFFFFF;
+    /* Clean elevated surface */
+    --bg-card: #FAF5ED;
+    /* Sub-card fill */
+    --bg-elevated: #ECE3D5;
+    /* Elevated component background */
+    --bg-warm-tint: #F2EADB;
+    /* Tinted container */
+
+    --border-subtle: #E8DFD3;
+    /* Refined subtle divider */
+    --border-card: #E0D5C5;
+    /* Card outline */
+    --border-strong: #CBBFB0;
+    /* Interactive border */
 
     /* Dramatic Accents */
-    --color-forest: #193C3B;     /* Forest Teal */
-    --color-wine: #401D2C;       /* Deep Wine */
-    --color-terracotta: #D66D59; /* Terracotta CTA */
-    --color-gold: #D6B56F;       /* Antique Gold */
+    --color-forest: #193C3B;
+    /* Forest Teal */
+    --color-wine: #401D2C;
+    /* Deep Wine */
+    --color-terracotta: #D66D59;
+    /* Terracotta CTA */
+    --color-gold: #D6B56F;
+    /* Antique Gold */
 
     /* Standard references */
-    --primary: #401D2C;          /* Deep Wine */
+    --primary: #401D2C;
+    /* Deep Wine */
     --primary-hover: #2A101C;
     --primary-contrast: #FFFFFF;
 
     /* Text Hierarchy */
-    --text-primary: #292323;     /* Dark Charcoal */
-    --text-secondary: #665C5C;   /* Medium charcoal for body */
-    --text-muted: #8C8282;       /* Metadata / subtle caption */
-    --text-on-dark: #F5EFE5;     /* Warm Ivory text on dark */
+    --text-primary: #292323;
+    /* Dark Charcoal */
+    --text-secondary: #665C5C;
+    /* Medium charcoal for body */
+    --text-muted: #8C8282;
+    /* Metadata / subtle caption */
+    --text-on-dark: #F5EFE5;
+    /* Warm Ivory text on dark */
 
     /* Soft natural shadows */
     --shadow-sm: 0 1px 3px rgba(41, 35, 35, 0.04), 0 1px 2px rgba(41, 35, 35, 0.02);
@@ -105,7 +122,12 @@
   }
 
   /* Headings: Instrument Serif display & Cormorant Garamond editorial serifs */
-  h1, h2, h3, h4, .font-serif, .font-display {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif,
+  .font-display {
     font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
     font-feature-settings: 'lnum' 1;
     letter-spacing: -0.015em;
@@ -113,7 +135,10 @@
 
   /* Respect reduced motion preference */
   @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+
+    *,
+    ::before,
+    ::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -123,13 +148,16 @@
 }
 
 @layer utilities {
+
   /* Editorial arch & oval image frames */
   .frame-arch {
     border-radius: 9999px 9999px 12px 12px;
   }
+
   .frame-oval {
     border-radius: 50% / 40%;
   }
+
   .frame-pill {
     border-radius: 9999px;
   }
@@ -140,6 +168,7 @@
     align-items: center;
     gap: 16px;
   }
+
   .editorial-divider::before,
   .editorial-divider::after {
     content: '';
@@ -157,6 +186,7 @@
     border-radius: 8px;
     transition: all 0.25s ease;
   }
+
   .btn-terracotta:hover {
     background-color: #BA5643;
     transform: translateY(-1px);
@@ -172,6 +202,7 @@
     border: 1px solid rgba(214, 181, 111, 0.3);
     transition: all 0.25s ease;
   }
+
   .btn-forest:hover {
     background-color: #102726;
     border-color: #D6B56F;
@@ -190,6 +221,7 @@
     border: 1px solid #2A101C;
     transition: all 0.25s ease;
   }
+
   .btn-maroon:hover,
   .btn-wine:hover,
   .btn-brand:hover {
@@ -208,6 +240,7 @@
     border: 1px solid #B8964E;
     transition: all 0.25s ease;
   }
+
   .btn-gold:hover,
   .btn-marigold:hover {
     background-color: #B8964E;
@@ -224,6 +257,7 @@
     border-radius: 8px;
     transition: all 0.2s ease;
   }
+
   .btn-outline:hover {
     background-color: var(--bg-elevated);
     border-color: #401D2C;
@@ -237,6 +271,7 @@
     border-radius: 8px;
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
+
   .btn-whatsapp:hover {
     background-color: #146D46;
     transform: translateY(-1px);
@@ -251,16 +286,19 @@
     font-size: 15px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
+
   .input-clean:focus {
     outline: none;
     border-color: #193C3B;
     box-shadow: 0 0 0 3px rgba(25, 60, 59, 0.15);
   }
+
   .dark .input-clean {
     background-color: var(--bg-surface);
     border-color: var(--border-subtle);
     color: var(--text-primary);
   }
+
   .dark .input-clean:focus {
     border-color: #D6B56F;
     box-shadow: 0 0 0 3px rgba(214, 181, 111, 0.2);
@@ -282,55 +320,73 @@
 
 /* Botanical floating subtle keyframes */
 @keyframes botanical-sway {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg) translateY(0px);
   }
+
   50% {
     transform: rotate(2deg) translateY(-4px);
   }
 }
 
 @keyframes botanical-drift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
   }
+
   50% {
     transform: translateY(-6px) scale(1.02);
   }
 }
 
 @keyframes petal-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(4deg);
   }
 }
 
 @keyframes petal-drift {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-9px) translateX(4px) rotate(-6deg);
   }
 }
 
 @keyframes butterfly-flutter {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg) scale(1);
   }
+
   50% {
     transform: translateY(-5px) rotate(2.5deg) scale(1.02);
   }
 }
 
 @keyframes stardust-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.45;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.85;
     transform: scale(1.08);
@@ -361,23 +417,67 @@
   animation: stardust-pulse 6s ease-in-out infinite;
 }
 
+/* Hero Display Live Underline - Fluid left-to-right draw on load with subtle warm breathing */
+@keyframes live-underline-draw {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes live-underline-pulse {
+
+  0%,
+  100% {
+    opacity: 0.9;
+    filter: drop-shadow(0 1px 2px rgba(214, 181, 111, 0.25));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 1px 4px rgba(214, 109, 89, 0.45));
+  }
+}
+
+.animate-live-underline {
+  transform-origin: left center;
+  animation:
+    live-underline-draw 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both,
+    live-underline-pulse 4s ease-in-out 1.2s infinite;
+  will-change: transform, opacity;
+}
+
 /* Minimal subtle scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-base);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #CBBFB0;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #193C3B;
 }
+
 .dark ::-webkit-scrollbar-thumb {
   background: #244C4A;
 }
+
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #D6B56F;
 }

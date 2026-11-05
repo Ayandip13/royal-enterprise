@@ -54,8 +54,11 @@ const HeroSection = ({ onOpenQuote }) => {
                 Event Services Fit For <br className="hidden xs:inline" />
                 <span className="font-display italic text-[#193C3B] dark:text-[#D6B56F] relative inline-block whitespace-nowrap">
                   Royalty.
-                  {/* Subtle antique gold underline stroke */}
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#D6B56F] via-[#D66D59] to-transparent opacity-80" />
+                  {/* Live animated antique gold & terracotta underline stroke (left-to-right slide on load) */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-1 sm:-bottom-1.5 left-0 right-0 h-[2px] sm:h-[2.5px] rounded-full bg-gradient-to-r from-[#D6B56F] via-[#D66D59] to-[#D6B56F]/30 origin-left animate-live-underline pointer-events-none"
+                  />
                 </span>
                 {/* Floating romantic terracotta petal drifting beside title */}
                 <span className="inline-block ml-2.5 sm:ml-4 align-middle pointer-events-none">

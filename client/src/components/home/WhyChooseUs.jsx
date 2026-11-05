@@ -1,6 +1,13 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { AntiqueStar, BotanicalBranch } from '../common/BotanicalDecor';
+import {
+  AntiqueStar,
+  BotanicalBranch,
+  FloatingPetal,
+  OrnamentalFlourish,
+  FloralLineArt,
+  GoldParticleCluster,
+} from '../common/BotanicalDecor';
 
 const WhyChooseUs = ({ onOpenQuote }) => {
   const steps = [
@@ -70,9 +77,13 @@ const WhyChooseUs = ({ onOpenQuote }) => {
         {/* CONTINUOUS EDITORIAL TIMELINE (No generic card grid) */}
         {/* ======================================================================= */}
         <div className="relative">
-          
+          {/* Top Flourish Finial (Desktop) */}
+          <div className="hidden lg:flex justify-center -mb-2 pointer-events-none text-[#D6B56F]/40">
+            <OrnamentalFlourish className="w-28 h-6 text-[#D6B56F]/40" />
+          </div>
+
           {/* Continuous Center Timeline Spine (Desktop) */}
-          <div className="hidden lg:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-[1.5px] bg-gradient-to-b from-[#D6B56F] via-[#D66D59] to-[#193C3B] opacity-50" />
+          <div className="hidden lg:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-[1.5px] bg-gradient-to-b from-[#D6B56F] via-[#D66D59] to-[#193C3B] opacity-50" />
 
           {/* Continuous Left Timeline Spine (Mobile & Tablet) */}
           <div className="lg:hidden absolute left-5 top-3 bottom-3 w-[1.5px] bg-gradient-to-b from-[#D6B56F] via-[#D66D59] to-[#193C3B] opacity-50" />
@@ -167,6 +178,10 @@ const WhyChooseUs = ({ onOpenQuote }) => {
           {/* Subtle botanical line art */}
           <div className="absolute -top-12 -right-12 pointer-events-none opacity-15 text-[#D6B56F]">
             <BotanicalBranch className="w-64 h-64" rotate={-30} />
+          </div>
+          {/* Subtle floating petal */}
+          <div className="absolute bottom-4 left-6 pointer-events-none text-[#D6B56F]/30 hidden sm:block">
+            <FloatingPetal className="w-6 h-6 text-[#D6B56F]/30" rotate={-45} variant="single" />
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">

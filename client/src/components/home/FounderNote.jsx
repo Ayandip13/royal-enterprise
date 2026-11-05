@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FOUNDER_NOTE } from '../../data/mockData';
 import { ArrowRight } from 'lucide-react';
-import { BotanicalBranch, AntiqueStar } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloatingPetal,
+  MiniatureButterfly,
+  OrnamentalFlourish,
+  GoldParticleCluster,
+} from '../common/BotanicalDecor';
 
 const FounderNote = () => {
   return (
@@ -21,6 +28,11 @@ const FounderNote = () => {
               
               {/* Antique gold double border frame */}
               <div className="relative rounded-t-[180px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#FAF5ED] dark:bg-[#143130]">
+                {/* Miniature Butterfly resting on upper curve */}
+                <div className="absolute top-8 left-6 z-20 pointer-events-none text-[#D6B56F] hidden sm:block">
+                  <MiniatureButterfly className="w-6 h-6 text-[#D6B56F]" rotate={20} />
+                </div>
+
                 <img
                   src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80"
                   alt="Behind the scenes in the Royal Enterprise kitchen in Kolkata"
@@ -77,6 +89,9 @@ const FounderNote = () => {
                 <span className="font-display text-2xl text-[#193C3B] dark:text-[#D6B56F] block">
                   The Royal Enterprise Family
                 </span>
+                <div className="py-1 pointer-events-none text-[#D6B56F]/40">
+                  <OrnamentalFlourish className="w-24 h-5 text-[#D6B56F]/40" />
+                </div>
                 <span className="text-xs text-[#8C8282] dark:text-[#8FA4A3]">
                   {FOUNDER_NOTE.signatureRole} • {FOUNDER_NOTE.location}
                 </span>

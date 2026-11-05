@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ChefHat, HeartHandshake, Film } from 'lucide-react';
-import { BotanicalBranch, AntiqueStar, FloralCorner } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloralCorner,
+  FloatingPetal,
+  MiniatureButterfly,
+  GoldParticleCluster,
+  BotanicalWatermark,
+} from '../common/BotanicalDecor';
 
 const ServiceDirectory = ({ onOpenQuote }) => {
   const [activeTab, setActiveTab] = useState('01');
@@ -166,6 +174,16 @@ const ServiceDirectory = ({ onOpenQuote }) => {
                     Rajbari Bawali, PC Chandra & Heritage Lawns
                   </span>
                 </div>
+
+                {/* Floating romantic petal near arched frame base */}
+                <div className="absolute -bottom-8 -left-2 z-20 pointer-events-none text-[#D66D59]/40 hidden sm:block">
+                  <FloatingPetal className="w-7 h-7 text-[#D66D59]/40" rotate={35} variant="pair" />
+                </div>
+
+                {/* Miniature Butterfly hovering near the top right of the frame */}
+                <div className="absolute -top-4 right-6 z-20 pointer-events-none text-[#D6B56F] hidden sm:block">
+                  <MiniatureButterfly className="w-6 h-6 text-[#D6B56F]" rotate={15} />
+                </div>
               </div>
             </div>
 
@@ -328,6 +346,10 @@ const ServiceDirectory = ({ onOpenQuote }) => {
               <div className="absolute -top-5 -right-5 w-24 h-24 rounded-full bg-[#401D2C] border-2 border-[#D6B56F] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-2xl">
                 <span className="text-[10px] font-serif italic text-[#D6B56F]">Pure Mustard</span>
                 <span className="text-[8px] uppercase tracking-wider font-semibold">Fresh Bhetki</span>
+                {/* Micro gold particle cluster */}
+                <div className="absolute -bottom-1 -left-2 pointer-events-none text-[#D6B56F]">
+                  <GoldParticleCluster className="w-5 h-5 text-[#D6B56F]" />
+                </div>
               </div>
             </div>
 
@@ -339,10 +361,14 @@ const ServiceDirectory = ({ onOpenQuote }) => {
       {/* PILLAR 03: EVENT MANAGEMENT — ARCHITECTURAL STAGE PANORAMA */}
       {/* ========================================================================= */}
       <div
-        className={`py-16 sm:py-24 bg-[#401D2C] text-[#F5EFE5] border-b border-[#5C283F] ${
+        className={`py-16 sm:py-24 bg-[#401D2C] text-[#F5EFE5] border-b border-[#5C283F] relative overflow-hidden ${
           activeTab !== '03' ? 'hidden' : 'block'
         }`}
       >
+        {/* Faint botanical watermark in wine background */}
+        <div className="absolute -bottom-16 -right-16 pointer-events-none opacity-5 text-[#D6B56F]">
+          <BotanicalWatermark className="w-80 h-80" rotate={-30} />
+        </div>
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             

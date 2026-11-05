@@ -1,12 +1,22 @@
 import React from 'react';
-import { BotanicalBranch, AntiqueStar, FloralCorner } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloralCorner,
+  BotanicalWatermark,
+  OrnamentalFlourish,
+  FloatingPetal,
+} from '../common/BotanicalDecor';
 
 const BrandIntroduction = () => {
   return (
     <section className="relative py-16 sm:py-24 bg-[#FAF5ED] dark:bg-[#143130] text-[#292323] dark:text-[#F5EFE5] border-y border-[#E8DFD3] dark:border-[#244C4A] overflow-hidden transition-colors">
-      {/* Decorative Botanical Flourish */}
+      {/* Decorative Botanical Flourish & Watermark */}
       <div className="absolute top-8 right-6 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
         <BotanicalBranch className="w-48 h-48" rotate={-45} />
+      </div>
+      <div className="absolute -bottom-16 -left-12 pointer-events-none opacity-5 dark:opacity-5 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalWatermark className="w-72 h-72" rotate={30} />
       </div>
 
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8">
@@ -67,6 +77,11 @@ const BrandIntroduction = () => {
               <p className="font-display text-2xl sm:text-3xl lg:text-4xl italic text-white font-normal leading-snug">
                 "Where genuine family warmth meets unwavering culinary mastery."
               </p>
+            </div>
+
+            {/* Subtle floating gold petal near the image edge */}
+            <div className="absolute bottom-6 right-8 pointer-events-none text-[#D6B56F]/40 hidden sm:block">
+              <FloatingPetal className="w-7 h-7 text-[#D6B56F]/40" rotate={-20} variant="single" />
             </div>
           </div>
         </div>

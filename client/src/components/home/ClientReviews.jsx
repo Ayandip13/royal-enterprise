@@ -1,14 +1,24 @@
 import React from 'react';
 import { TESTIMONIALS, REAL_WEDDINGS } from '../../data/mockData';
 import { MapPin, Users, Sparkles } from 'lucide-react';
-import { BotanicalBranch, AntiqueStar } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloatingPetal,
+  FloralLineArt,
+  GoldParticleCluster,
+  BotanicalWatermark,
+} from '../common/BotanicalDecor';
 
 const ClientReviews = () => {
   return (
     <section className="py-16 sm:py-24 bg-[#FAF5ED] dark:bg-[#143130] border-b border-[#E8DFD3] dark:border-[#244C4A] transition-colors relative overflow-hidden">
-      {/* Decorative Botanical Flourish */}
+      {/* Decorative Botanical Flourish & Watermark */}
       <div className="absolute top-10 right-6 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
         <BotanicalBranch className="w-56 h-56" rotate={-45} />
+      </div>
+      <div className="absolute -bottom-16 -right-16 pointer-events-none opacity-5 dark:opacity-5 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalWatermark className="w-72 h-72" rotate={-15} />
       </div>
 
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 space-y-16 sm:space-y-24">
@@ -43,6 +53,12 @@ const ClientReviews = () => {
               key={idx}
               className="relative p-8 sm:p-9 rounded-2xl bg-[#F5EFE5] dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
+              {/* Subtle botanical corner accent per card */}
+              <div className="absolute top-5 right-5 pointer-events-none">
+                {idx === 0 && <FloatingPetal className="w-5 h-5 text-[#D66D59]/35" rotate={25} variant="single" />}
+                {idx === 1 && <GoldParticleCluster className="w-5 h-5 text-[#D6B56F]" />}
+                {idx === 2 && <FloralLineArt className="w-5 h-5 text-[#D6B56F]/40" rotate={10} />}
+              </div>
               {/* Giant antique quote mark */}
               <div className="space-y-4">
                 <span className="font-display text-6xl text-[#D6B56F]/40 leading-none select-none block -mb-4">

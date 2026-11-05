@@ -3,7 +3,13 @@ import { Phone, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import { useNotification } from '../../context/NotificationContext';
 import { submitContactEnquiry } from '../../services/api';
-import { BotanicalBranch, AntiqueStar } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloatingPetal,
+  MiniatureButterfly,
+  GoldParticleCluster,
+} from '../common/BotanicalDecor';
 
 const CallToAction = ({ onOpenQuote }) => {
   const { showToast } = useNotification();
@@ -107,8 +113,13 @@ const CallToAction = ({ onOpenQuote }) => {
           </div>
 
           {/* Right Column: Direct Channels & Instant Proposal Trigger */}
-          <div className="lg:col-span-5 flex flex-col gap-4 justify-center font-sans">
-            <div className="bg-[#102726]/80 border border-[#D6B56F]/25 rounded-2xl p-7 sm:p-9 space-y-4 backdrop-blur-md shadow-2xl">
+          <div className="lg:col-span-5 flex flex-col gap-4 justify-center font-sans relative">
+            {/* Miniature Butterfly resting on card border */}
+            <div className="absolute -top-3.5 right-8 z-20 pointer-events-none text-[#D6B56F] hidden sm:block">
+              <MiniatureButterfly className="w-6 h-6 text-[#D6B56F]" rotate={-10} />
+            </div>
+
+            <div className="bg-[#102726]/80 border border-[#D6B56F]/25 rounded-2xl p-7 sm:p-9 space-y-4 backdrop-blur-md shadow-2xl relative">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D6B56F] block">
                 Direct Desk Channels
               </span>

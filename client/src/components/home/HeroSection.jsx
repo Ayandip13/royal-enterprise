@@ -1,7 +1,15 @@
 import React from 'react';
 import { MessageSquare, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
-import { BotanicalBranch, AntiqueStar, EditorialStamp } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  EditorialStamp,
+  FloatingPetal,
+  MiniatureButterfly,
+  GoldParticleCluster,
+  FloralLineArt,
+} from '../common/BotanicalDecor';
 
 const HeroSection = ({ onOpenQuote }) => {
   const scrollToServices = () => {
@@ -103,6 +111,11 @@ const HeroSection = ({ onOpenQuote }) => {
                   <span className="text-[#D6B56F] uppercase tracking-wider">In-House Staging</span>
                   <span className="text-white/80">Kolkata</span>
                 </div>
+              </div>
+
+              {/* Mobile Subtle Floating Petal */}
+              <div className="absolute -bottom-4 right-1 z-20 pointer-events-none text-[#D66D59]/50">
+                <FloatingPetal className="w-6 h-6 text-[#D66D59]/50" rotate={24} variant="single" />
               </div>
             </div>
 
@@ -229,6 +242,20 @@ const HeroSection = ({ onOpenQuote }) => {
                 <span className="text-[8px] uppercase tracking-wider text-white/90 font-light font-sans">
                   Standard
                 </span>
+                {/* Micro Gold Particle Sparkle */}
+                <div className="absolute -bottom-1 -left-2 z-30 pointer-events-none text-[#D6B56F]">
+                  <GoldParticleCluster className="w-6 h-6 text-[#D6B56F]" />
+                </div>
+              </div>
+
+              {/* Miniature Fine-Line Butterfly resting near stagecraft photo */}
+              <div className="absolute bottom-28 -left-2 z-30 pointer-events-none text-[#D6B56F] hidden sm:block">
+                <MiniatureButterfly className="w-7 h-7 text-[#D6B56F]" rotate={-15} />
+              </div>
+
+              {/* Floating Romantic Petal Pair */}
+              <div className="absolute -bottom-5 right-2 z-20 pointer-events-none text-[#D66D59]/50 hidden sm:block">
+                <FloatingPetal className="w-8 h-8 text-[#D66D59]/50" rotate={28} variant="pair" />
               </div>
 
             </div>

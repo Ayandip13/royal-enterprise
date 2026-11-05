@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, ArrowUp } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import Logo from '../common/Logo';
-import { AntiqueStar, BotanicalBranch } from '../common/BotanicalDecor';
+import {
+  AntiqueStar,
+  BotanicalBranch,
+  OrnamentalDivider,
+  FloatingPetal,
+  GoldParticleCluster,
+  BotanicalWatermark,
+} from '../common/BotanicalDecor';
 
 const Footer = ({ onOpenQuoteModal }) => {
   const scrollToTop = () => {
@@ -15,9 +22,12 @@ const Footer = ({ onOpenQuoteModal }) => {
       {/* Delicate Antique Gold Hairline with Center Diamond */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#D6B56F]/40 to-transparent absolute top-0 left-0 right-0" />
 
-      {/* Decorative Botanical Flourish */}
+      {/* Decorative Botanical Flourish & Watermark */}
       <div className="absolute -bottom-12 -right-12 pointer-events-none opacity-10 text-[#D6B56F]">
         <BotanicalBranch className="w-64 h-64" rotate={-45} />
+      </div>
+      <div className="absolute -bottom-16 -left-12 pointer-events-none opacity-5 text-[#D6B56F]">
+        <BotanicalWatermark className="w-72 h-72" rotate={20} />
       </div>
 
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8 relative z-10">
@@ -191,8 +201,11 @@ const Footer = ({ onOpenQuoteModal }) => {
 
         </div>
 
+        {/* Subtle Antique Ornamental Divider */}
+        <OrnamentalDivider className="my-6 text-[#D6B56F]/25" />
+
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 border-t border-[#244C4A] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F5EFE5]/60">
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F5EFE5]/60">
           <p>© {new Date().getFullYear()} Royal Enterprise. All rights reserved. Kolkata, West Bengal.</p>
 
           <button

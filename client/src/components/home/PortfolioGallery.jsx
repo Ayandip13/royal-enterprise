@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, X, ChevronLeft, ChevronRight, MapPin, Eye } from 'lucide-react';
-import { BotanicalBranch, AntiqueStar, FloralCorner } from '../common/BotanicalDecor';
+import {
+  BotanicalBranch,
+  AntiqueStar,
+  FloralCorner,
+  FloatingPetal,
+  MiniatureButterfly,
+  BotanicalWatermark,
+} from '../common/BotanicalDecor';
 
 const PortfolioGallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -108,9 +115,12 @@ const PortfolioGallery = () => {
 
   return (
     <section className="py-16 sm:py-24 bg-[#F5EFE5] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A] transition-colors relative overflow-hidden">
-      {/* Decorative Botanical Flourish */}
+      {/* Decorative Botanical Flourish & Watermark */}
       <div className="absolute top-1/4 -right-12 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
         <BotanicalBranch className="w-56 h-56" rotate={-15} />
+      </div>
+      <div className="absolute -bottom-16 -left-16 pointer-events-none opacity-5 dark:opacity-5 text-[#193C3B] dark:text-[#D6B56F]">
+        <BotanicalWatermark className="w-72 h-72" rotate={45} />
       </div>
 
       <div className="max-w-[1320px] mx-auto px-5 sm:px-8">

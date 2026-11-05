@@ -63,7 +63,7 @@ export const BotanicalBranch = ({ className = 'w-24 h-24 text-[#193C3B]/30 dark:
 
 // 2. Floating Flower Petal (Individual or Pair, Soft & Romantic)
 export const FloatingPetal = ({
-  className = 'w-6 h-6 text-[#D66D59]/40',
+  className = 'w-6 h-6 text-[#D66D59]',
   rotate = 15,
   variant = 'single',
   animated = true,
@@ -80,37 +80,37 @@ export const FloatingPetal = ({
     <path
       d="M14 34C9 24 14 11 25 5C30 11 32 23 23 32C19 35 16 35 14 34Z"
       fill="currentColor"
-      fillOpacity="0.18"
+      fillOpacity="0.42"
       stroke="currentColor"
-      strokeWidth="0.9"
+      strokeWidth="1.1"
       strokeLinecap="round"
     />
     {/* Delicate Central Vein */}
     <path
       d="M17 31C18 23 21 15 24 7"
       stroke="currentColor"
-      strokeWidth="0.6"
+      strokeWidth="0.8"
       strokeLinecap="round"
-      opacity="0.65"
+      opacity="0.75"
     />
     {variant === 'pair' && (
       <>
         <path
           d="M8 20C5 14 9 7 15 4C18 8 19 15 14 19C11 21 9 21 8 20Z"
           fill="currentColor"
-          fillOpacity="0.12"
+          fillOpacity="0.32"
           stroke="currentColor"
-          strokeWidth="0.75"
+          strokeWidth="0.9"
           strokeLinecap="round"
         />
-        <circle cx="6" cy="24" r="1" fill="#D6B56F" opacity="0.6" />
+        <circle cx="6" cy="24" r="1.2" fill="#D6B56F" opacity="0.8" />
       </>
     )}
   </svg>
 );
 
 // 3. Delicate Floral Line Art (Jasmine / Bakul Flower Bud)
-export const FloralLineArt = ({ className = 'w-10 h-10 text-[#D6B56F]/50', rotate = 0 }) => (
+export const FloralLineArt = ({ className = 'w-10 h-10 text-[#D6B56F]', rotate = 0 }) => (
   <svg
     viewBox="0 0 50 50"
     fill="none"
@@ -120,49 +120,49 @@ export const FloralLineArt = ({ className = 'w-10 h-10 text-[#D6B56F]/50', rotat
     aria-hidden="true"
   >
     {/* Central Flower Core */}
-    <circle cx="25" cy="25" r="2.5" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="0.8" />
+    <circle cx="25" cy="25" r="2.5" fill="currentColor" fillOpacity="0.6" stroke="currentColor" strokeWidth="0.9" />
     
     {/* 5 Delicate Contoured Petals */}
     <path
       d="M25 22C24 14 26 10 25 8C24 10 26 14 25 22"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M22 23C15 20 11 21 9 19C11 18 15 20 22 23"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M23 27C17 31 14 34 13 36C15 35 18 32 23 27"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M27 27C33 31 36 34 37 36C35 35 32 32 27 27"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M28 23C35 20 39 21 41 19C39 18 35 20 28 23"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     {/* Soft Petal Fills */}
-    <ellipse cx="25" cy="15" rx="3.5" ry="6" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="0.6" />
-    <ellipse cx="16" cy="20" rx="6" ry="3.5" transform="rotate(-30 16 20)" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="0.6" />
-    <ellipse cx="34" cy="20" rx="6" ry="3.5" transform="rotate(30 34 20)" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="0.6" />
+    <ellipse cx="25" cy="15" rx="3.5" ry="6" fill="currentColor" fillOpacity="0.22" stroke="currentColor" strokeWidth="0.8" />
+    <ellipse cx="16" cy="20" rx="6" ry="3.5" transform="rotate(-30 16 20)" fill="currentColor" fillOpacity="0.22" stroke="currentColor" strokeWidth="0.8" />
+    <ellipse cx="34" cy="20" rx="6" ry="3.5" transform="rotate(30 34 20)" fill="currentColor" fillOpacity="0.22" stroke="currentColor" strokeWidth="0.8" />
   </svg>
 );
 
 // 4. Miniature Fine-Line Butterfly (Symbol of Metamorphosis & Celebration)
 export const MiniatureButterfly = ({
-  className = 'w-7 h-7 text-[#D6B56F]/60',
+  className = 'w-7 h-7 text-[#D6B56F]',
   rotate = -12,
   animated = true,
 }) => (
@@ -175,47 +175,47 @@ export const MiniatureButterfly = ({
     aria-hidden="true"
   >
     {/* Body */}
-    <ellipse cx="25" cy="22" rx="1.5" ry="7" fill="currentColor" opacity="0.7" />
+    <ellipse cx="25" cy="22" rx="1.6" ry="7" fill="currentColor" opacity="0.85" />
     {/* Antennae */}
-    <path d="M24 16C22 11 18 10 16 11" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round" />
-    <path d="M26 16C28 11 32 10 34 11" stroke="currentColor" strokeWidth="0.75" strokeLinecap="round" />
+    <path d="M24 16C22 11 18 10 16 11" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" />
+    <path d="M26 16C28 11 32 10 34 11" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" />
     {/* Right Wings */}
     <path
       d="M26 18C31 10 41 7 45 11C48 16 43 25 31 24C27 24 26 21 26 18Z"
       fill="currentColor"
-      fillOpacity="0.12"
+      fillOpacity="0.28"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M26 23C31 25 38 29 36 34C34 38 28 35 26 27Z"
       fill="currentColor"
-      fillOpacity="0.1"
+      fillOpacity="0.24"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     {/* Left Wings */}
     <path
       d="M24 18C19 10 9 7 5 11C2 16 7 25 19 24C23 24 24 21 24 18Z"
       fill="currentColor"
-      fillOpacity="0.12"
+      fillOpacity="0.28"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     <path
       d="M24 23C19 25 12 29 14 34C16 38 22 35 24 27Z"
       fill="currentColor"
-      fillOpacity="0.1"
+      fillOpacity="0.24"
       stroke="currentColor"
-      strokeWidth="0.85"
+      strokeWidth="1.0"
       strokeLinecap="round"
     />
     {/* Tiny wing vein detail */}
-    <path d="M26 19C33 16 39 14 42 15" stroke="currentColor" strokeWidth="0.5" opacity="0.6" strokeLinecap="round" />
-    <path d="M24 19C17 16 11 14 8 15" stroke="currentColor" strokeWidth="0.5" opacity="0.6" strokeLinecap="round" />
+    <path d="M26 19C33 16 39 14 42 15" stroke="currentColor" strokeWidth="0.65" opacity="0.75" strokeLinecap="round" />
+    <path d="M24 19C17 16 11 14 8 15" stroke="currentColor" strokeWidth="0.65" opacity="0.75" strokeLinecap="round" />
   </svg>
 );
 

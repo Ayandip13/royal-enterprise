@@ -41,8 +41,11 @@ const HeroSection = ({ onOpenQuote }) => {
           <div className="lg:col-span-6 xl:col-span-7 space-y-5 sm:space-y-7 text-left">
             
             {/* Pre-Heading Badge / Editorial Stamp */}
-            <div className="flex items-center">
+            <div className="flex items-center space-x-2.5">
               <EditorialStamp text="Kolkata & Eastern India • Established 2014" />
+              <div className="inline-block pointer-events-none text-[#D6B56F]">
+                <MiniatureButterfly className="w-5 h-5 text-[#D6B56F]" rotate={15} />
+              </div>
             </div>
 
             {/* Oversized Display Headline (Instrument Serif) */}
@@ -53,6 +56,10 @@ const HeroSection = ({ onOpenQuote }) => {
                   Royalty.
                   {/* Subtle antique gold underline stroke */}
                   <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#D6B56F] via-[#D66D59] to-transparent opacity-80" />
+                </span>
+                {/* Floating romantic terracotta petal drifting beside title */}
+                <span className="inline-block ml-2.5 sm:ml-4 align-middle pointer-events-none">
+                  <FloatingPetal className="w-6 h-6 sm:w-8 sm:h-8 text-[#D66D59]" rotate={28} variant="single" />
                 </span>
               </h1>
             </div>
@@ -68,6 +75,11 @@ const HeroSection = ({ onOpenQuote }) => {
             <div className="block lg:hidden my-6 max-w-[270px] xs:max-w-[300px] mx-auto relative">
               {/* Outer Delicate Gold Ring */}
               <div className="absolute inset-0 -m-2.5 rounded-[135px] border border-[#D6B56F]/40 dark:border-[#D6B56F]/30 pointer-events-none" />
+
+              {/* Mobile Butterfly perched on upper arch */}
+              <div className="absolute -top-3.5 right-4 z-20 pointer-events-none text-[#D6B56F]">
+                <MiniatureButterfly className="w-5 h-5 text-[#D6B56F]" rotate={22} />
+              </div>
 
               {/* Main Arched Photo */}
               <div className="relative z-10 w-full aspect-[4/5] rounded-[130px] overflow-hidden shadow-xl border-2 border-[#D6B56F]/50 bg-[#FAF5ED] dark:bg-[#143130]">
@@ -120,7 +132,7 @@ const HeroSection = ({ onOpenQuote }) => {
             </div>
 
             {/* Action Group: Refined Terracotta Primary CTA & Direct Actions */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 pt-1">
+            <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 pt-1">
               <button
                 type="button"
                 onClick={onOpenQuote}
@@ -148,6 +160,11 @@ const HeroSection = ({ onOpenQuote }) => {
                   <MessageSquare className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
+              </div>
+
+              {/* Floating golden petal drifting near actions */}
+              <div className="hidden xl:block absolute -right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[#D6B56F]">
+                <FloatingPetal className="w-6 h-6 text-[#D6B56F]" rotate={-30} variant="pair" />
               </div>
             </div>
 
@@ -194,6 +211,11 @@ const HeroSection = ({ onOpenQuote }) => {
               {/* Botanical Branch Flourish Extending Beyond Frame */}
               <div className="absolute -top-8 -right-6 z-20 pointer-events-none text-[#193C3B] dark:text-[#D6B56F] animate-botanical-sway">
                 <BotanicalBranch className="w-28 h-28" rotate={20} />
+              </div>
+
+              {/* Apex Floral Line Art Blossom atop Arch */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-[#D6B56F]">
+                <FloralLineArt className="w-8 h-8 text-[#D6B56F]" />
               </div>
 
               {/* Decorative Antique Gold Fine Line Oval Ring */}

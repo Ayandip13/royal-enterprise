@@ -72,6 +72,9 @@ const CallToAction = ({ onOpenQuote }) => {
               <span className="italic font-display text-[#D6B56F]">
                 Your Celebration Awaits.
               </span>
+              <span className="inline-block ml-3 align-middle pointer-events-none">
+                <FloatingPetal className="w-7 h-7 text-[#D6B56F]" rotate={24} variant="single" />
+              </span>
             </h2>
 
             <p className="text-base sm:text-lg text-[#F5EFE5]/85 font-light leading-relaxed max-w-xl">

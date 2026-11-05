@@ -7,6 +7,7 @@ import {
   OrnamentalFlourish,
   FloralLineArt,
   GoldParticleCluster,
+  MiniatureButterfly,
 } from '../common/BotanicalDecor';
 
 const WhyChooseUs = ({ onOpenQuote }) => {
@@ -59,12 +60,16 @@ const WhyChooseUs = ({ onOpenQuote }) => {
           <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
             <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />
             <span>The Client Experience • Continuous Timeline</span>
+            <MiniatureButterfly className="w-4 h-4 text-[#D6B56F] inline-block ml-1" rotate={12} />
           </div>
 
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#292323] dark:text-[#F5EFE5] font-normal tracking-tight leading-[1.08]">
             How We Bring Calm To <br />
             <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
               High-Stakes Celebrations.
+            </span>
+            <span className="inline-block ml-3 align-middle pointer-events-none">
+              <FloatingPetal className="w-6 h-6 text-[#D66D59]" rotate={-20} variant="single" />
             </span>
           </h2>
 

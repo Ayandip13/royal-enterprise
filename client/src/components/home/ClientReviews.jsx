@@ -37,6 +37,9 @@ const ClientReviews = () => {
             <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
               last plate is cleared.
             </span>
+            <span className="inline-block ml-3 align-middle pointer-events-none">
+              <FloatingPetal className="w-6 h-6 text-[#D66D59]" rotate={30} variant="pair" />
+            </span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed font-sans">

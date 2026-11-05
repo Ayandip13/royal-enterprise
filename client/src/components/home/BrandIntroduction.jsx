@@ -35,6 +35,9 @@ const BrandIntroduction = () => {
               <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
                 One In-House Standard.
               </span>
+              <span className="inline-block ml-3 align-middle pointer-events-none">
+                <FloatingPetal className="w-6 h-6 sm:w-7 sm:h-7 text-[#D66D59]" rotate={-25} variant="pair" />
+              </span>
             </h2>
           </div>
 

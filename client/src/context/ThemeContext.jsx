@@ -4,17 +4,18 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Check localStorage first
+    // Check localStorage for explicit user preference
     if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('royal_enterprise_theme');
+      const savedTheme = localStorage.getItem('royal_enterprise_theme_v2');
       if (savedTheme === 'dark' || savedTheme === 'light') {
         return savedTheme;
       }
-      // Check system preference
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
+      // Clean up legacy auto-detected theme if present
+      try {
+        localStorage.removeItem('royal_enterprise_theme');
+      } catch (e) {}
     }
+    // Default theme is ALWAYS 'light' (Botanical Warm Ivory)
     return 'light';
   });
 
@@ -26,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
       root.classList.remove('dark');
     }
     try {
-      localStorage.setItem('royal_enterprise_theme', theme);
+      localStorage.setItem('royal_enterprise_theme_v2', theme);
     } catch (e) {
       // Storage unavailable or quota exceeded
     }

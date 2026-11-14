@@ -224,9 +224,23 @@ const Footer = ({ onOpenQuoteModal }) => {
         {/* Subtle Antique Ornamental Divider */}
         <OrnamentalDivider className="my-6 text-[#D6B56F]/25" />
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F5EFE5]/60">
-          <p>© {new Date().getFullYear()} Royal Enterprise. All rights reserved. Kolkata, West Bengal.</p>
+        {/* Bottom Bar: Copyright, Developer Credits & Back to Top */}
+        <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#F5EFE5]/60 font-sans">
+          <p className="text-center md:text-left">
+            © {new Date().getFullYear()} Royal Enterprise. All rights reserved. Kolkata, West Bengal.
+          </p>
+
+          <p className="text-center text-[11.5px] text-[#F5EFE5]/70 flex items-center space-x-1.5">
+            <span>Designed &amp; Developed by</span>
+            <a
+              href="https://www.aarohantechsolutions.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#D6B56F] hover:text-white hover:underline font-medium transition-colors"
+            >
+              Aarohan Tech Solutions
+            </a>
+          </p>
 
           <button
             type="button"

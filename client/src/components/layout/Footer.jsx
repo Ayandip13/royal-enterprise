@@ -38,7 +38,7 @@ const Footer = ({ onOpenQuoteModal }) => {
           
           {/* Column 1: Brand & Kolkata Heritage (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
-            <Logo iconSize="h-14 w-14 sm:h-16 sm:w-16" variant="stacked" />
+            <Logo iconSize="h-16 w-16 sm:h-20 sm:w-20" variant="stacked" onDark={true} />
 
             <p className="text-xs sm:text-[13px] text-[#F5EFE5]/75 font-light leading-relaxed max-w-sm pt-2">
               Kolkata wedding planning, event management, and in-house catering company serving Eastern India and destination celebrations. Planned, cooked, and run by one team since 2014.

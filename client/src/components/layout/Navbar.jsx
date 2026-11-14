@@ -80,8 +80,8 @@ const Navbar = ({ onOpenQuoteModal }) => {
       >
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
-            {/* Logo Crest Component */}
-            <Logo iconSize="h-10 w-10 sm:h-11 sm:w-11" />
+            {/* Logo Crest Component (Enhanced Size) */}
+            <Logo iconSize="h-11 w-11 sm:h-13 sm:w-13" />
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">

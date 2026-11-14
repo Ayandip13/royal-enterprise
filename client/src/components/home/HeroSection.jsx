@@ -11,6 +11,7 @@ import {
   GoldParticleCluster,
   FloralLineArt,
 } from '../common/BotanicalDecor';
+import HeroVisualCollage from './HeroVisualCollage';
 
 const HeroSection = ({ onOpenQuote }) => {
   const scrollToServices = () => {
@@ -74,65 +75,10 @@ const HeroSection = ({ onOpenQuote }) => {
             </p>
 
             {/* --------------------------------------------------------------------- */}
-            {/* MOBILE ONLY: ARTISTIC ARCHED WEDDING PHOTO (SHOWN EARLY ON MOBILE) */}
+            {/* MOBILE ONLY: ARTISTIC 3-PURPOSE EDITORIAL IMAGE COLLAGE */}
             {/* --------------------------------------------------------------------- */}
-            <div className="block lg:hidden my-6 max-w-[270px] xs:max-w-[300px] mx-auto relative">
-              {/* Outer Delicate Gold Ring */}
-              <div className="absolute inset-0 -m-2.5 rounded-[135px] border border-[#D6B56F]/40 dark:border-[#D6B56F]/30 pointer-events-none" />
-
-              {/* Mobile Butterfly perched on upper arch */}
-              <div className="absolute -top-3.5 right-4 z-20 pointer-events-none text-[#D6B56F]">
-                <MiniatureButterfly className="w-5 h-5 text-[#D6B56F]" rotate={22} />
-              </div>
-
-              {/* Main Arched Photo */}
-              <div className="relative z-10 w-full aspect-[4/5] rounded-[130px] overflow-hidden shadow-xl border-2 border-[#D6B56F]/50 bg-[#FAF5ED] dark:bg-[#143130]">
-                <img
-                  src="/images/bengali-wedding-hero.jpg"
-                  alt="Royal Enterprise Authentic Bengali Wedding with Traditional Shubho Drishti in Kolkata"
-                  className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#193C3B]/70 via-transparent to-transparent pointer-events-none" />
-                
-                <div className="absolute bottom-4 left-0 right-0 text-center px-4 text-white font-sans pointer-events-none">
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-[#D6B56F] font-semibold block mb-0.5">
-                    Heritage Rajbari Celebrations
-                  </span>
-                  <span className="font-display text-sm italic font-normal text-[#F5EFE5]">
-                    Vedic Grace & Quiet Grandeur
-                  </span>
-                </div>
-              </div>
-
-              {/* Mobile Floating Monogram Seal */}
-              <div className="absolute -top-3 -left-3 z-20 w-20 h-20 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-lg border-2 border-[#D6B56F]">
-                <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
-                <span className="text-[8.5px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
-                  In-House
-                </span>
-                <span className="text-[7.5px] uppercase tracking-wider text-white/90 font-light font-sans">
-                  Standard
-                </span>
-              </div>
-
-              {/* Mobile Floating Production Stagecraft Thumbnail */}
-              <div className="absolute -bottom-2 -right-2 z-20 w-28 xs:w-32 aspect-[16/11] rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-[#102726] bg-[#102726]">
-                <img
-                  src="/images/hero-stage.png"
-                  alt="Royal Enterprise Stage Craft & Production"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-1 left-2 right-2 text-white text-[8px] font-sans font-medium flex items-center justify-between">
-                  <span className="text-[#D6B56F] uppercase tracking-wider">In-House Staging</span>
-                  <span className="text-white/80">Kolkata</span>
-                </div>
-              </div>
-
-              {/* Mobile Subtle Floating Petal */}
-              <div className="absolute -bottom-4 right-1 z-20 pointer-events-none text-[#D66D59]/50">
-                <FloatingPetal className="w-6 h-6 text-[#D66D59]/50" rotate={24} variant="single" />
-              </div>
+            <div className="block lg:hidden my-8 py-2">
+              <HeroVisualCollage />
             </div>
 
             {/* Action Group: Refined Terracotta Primary CTA & Direct Actions */}
@@ -207,84 +153,10 @@ const HeroSection = ({ onOpenQuote }) => {
           </div>
 
           {/* ----------------------------------------------------------------------- */}
-          {/* DESKTOP ONLY: ARTISTIC OVAL & LAYERED EDITORIAL IMAGE COLLAGE */}
+          {/* DESKTOP ONLY: ARTISTIC 3-PURPOSE EDITORIAL IMAGE COLLAGE */}
           {/* ----------------------------------------------------------------------- */}
           <div className="hidden lg:block lg:col-span-6 xl:col-span-5 relative mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-[360px] xl:max-w-[420px]">
-              
-              {/* Botanical Branch Flourish Extending Beyond Frame */}
-              <div className="absolute -top-8 -right-6 z-20 pointer-events-none text-[#193C3B] dark:text-[#D6B56F] animate-botanical-sway">
-                <BotanicalBranch className="w-28 h-28" rotate={20} />
-              </div>
-
-              {/* Apex Floral Line Art Blossom atop Arch */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-[#D6B56F]">
-                <FloralLineArt className="w-8 h-8 text-[#D6B56F]" />
-              </div>
-
-              {/* Decorative Antique Gold Fine Line Oval Ring */}
-              <div className="absolute inset-0 -m-3 sm:-m-4 rounded-[160px] xl:rounded-[190px] border border-[#D6B56F]/40 dark:border-[#D6B56F]/30 pointer-events-none" />
-
-              {/* Primary Large Wedding Photograph in Arched Luxury Frame */}
-              <div className="relative z-10 w-full aspect-[4/5] rounded-[150px] xl:rounded-[180px] overflow-hidden shadow-2xl border-2 border-[#D6B56F]/50 bg-[#FAF5ED] dark:bg-[#143130]">
-                <img
-                  src="/images/bengali-wedding-hero.jpg"
-                  alt="Royal Enterprise Authentic Bengali Wedding with Traditional Shubho Drishti in Kolkata"
-                  className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.04] hover:scale-105 transition-transform duration-1000 ease-out"
-                />
-                {/* Subtle warm vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#193C3B]/60 via-transparent to-transparent pointer-events-none" />
-
-                <div className="absolute bottom-8 left-0 right-0 text-center px-6 text-white font-sans pointer-events-none">
-                  <span className="text-[10px] uppercase tracking-[0.22em] text-[#D6B56F] font-semibold block mb-1">
-                    Heritage Rajbari Celebrations
-                  </span>
-                  <span className="font-display text-lg xl:text-xl italic font-normal text-[#F5EFE5]">
-                    Crafted with Vedic Grace & Quiet Grandeur
-                  </span>
-                </div>
-              </div>
-
-              {/* Secondary Overlapping Photograph: Production & Stagecraft */}
-              <div className="absolute bottom-3 -left-6 xl:-left-8 z-20 w-44 xl:w-52 aspect-[16/11] rounded-2xl overflow-hidden shadow-2xl border-2 border-white dark:border-[#102726] bg-[#102726] transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                <img
-                  src="/images/hero-stage.png"
-                  alt="Royal Enterprise Stage Craft & Production"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 right-3 text-white text-[10px] font-sans font-medium flex items-center justify-between">
-                  <span className="text-[#D6B56F] uppercase tracking-wider">In-House Staging</span>
-                  <span className="text-white/80">Kolkata</span>
-                </div>
-              </div>
-
-              {/* Floating Editorial Monogram Seal */}
-              <div className="absolute -top-4 -left-4 xl:-left-6 z-20 w-24 h-24 xl:w-28 xl:h-28 rounded-full bg-[#193C3B] text-[#F5EFE5] p-3 flex flex-col items-center justify-center text-center shadow-xl border-2 border-[#D6B56F] animate-botanical-drift">
-                <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F] mb-1" />
-                <span className="text-[9px] xl:text-[10px] uppercase tracking-[0.18em] font-semibold text-[#D6B56F] leading-tight font-sans">
-                  In-House
-                </span>
-                <span className="text-[8px] uppercase tracking-wider text-white/90 font-light font-sans">
-                  Standard
-                </span>
-                {/* Micro Gold Particle Sparkle */}
-                <div className="absolute -bottom-1 -left-2 z-30 pointer-events-none text-[#D6B56F]">
-                  <GoldParticleCluster className="w-6 h-6 text-[#D6B56F]" />
-                </div>
-              </div>
-
-              {/* Miniature Fine-Line Butterfly resting near stagecraft photo */}
-              <div className="absolute bottom-28 -left-2 z-30 pointer-events-none text-[#D6B56F] hidden sm:block">
-                <MiniatureButterfly className="w-7 h-7 text-[#D6B56F]" rotate={-15} />
-              </div>
-
-              {/* Floating Romantic Petal Pair */}
-              <div className="absolute -bottom-5 right-2 z-20 pointer-events-none text-[#D66D59]/50 hidden sm:block">
-                <FloatingPetal className="w-8 h-8 text-[#D66D59]/50" rotate={28} variant="pair" />
-              </div>
-
-            </div>
+            <HeroVisualCollage />
           </div>
 
         </div>

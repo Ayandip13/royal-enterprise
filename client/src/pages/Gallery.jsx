@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Camera,
   MapPin,
@@ -185,17 +184,6 @@ const Gallery = () => {
         </div>
 
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs uppercase tracking-[0.2em] text-[#665C5C] dark:text-[#C8D6D5] mb-5 font-sans">
-            <Link to="/" className="hover:text-[#193C3B] dark:hover:text-[#D6B56F] transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="text-[#D66D59] dark:text-[#D6B56F] font-semibold">
-              Celebration Gallery
-            </span>
-          </div>
-
           <div className="max-w-3xl space-y-4 text-left">
             <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
               <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />

@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  MapPin,
+} from 'lucide-react';
+import {
   BotanicalBranch,
   AntiqueStar,
   MiniatureButterfly,
@@ -85,6 +92,7 @@ const CarouselCardImage = ({ src, alt }) => {
 export const HeroVisualCollage = () => {
   // activeProminentIndex: which image currently occupies Slot 0 (Upper Center)
   const [activeProminentIndex, setActiveProminentIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -105,7 +113,8 @@ export const HeroVisualCollage = () => {
   }, []);
 
   useEffect(() => {
-    if (isPaused) return;
+    // Pause auto-rotation if user hovers or if lightbox is open
+    if (isPaused || lightboxIndex !== null) return;
 
     // Respect user's prefers-reduced-motion accessibility setting
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -116,7 +125,28 @@ export const HeroVisualCollage = () => {
     }, 4500);
 
     return () => clearInterval(timer);
-  }, [isPaused, rotateNext]);
+  }, [isPaused, lightboxIndex, rotateNext]);
+
+  // Keyboard accessibility for Lightbox Modal
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') {
+        const next = (lightboxIndex + 1) % HERO_CAROUSEL_IMAGES.length;
+        setLightboxIndex(next);
+        setActiveProminentIndex(next);
+      }
+      if (e.key === 'ArrowLeft') {
+        const prev = (lightboxIndex - 1 + HERO_CAROUSEL_IMAGES.length) % HERO_CAROUSEL_IMAGES.length;
+        setLightboxIndex(prev);
+        setActiveProminentIndex(prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex]);
 
   // ==========================================================================
   // 3D CYLINDRICAL SLOTS GEOMETRY
@@ -134,9 +164,9 @@ export const HeroVisualCollage = () => {
         rotateX: -3,
         rotateY: 0,
         rotateZ: 0,
-        scale: 1.24,
+        scale: 1.14,
         opacity: 1.0,
-        zIndex: 55,
+        zIndex: 30,
         isProminent: true,
       },
       // Mobile Slot 1 (Lower Right Flank)
@@ -260,8 +290,11 @@ export const HeroVisualCollage = () => {
           return (
             <motion.div
               key={item.id}
-              onClick={() => setActiveProminentIndex(imgIndex)}
-              className="absolute cursor-pointer will-change-transform"
+              onClick={() => {
+                setActiveProminentIndex(imgIndex);
+                setLightboxIndex(imgIndex);
+              }}
+              className="absolute cursor-pointer will-change-transform group"
               style={{
                 width: isMobile ? 215 : 265,
                 height: isMobile ? 275 : 340,
@@ -284,11 +317,12 @@ export const HeroVisualCollage = () => {
               }}
               role="button"
               tabIndex={0}
-              aria-label={`View ${item.title}`}
+              aria-label={`Open full photograph: ${item.title}`}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   setActiveProminentIndex(imgIndex);
+                  setLightboxIndex(imgIndex);
                 }
               }}
             >
@@ -331,6 +365,11 @@ export const HeroVisualCollage = () => {
                   )}
                 </div>
 
+                {/* Floating Expand Icon on Hover */}
+                <div className="absolute top-3.5 right-3.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md pointer-events-none z-20">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </div>
+
                 {/* Bottom Photographic Caption & Location */}
                 <div className="absolute bottom-3.5 left-3.5 right-3.5 text-left text-white font-sans pointer-events-none">
                   <div className="inline-flex items-center space-x-1.5 mb-0.5 text-[9.5px] uppercase tracking-[0.2em] text-[#D6B56F] font-semibold">
@@ -352,8 +391,8 @@ export const HeroVisualCollage = () => {
                   )}
 
                   {!isProminent && (
-                    <span className="text-[9px] text-[#D6B56F] block mt-0.5 opacity-80">
-                      Tap to bring forward &rarr;
+                    <span className="text-[9px] text-[#D6B56F] block mt-0.5 opacity-85">
+                      Click to open photo &rarr;
                     </span>
                   )}
                 </div>
@@ -366,6 +405,21 @@ export const HeroVisualCollage = () => {
             </motion.div>
           );
         })}
+
+        {/* Floating Golden Seal on Upper Left of Carousel */}
+        <div className="absolute -top-3 -left-2 xs:-left-4 sm:-left-5 z-40 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-2xl border-2 border-[#D6B56F] pointer-events-none">
+          <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
+          <span className="text-[7.5px] sm:text-[8.5px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
+            3 Disciplines
+          </span>
+          <span className="text-[7px] uppercase tracking-wider text-white/90 font-light font-sans">
+            One Standard
+          </span>
+
+          <div className="absolute -bottom-1 -left-1.5 z-40 pointer-events-none text-[#D6B56F]">
+            <GoldParticleCluster className="w-4 h-4 text-[#D6B56F]" />
+          </div>
+        </div>
       </div>
 
       {/* ------------------------------------------------------------------- */}
@@ -396,6 +450,96 @@ export const HeroVisualCollage = () => {
           );
         })}
       </div>
+
+      {/* =================================================================== */}
+      {/* FULLSCREEN EDITORIAL LIGHTBOX MODAL FOR CLICKED HERO PHOTOGRAPH     */}
+      {/* =================================================================== */}
+      {lightboxIndex !== null && HERO_CAROUSEL_IMAGES[lightboxIndex] && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 backdrop-blur-lg p-4 sm:p-6 transition-opacity"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Close Button */}
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(null)}
+            className="absolute top-5 right-5 sm:top-6 sm:right-6 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            aria-label="Close photograph view"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Previous Arrow */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              const prev = (lightboxIndex - 1 + HERO_CAROUSEL_IMAGES.length) % HERO_CAROUSEL_IMAGES.length;
+              setLightboxIndex(prev);
+              setActiveProminentIndex(prev);
+            }}
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer focus:outline-none"
+            aria-label="Previous photograph"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Next Arrow */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              const next = (lightboxIndex + 1) % HERO_CAROUSEL_IMAGES.length;
+              setLightboxIndex(next);
+              setActiveProminentIndex(next);
+            }}
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer focus:outline-none"
+            aria-label="Next photograph"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Lightbox Content Container */}
+          <div
+            className="relative max-w-4xl w-full flex flex-col items-center space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full max-h-[75vh] flex items-center justify-center rounded-2xl overflow-hidden border border-white/20 bg-[#102726] shadow-2xl">
+              <img
+                src={HERO_CAROUSEL_IMAGES[lightboxIndex].image}
+                alt={HERO_CAROUSEL_IMAGES[lightboxIndex].alt}
+                className="max-h-[75vh] w-auto max-w-full object-contain"
+              />
+            </div>
+
+            {/* Lightbox Caption Header */}
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 text-white font-sans px-2">
+              <div className="text-center sm:text-left space-y-0.5">
+                <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-[#D6B56F]">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>{HERO_CAROUSEL_IMAGES[lightboxIndex].location}</span>
+                  <span>•</span>
+                  <span className="uppercase tracking-wider font-semibold">
+                    {HERO_CAROUSEL_IMAGES[lightboxIndex].discipline}
+                  </span>
+                </div>
+                <h4 className="font-display text-xl sm:text-2xl text-white font-normal">
+                  {HERO_CAROUSEL_IMAGES[lightboxIndex].title}
+                </h4>
+                <p className="text-xs text-[#F5EFE5]/75 font-light">
+                  {HERO_CAROUSEL_IMAGES[lightboxIndex].subtitle}
+                </p>
+              </div>
+
+              <div className="text-xs text-white/70 font-mono bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15">
+                {lightboxIndex + 1} of {HERO_CAROUSEL_IMAGES.length}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

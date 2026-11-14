@@ -126,64 +126,64 @@ export const HeroVisualCollage = () => {
   // ==========================================================================
   const slots = isMobile
     ? [
-      // Mobile Slot 0 (Upper Center Prominent - Refined 7% dimension increase)
+      // Mobile Slot 0 (Upper Center Prominent - Enhanced size)
       {
         x: 0,
-        y: -44,
-        z: 35,
+        y: -46,
+        z: 38,
         rotateX: -3,
         rotateY: 0,
         rotateZ: 0,
-        scale: 1.07,
+        scale: 1.24,
         opacity: 1.0,
-        zIndex: 30,
+        zIndex: 55,
         isProminent: true,
       },
       // Mobile Slot 1 (Lower Right Flank)
       {
-        x: 52,
-        y: 44,
+        x: 55,
+        y: 46,
         z: -28,
         rotateX: 5,
         rotateY: -15,
         rotateZ: 3,
-        scale: 0.85,
+        scale: 0.84,
         opacity: 0.86,
         zIndex: 20,
         isProminent: false,
       },
       // Mobile Slot 2 (Lower Left Flank)
       {
-        x: -52,
-        y: 44,
+        x: -55,
+        y: 46,
         z: -28,
         rotateX: 5,
         rotateY: 15,
         rotateZ: -3,
-        scale: 0.85,
+        scale: 0.84,
         opacity: 0.86,
         zIndex: 15,
         isProminent: false,
       },
     ]
     : [
-      // Desktop Slot 0 (Upper Center Prominent - Refined 7% dimension increase)
+      // Desktop Slot 0 (Upper Center Prominent - Enhanced size)
       {
         x: 0,
-        y: -65,
-        z: 55,
+        y: -68,
+        z: 60,
         rotateX: -4,
         rotateY: 0,
         rotateZ: 0,
-        scale: 1.07,
+        scale: 1.16,
         opacity: 1.0,
         zIndex: 30,
         isProminent: true,
       },
       // Desktop Slot 1 (Lower Right Flank)
       {
-        x: 88,
-        y: 58,
+        x: 94,
+        y: 62,
         z: -38,
         rotateX: 6,
         rotateY: -18,
@@ -195,8 +195,8 @@ export const HeroVisualCollage = () => {
       },
       // Desktop Slot 2 (Lower Left Flank)
       {
-        x: -88,
-        y: 58,
+        x: -94,
+        y: 62,
         z: -38,
         rotateX: 6,
         rotateY: 18,
@@ -245,7 +245,7 @@ export const HeroVisualCollage = () => {
       {/* 3D CYLINDRICAL CAROUSEL STAGE CONTAINER                             */}
       {/* ------------------------------------------------------------------- */}
       <div
-        className="relative w-full h-[400px] xs:h-[440px] sm:h-[480px] lg:h-[500px] xl:h-[520px] flex items-center justify-center"
+        className="relative w-full h-[415px] xs:h-[455px] sm:h-[495px] lg:h-[515px] xl:h-[535px] flex items-center justify-center"
         style={{
           perspective: 1200,
           transformStyle: 'preserve-3d',

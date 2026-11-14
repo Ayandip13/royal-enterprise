@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import {
   BotanicalBranch,
   AntiqueStar,
@@ -8,72 +9,63 @@ import {
 } from '../common/BotanicalDecor';
 
 // ============================================================================
-// HERO TRIPLE-PURPOSE IMAGE CONFIGURATION
-// Replace the image placeholders below with your actual photographs anytime.
-// Each slot represents one of Royal Enterprise's three core services:
-// 1. Wedding Planning
-// 2. In-House Gourmet Catering
-// 3. Event Management & Stage Production
+// HERO CYLINDRICAL CAROUSEL IMAGE CONFIGURATION
+// Three consistent-dimension photographs representing Royal Enterprise's disciplines:
+// 1. Weddings (Heritage Rajbari Celebrations)
+// 2. In-House Catering (Authentic Live Gourmet Feasts)
+// 3. Event Production (Stagecraft & Corporate Galas)
 // ============================================================================
-export const HERO_PURPOSE_IMAGES = [
+export const HERO_CAROUSEL_IMAGES = [
   {
     id: 'weddings',
-    purpose: 'Wedding Planning',
+    purpose: 'Weddings',
+    discipline: '01 / Weddings',
     title: 'Heritage Rajbari Celebrations',
     subtitle: 'Vedic Mandap Styling & Quiet Grandeur',
-    tag: '01 / Weddings',
-    badge: 'Bespoke Biye Bari',
     location: 'Kolkata & Rajbaris',
-    // --- PLACEHOLDER 1: Replace with your wedding photograph URL/path ---
+    badge: 'Bespoke Biye Bari',
     image: '/images/bengali-wedding-hero.jpg',
-    alt: 'Royal Enterprise Wedding Planning & Heritage Celebrations',
+    alt: 'Royal Enterprise Heritage Bengali Wedding Planning',
     accentColor: '#D6B56F',
   },
   {
     id: 'catering',
-    purpose: 'In-House Catering',
+    purpose: 'Catering',
+    discipline: '02 / In-House Kitchen',
     title: 'Authentic Live Feasts',
     subtitle: 'Slow-Simmered Kosha Mangsho & Fresh Kolkata Bhetki',
-    tag: '02 / In-House Kitchen',
-    badge: 'Our Own Kitchen',
     location: 'Live Cooking Stations',
-    // --- PLACEHOLDER 2: Replace with your catering feast photograph URL/path ---
+    badge: 'In-House Kitchen',
     image: '/images/bengali-wedding-couple.jpg',
     alt: 'Royal Enterprise In-House Catering & Gourmet Feasts',
     accentColor: '#D66D59',
   },
   {
     id: 'events',
-    purpose: 'Event Management',
+    purpose: 'Events',
+    discipline: '03 / Production',
     title: 'Grand Gala Architecture',
     subtitle: '3D Stage Fabrication, Acoustic Design & Lights',
-    tag: '03 / Production',
+    location: 'Conventions & Arenas',
     badge: 'Corporate & Galas',
-    location: 'Summits & Arenas',
-    // --- PLACEHOLDER 3: Replace with your stage/event photograph URL/path ---
     image: '/images/hero-stage.png',
-    alt: 'Royal Enterprise Event Management & Stagecraft',
+    alt: 'Royal Enterprise Event Management & Stage Production',
     accentColor: '#193C3B',
   },
 ];
 
-// Helper: Resilient Image Component with Editorial Placeholder Fallback
-const CollageImage = ({ src, alt, className = '' }) => {
-  const [loadFailed, setLoadFailed] = useState(false);
+// Fallback component if any local image is unavailable
+const CarouselCardImage = ({ src, alt }) => {
+  const [hasError, setHasError] = useState(false);
 
-  if (!src || loadFailed) {
+  if (!src || hasError) {
     return (
-      <div
-        className={`w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#FAF5ED] to-[#EFE8DD] dark:from-[#143130] dark:to-[#0D2221] text-[#193C3B] dark:text-[#D6B56F] select-none ${className}`}
-      >
-        <div className="w-10 h-10 rounded-full border border-[#D6B56F]/40 flex items-center justify-center mb-1.5 shadow-sm bg-white/40 dark:bg-black/20">
+      <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#FAF5ED] to-[#EAE0D0] dark:from-[#143130] dark:to-[#0D201F] text-[#193C3B] dark:text-[#D6B56F]">
+        <div className="w-10 h-10 rounded-full border border-[#D6B56F]/50 flex items-center justify-center mb-2 bg-white/50 dark:bg-black/20">
           <AntiqueStar className="w-4 h-4 text-[#D6B56F]" />
         </div>
-        <span className="text-[10px] font-semibold uppercase tracking-wider font-sans text-center line-clamp-1">
+        <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-center line-clamp-1">
           {alt}
-        </span>
-        <span className="text-[9px] opacity-60 font-mono mt-0.5 tracking-tight">
-          [Image Placeholder]
         </span>
       </div>
     );
@@ -83,53 +75,153 @@ const CollageImage = ({ src, alt, className = '' }) => {
     <img
       src={src}
       alt={alt}
-      onError={() => setLoadFailed(true)}
-      className={`w-full h-full object-cover object-center ${className}`}
+      onError={() => setHasError(true)}
+      className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.02]"
       loading="eager"
     />
   );
 };
 
 export const HeroVisualCollage = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // activeProminentIndex: which image currently occupies Slot 0 (Upper Center)
+  const [activeProminentIndex, setActiveProminentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Automatic rotation: switches featured image every 4.5 seconds
+  // Responsive breakpoint tracking for cylindrical coordinate scaling
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Continuous cylindrical auto-rotation every 4.5 seconds
+  // Advances so the next image (from Lower Left) rises to Upper Center
+  const rotateNext = useCallback(() => {
+    setActiveProminentIndex((prev) => (prev + 2) % 3);
+  }, []);
+
   useEffect(() => {
     if (isPaused) return;
 
-    // Check user preference for reduced motion
+    // Respect user's prefers-reduced-motion accessibility setting
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) return;
 
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % HERO_PURPOSE_IMAGES.length);
+    const timer = setInterval(() => {
+      rotateNext();
     }, 4500);
 
-    return () => clearInterval(interval);
-  }, [isPaused]);
+    return () => clearInterval(timer);
+  }, [isPaused, rotateNext]);
 
-  // The 3 purpose slots: active featured, and two secondary floating cards
-  const featured = HERO_PURPOSE_IMAGES[activeIndex];
-  const secondaryAIndex = (activeIndex + 1) % HERO_PURPOSE_IMAGES.length;
-  const secondaryA = HERO_PURPOSE_IMAGES[secondaryAIndex];
-  const secondaryBIndex = (activeIndex + 2) % HERO_PURPOSE_IMAGES.length;
-  const secondaryB = HERO_PURPOSE_IMAGES[secondaryBIndex];
+  // ==========================================================================
+  // 3D CYLINDRICAL SLOTS GEOMETRY
+  // Slot 0: Upper Center (Prominent, foreground, elevated in Z)
+  // Slot 1: Lower Right Flank (Offset along cylindrical curve, receding in Z)
+  // Slot 2: Lower Left Flank (Offset along cylindrical curve, receding in Z)
+  // ==========================================================================
+  const slots = isMobile
+    ? [
+        // Mobile Slot 0 (Upper Center Prominent)
+        {
+          x: 0,
+          y: -44,
+          z: 35,
+          rotateX: -3,
+          rotateY: 0,
+          rotateZ: 0,
+          scale: 1.0,
+          opacity: 1.0,
+          zIndex: 30,
+          isProminent: true,
+        },
+        // Mobile Slot 1 (Lower Right Flank)
+        {
+          x: 52,
+          y: 44,
+          z: -28,
+          rotateX: 5,
+          rotateY: -15,
+          rotateZ: 3,
+          scale: 0.85,
+          opacity: 0.86,
+          zIndex: 20,
+          isProminent: false,
+        },
+        // Mobile Slot 2 (Lower Left Flank)
+        {
+          x: -52,
+          y: 44,
+          z: -28,
+          rotateX: 5,
+          rotateY: 15,
+          rotateZ: -3,
+          scale: 0.85,
+          opacity: 0.86,
+          zIndex: 15,
+          isProminent: false,
+        },
+      ]
+    : [
+        // Desktop Slot 0 (Upper Center Prominent)
+        {
+          x: 0,
+          y: -65,
+          z: 55,
+          rotateX: -4,
+          rotateY: 0,
+          rotateZ: 0,
+          scale: 1.0,
+          opacity: 1.0,
+          zIndex: 30,
+          isProminent: true,
+        },
+        // Desktop Slot 1 (Lower Right Flank)
+        {
+          x: 88,
+          y: 58,
+          z: -38,
+          rotateX: 6,
+          rotateY: -18,
+          rotateZ: 4,
+          scale: 0.86,
+          opacity: 0.88,
+          zIndex: 20,
+          isProminent: false,
+        },
+        // Desktop Slot 2 (Lower Left Flank)
+        {
+          x: -88,
+          y: 58,
+          z: -38,
+          rotateX: 6,
+          rotateY: 18,
+          rotateZ: -4,
+          scale: 0.86,
+          opacity: 0.88,
+          zIndex: 15,
+          isProminent: false,
+        },
+      ];
 
   return (
     <div
-      className="relative w-full max-w-[390px] xs:max-w-[430px] lg:max-w-[440px] xl:max-w-[480px] mx-auto select-none"
+      className="relative w-full max-w-[380px] xs:max-w-[420px] sm:max-w-[450px] lg:max-w-[460px] xl:max-w-[490px] mx-auto select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
-      aria-label="Royal Enterprise Three Core Disciplines Showcase"
+      aria-label="Royal Enterprise Cylindrical Three-Disciplines Carousel"
     >
       {/* ------------------------------------------------------------------- */}
-      {/* BOTANICAL & LUXURY ORNAMENTAL DETAILS (EXTENDING BEYOND COMPOSITION) */}
+      {/* BOTANICAL LUXURY ACCENTS (EXTENDING SUBTLY AROUND COMPOSITION)       */}
       {/* ------------------------------------------------------------------- */}
       {/* Top-Right Swaying Botanical Branch */}
-      <div className="absolute -top-10 -right-6 sm:-right-10 z-10 pointer-events-none text-[#193C3B] dark:text-[#D6B56F] opacity-80 animate-botanical-sway">
+      <div className="absolute -top-10 -right-6 sm:-right-8 z-10 pointer-events-none text-[#193C3B] dark:text-[#D6B56F] opacity-75 animate-botanical-sway">
         <BotanicalBranch className="w-24 h-24 sm:w-28 sm:h-28" rotate={20} />
       </div>
 
@@ -143,172 +235,173 @@ export const HeroVisualCollage = () => {
         <MiniatureButterfly className="w-6 h-6 text-[#D6B56F]" rotate={18} />
       </div>
 
-      {/* Outer Delicate Antique Gold Oval Ring */}
-      <div className="absolute inset-0 -m-3 sm:-m-4 rounded-[42px] sm:rounded-[50px] border border-[#D6B56F]/40 dark:border-[#D6B56F]/30 pointer-events-none" />
+      {/* Soft Cylindrical Antique-Gold Silhouette Aura */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-4 inset-y-6 sm:inset-x-8 sm:inset-y-8 rounded-[48px] border border-[#D6B56F]/25 dark:border-[#D6B56F]/15 pointer-events-none -rotate-1"
+      />
 
       {/* ------------------------------------------------------------------- */}
-      {/* 1. DOMINANT FEATURED IMAGE CARD (EDITORIAL ARCHED / ROUNDED CANVAS) */}
+      {/* 3D CYLINDRICAL CAROUSEL STAGE CONTAINER                             */}
       {/* ------------------------------------------------------------------- */}
-      <div className="relative z-10 w-full aspect-[4/5] rounded-[36px] sm:rounded-[44px] overflow-hidden shadow-2xl border-2 border-[#D6B56F]/50 bg-[#FAF5ED] dark:bg-[#143130] transition-all duration-700">
-        
-        {/* Render all 3 images with smooth crossfade and subtle scale transition */}
-        {HERO_PURPOSE_IMAGES.map((item, index) => {
-          const isCurrent = index === activeIndex;
+      <div
+        className="relative w-full h-[400px] xs:h-[440px] sm:h-[480px] lg:h-[500px] xl:h-[520px] flex items-center justify-center"
+        style={{
+          perspective: 1200,
+          transformStyle: 'preserve-3d',
+        }}
+      >
+        {HERO_CAROUSEL_IMAGES.map((item, imgIndex) => {
+          // Calculate which slot this image belongs to in the current cycle
+          const slotIndex = (imgIndex - activeProminentIndex + 3) % 3;
+          const slot = slots[slotIndex];
+          const isProminent = slot.isProminent;
+
           return (
-            <div
+            <motion.div
               key={item.id}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                isCurrent
-                  ? 'opacity-100 scale-100 pointer-events-auto z-10'
-                  : 'opacity-0 scale-105 pointer-events-none z-0'
-              }`}
+              onClick={() => setActiveProminentIndex(imgIndex)}
+              className="absolute cursor-pointer will-change-transform"
+              style={{
+                width: isMobile ? 215 : 265,
+                height: isMobile ? 275 : 340,
+                transformStyle: 'preserve-3d',
+              }}
+              animate={{
+                x: slot.x,
+                y: slot.y,
+                z: slot.z,
+                rotateX: slot.rotateX,
+                rotateY: slot.rotateY,
+                rotateZ: slot.rotateZ,
+                scale: slot.scale,
+                opacity: slot.opacity,
+                zIndex: slot.zIndex,
+              }}
+              transition={{
+                duration: 1.15,
+                ease: [0.22, 1, 0.36, 1], // Smooth, natural editorial ease curve
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${item.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveProminentIndex(imgIndex);
+                }
+              }}
             >
-              <CollageImage
-                src={item.image}
-                alt={item.alt}
-                className="filter brightness-[0.98] contrast-[1.03]"
-              />
+              {/* Card Canvas with Elegant Image Framing & Subtle Rounded Corners */}
+              <div
+                className={`relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 bg-[#102726] ${
+                  isProminent
+                    ? 'border-2 border-[#D6B56F] shadow-2xl shadow-[#102726]/40 dark:shadow-black/70'
+                    : 'border border-[#D6B56F]/40 shadow-xl shadow-[#102726]/20 hover:border-[#D6B56F]/80'
+                }`}
+              >
+                {/* Photographic Artwork */}
+                <CarouselCardImage src={item.image} alt={item.alt} />
 
-              {/* Rich Gradient Vignette for Editorial Legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#102726]/85 via-[#102726]/20 to-transparent pointer-events-none" />
+                {/* Dark Vignette Gradient for Editorial Legibility */}
+                <div
+                  className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t ${
+                    isProminent
+                      ? 'from-[#102726]/90 via-[#102726]/25 to-transparent'
+                      : 'from-[#102726]/95 via-[#102726]/45 to-black/20'
+                  }`}
+                />
 
-              {/* Top Purpose Tag & Active Indicator */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-white font-sans pointer-events-none">
-                <span className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-[#102726]/70 backdrop-blur-md border border-[#D6B56F]/40 text-[9.5px] uppercase tracking-[0.18em] font-semibold text-[#D6B56F]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F] animate-pulse" />
-                  <span>{item.tag}</span>
-                </span>
+                {/* Top Discipline Badge */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white font-sans pointer-events-none">
+                  <span
+                    className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-[0.16em] font-semibold border backdrop-blur-md ${
+                      isProminent
+                        ? 'bg-[#102726]/80 text-[#D6B56F] border-[#D6B56F]/50'
+                        : 'bg-black/60 text-[#F5EFE5]/80 border-white/15 text-[8.5px]'
+                    }`}
+                  >
+                    {isProminent && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F] animate-pulse" />
+                    )}
+                    <span>{item.purpose}</span>
+                  </span>
 
-                <span className="text-[9px] uppercase tracking-wider text-[#F5EFE5]/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded-md font-mono">
-                  {index + 1} / 3
-                </span>
-              </div>
-
-              {/* Bottom Editorial Caption */}
-              <div className="absolute bottom-5 sm:bottom-7 left-0 right-0 px-5 sm:px-7 text-left text-white font-sans pointer-events-none">
-                <div className="inline-flex items-center space-x-1.5 mb-1 text-[10px] uppercase tracking-[0.22em] text-[#D6B56F] font-semibold">
-                  <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
-                  <span>{item.badge}</span>
-                  <span className="text-white/40">•</span>
-                  <span className="text-white/80 font-normal">{item.location}</span>
+                  {isProminent && (
+                    <span className="text-[8.5px] uppercase tracking-wider text-[#D6B56F] bg-[#102726]/80 backdrop-blur-sm px-2 py-0.5 rounded border border-[#D6B56F]/30 font-mono">
+                      Featured
+                    </span>
+                  )}
                 </div>
 
-                <h3 className="font-display text-xl sm:text-2xl xl:text-[26px] text-[#F5EFE5] font-normal leading-tight">
-                  {item.title}
-                </h3>
-                
-                <p className="text-[11px] sm:text-xs text-[#F5EFE5]/80 font-light font-sans line-clamp-1 mt-0.5">
-                  {item.subtitle}
-                </p>
+                {/* Bottom Photographic Caption & Location */}
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-left text-white font-sans pointer-events-none">
+                  <div className="inline-flex items-center space-x-1.5 mb-0.5 text-[9.5px] uppercase tracking-[0.2em] text-[#D6B56F] font-semibold">
+                    <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
+                    <span>{item.badge}</span>
+                  </div>
+
+                  <h3
+                    className={`font-display text-[#F5EFE5] font-normal leading-tight line-clamp-1 ${
+                      isProminent ? 'text-lg sm:text-xl' : 'text-sm sm:text-base opacity-90'
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+
+                  {isProminent && (
+                    <p className="text-[11px] text-[#F5EFE5]/80 font-light font-sans line-clamp-1 mt-0.5">
+                      {item.subtitle}
+                    </p>
+                  )}
+
+                  {!isProminent && (
+                    <span className="text-[9px] text-[#D6B56F] block mt-0.5 opacity-80">
+                      Tap to bring forward &rarr;
+                    </span>
+                  )}
+                </div>
+
+                {/* Delicate Gold Filigree Inner Corner Accents on Prominent Card */}
+                {isProminent && (
+                  <div className="absolute inset-1.5 rounded-[18px] sm:rounded-[22px] border border-[#D6B56F]/25 pointer-events-none" />
+                )}
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
 
-      {/* ------------------------------------------------------------------- */}
-      {/* 2. SECONDARY FLOATING CARD A: ASYMMETRICAL BOTTOM-LEFT OVERLAP     */}
-      {/* ------------------------------------------------------------------- */}
-      <button
-        type="button"
-        onClick={() => setActiveIndex(secondaryAIndex)}
-        className="group absolute -bottom-4 -left-3 xs:-left-6 sm:-left-8 z-20 w-36 xs:w-44 sm:w-48 aspect-[16/11] rounded-2xl overflow-hidden shadow-2xl border-2 border-white dark:border-[#102726] bg-[#102726] transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6B56F]"
-        title={`Click to view ${secondaryA.purpose}`}
-        aria-label={`Switch to ${secondaryA.purpose}`}
-      >
-        <CollageImage
-          src={secondaryA.image}
-          alt={secondaryA.alt}
-          className="group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-        
-        {/* Floating Card Badge */}
-        <div className="absolute top-2 left-2 pointer-events-none">
-          <span className="text-[8px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-black/60 backdrop-blur-sm text-[#D6B56F] border border-[#D6B56F]/30 font-sans">
-            {secondaryA.tag.split('/')[1]?.trim() || secondaryA.purpose}
+        {/* Floating Golden Seal on Upper Left of Carousel */}
+        <div className="absolute -top-3 -left-2 xs:-left-4 sm:-left-5 z-40 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-2xl border-2 border-[#D6B56F] pointer-events-none">
+          <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
+          <span className="text-[7.5px] sm:text-[8.5px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
+            3 Disciplines
           </span>
-        </div>
+          <span className="text-[7px] uppercase tracking-wider text-white/90 font-light font-sans">
+            One Standard
+          </span>
 
-        {/* Floating Card Title */}
-        <div className="absolute bottom-2 left-2.5 right-2.5 text-white font-sans pointer-events-none">
-          <span className="block text-[10.5px] font-semibold leading-tight line-clamp-1 group-hover:text-[#D6B56F] transition-colors">
-            {secondaryA.title}
-          </span>
-          <span className="text-[8.5px] text-white/70 block mt-0.5">
-            Tap to view &rarr;
-          </span>
-        </div>
-      </button>
-
-      {/* ------------------------------------------------------------------- */}
-      {/* 3. SECONDARY FLOATING CARD B: ASYMMETRICAL TOP-RIGHT OVERLAP       */}
-      {/* ------------------------------------------------------------------- */}
-      <button
-        type="button"
-        onClick={() => setActiveIndex(secondaryBIndex)}
-        className="group absolute -top-5 -right-3 xs:-right-5 sm:-right-7 z-20 w-32 xs:w-36 sm:w-40 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-white dark:border-[#102726] bg-[#102726] transform rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D6B56F]"
-        title={`Click to view ${secondaryB.purpose}`}
-        aria-label={`Switch to ${secondaryB.purpose}`}
-      >
-        <CollageImage
-          src={secondaryB.image}
-          alt={secondaryB.alt}
-          className="group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-        
-        {/* Floating Card Badge */}
-        <div className="absolute top-2 left-2 pointer-events-none">
-          <span className="text-[8px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-black/60 backdrop-blur-sm text-[#D6B56F] border border-[#D6B56F]/30 font-sans">
-            {secondaryB.tag.split('/')[1]?.trim() || secondaryB.purpose}
-          </span>
-        </div>
-
-        {/* Floating Card Title */}
-        <div className="absolute bottom-2 left-2 right-2 text-white font-sans pointer-events-none">
-          <span className="block text-[10px] font-semibold leading-tight line-clamp-1 group-hover:text-[#D6B56F] transition-colors">
-            {secondaryB.title}
-          </span>
-          <span className="text-[8px] text-white/70 block mt-0.5">
-            Tap to view &rarr;
-          </span>
-        </div>
-      </button>
-
-      {/* ------------------------------------------------------------------- */}
-      {/* 4. FLOATING MONOGRAM SEAL & ROTATION PROGRESS INDICATOR             */}
-      {/* ------------------------------------------------------------------- */}
-      <div className="absolute -top-4 -left-3 xs:-left-5 sm:-left-6 z-30 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2.5 flex flex-col items-center justify-center text-center shadow-xl border-2 border-[#D6B56F] animate-botanical-drift pointer-events-none">
-        <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
-        <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
-          3 Disciplines
-        </span>
-        <span className="text-[7.5px] uppercase tracking-wider text-white/90 font-light font-sans">
-          One Standard
-        </span>
-
-        {/* Micro Gold Particle Sparkle */}
-        <div className="absolute -bottom-1 -left-2 z-30 pointer-events-none text-[#D6B56F]">
-          <GoldParticleCluster className="w-5 h-5 text-[#D6B56F]" />
+          <div className="absolute -bottom-1 -left-1.5 z-40 pointer-events-none text-[#D6B56F]">
+            <GoldParticleCluster className="w-4 h-4 text-[#D6B56F]" />
+          </div>
         </div>
       </div>
 
       {/* ------------------------------------------------------------------- */}
-      {/* 5. MINIMAL LUXURY ROTATION PILLS (INTERACTIVE SWITCHER)             */}
+      {/* INTERACTIVE ROTATION INDICATOR PILLS                                */}
       {/* ------------------------------------------------------------------- */}
-      <div className="flex items-center justify-center space-x-2 pt-5 sm:pt-6 relative z-20">
-        {HERO_PURPOSE_IMAGES.map((item, idx) => {
-          const isActive = idx === activeIndex;
+      <div className="flex items-center justify-center space-x-2 pt-2 relative z-20">
+        {HERO_CAROUSEL_IMAGES.map((item, idx) => {
+          const isActive = idx === activeProminentIndex;
           return (
             <button
               key={item.id}
               type="button"
-              onClick={() => setActiveIndex(idx)}
-              className={`group flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-[10px] font-sans font-medium transition-all duration-300 ${
+              onClick={() => setActiveProminentIndex(idx)}
+              className={`group flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-sans font-medium transition-all duration-300 cursor-pointer ${
                 isActive
-                  ? 'bg-[#193C3B] text-[#F5EFE5] shadow-sm dark:bg-[#D6B56F] dark:text-[#102726] font-semibold'
-                  : 'bg-white/60 dark:bg-white/10 text-[#665C5C] dark:text-[#C8D6D5] hover:bg-white dark:hover:bg-white/20'
+                  ? 'bg-[#193C3B] text-[#F5EFE5] shadow-md dark:bg-[#D6B56F] dark:text-[#102726] font-semibold ring-1 ring-[#D6B56F]/50'
+                  : 'bg-white/70 dark:bg-white/10 text-[#665C5C] dark:text-[#C8D6D5] hover:bg-white dark:hover:bg-white/20'
               }`}
               aria-label={`Select ${item.purpose}`}
             >
@@ -319,8 +412,7 @@ export const HeroVisualCollage = () => {
                     : 'bg-[#CBBFB0] group-hover:bg-[#193C3B]'
                 }`}
               />
-              <span className="hidden sm:inline">{item.purpose}</span>
-              <span className="inline sm:hidden">0{idx + 1}</span>
+              <span>{item.purpose}</span>
             </button>
           );
         })}
@@ -330,4 +422,3 @@ export const HeroVisualCollage = () => {
 };
 
 export default HeroVisualCollage;
-

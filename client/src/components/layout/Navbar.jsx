@@ -29,9 +29,22 @@ const Navbar = ({ onOpenQuoteModal }) => {
     { name: 'Weddings', path: '/wedding-planner' },
     { name: 'Events', path: '/events' },
     { name: 'Catering', path: '/catering' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  const handleNavClick = (e, path) => {
+    if (path.includes('#')) {
+      const targetId = path.split('#')[1];
+      const el = document.getElementById(targetId);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', path);
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -72,11 +85,10 @@ const Navbar = ({ onOpenQuoteModal }) => {
 
       {/* Main Editorial Navbar */}
       <div
-        className={`transition-all duration-300 border-b ${
-          scrolled
+        className={`transition-all duration-300 border-b ${scrolled
             ? 'bg-[#F5EFE5]/95 dark:bg-[#102726]/95 backdrop-blur-md shadow-sm py-2.5 sm:py-3 border-[#E8DFD3] dark:border-[#244C4A]'
             : 'bg-[#F5EFE5]/90 dark:bg-[#102726]/90 backdrop-blur-md py-3 sm:py-3.5 border-[#E8DFD3]/80 dark:border-[#244C4A]/60'
-        }`}
+          }`}
       >
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
@@ -86,16 +98,18 @@ const Navbar = ({ onOpenQuoteModal }) => {
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">
               {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
+                const isActive = link.path.includes('#')
+                  ? location.pathname + location.hash === link.path
+                  : location.pathname === link.path;
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`text-[12.5px] uppercase tracking-[0.18em] font-medium whitespace-nowrap py-1 transition-all duration-200 relative group font-sans ${
-                      isActive
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    className={`text-[12.5px] uppercase tracking-[0.18em] font-medium whitespace-nowrap py-1 transition-all duration-200 relative group font-sans ${isActive
                         ? 'text-[#193C3B] dark:text-[#D6B56F] font-semibold'
                         : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-[#D6B56F]'
-                    }`}
+                      }`}
                   >
                     {link.name}
                     {isActive ? (
@@ -191,16 +205,21 @@ const Navbar = ({ onOpenQuoteModal }) => {
         <div className="lg:hidden bg-[#F5EFE5] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A] px-6 pt-4 pb-6 space-y-4 shadow-2xl text-[#292323] dark:text-[#F5EFE5]">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive = link.path.includes('#')
+                ? location.pathname + location.hash === link.path
+                : location.pathname === link.path;
               return (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-xs uppercase tracking-[0.16em] font-medium transition-colors font-sans ${
-                    isActive
+                  onClick={(e) => {
+                    handleNavClick(e, link.path);
+                    setIsOpen(false);
+                  }}
+                  className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-xs uppercase tracking-[0.16em] font-medium transition-colors font-sans ${isActive
                       ? 'bg-[#193C3B] text-white dark:bg-[#193C3B] dark:text-[#D6B56F] font-semibold'
                       : 'hover:bg-[#ECE3D5] dark:hover:bg-[#143130]'
-                  }`}
+                    }`}
                 >
                   <span>{link.name}</span>
                   {isActive && <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />}

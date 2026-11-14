@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import EventManagement from './pages/EventManagement';
 import Catering from './pages/Catering';
 import WeddingPlanner from './pages/WeddingPlanner';
+import Gallery from './pages/Gallery';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/event-management" element={<EventManagement />} />
               <Route path="/catering" element={<Catering />} />
               <Route path="/wedding-planner" element={<WeddingPlanner />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />

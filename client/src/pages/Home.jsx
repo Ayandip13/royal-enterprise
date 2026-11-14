@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import HeroSection from '../components/home/HeroSection';
 import BrandIntroduction from '../components/home/BrandIntroduction';
 import ServiceDirectory from '../components/home/ServiceDirectory';
-import PortfolioGallery from '../components/home/PortfolioGallery';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import FounderNote from '../components/home/FounderNote';
 import ClientReviews from '../components/home/ClientReviews';
@@ -23,10 +22,7 @@ const Home = () => {
       {/* 03. Services: Visual Service Directory (Distinct Layouts per Discipline) */}
       <ServiceDirectory onOpenQuote={() => setIsQuoteOpen(true)} />
 
-      {/* 04. Portfolio: Immersive Wedding & Celebration Journal */}
-      <PortfolioGallery />
-
-      {/* 05. Process: Continuous Visual Editorial Timeline */}
+      {/* 04. Process: Continuous Visual Editorial Timeline */}
       <WhyChooseUs onOpenQuote={() => setIsQuoteOpen(true)} />
 
       {/* 06. Founder's Note: Literary Stationery & Authentic Backstage */}

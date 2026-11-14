@@ -116,6 +116,11 @@ const Footer = ({ onOpenQuoteModal }) => {
                 </Link>
               </li>
               <li>
+                <Link to="/gallery" className="hover:text-[#D6B56F] transition-colors">
+                  Celebration Gallery
+                </Link>
+              </li>
+              <li>
                 <Link to="/events" className="hover:text-[#D6B56F] transition-colors">
                   Event Management
                 </Link>

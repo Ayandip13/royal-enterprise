@@ -31,44 +31,29 @@ const Logo = ({
         <div className="flex flex-col text-left">
           {/* Main Brand Title: High contrast on both light and dark backgrounds */}
           <span
-            className={`font-display text-2xl sm:text-[27px] font-normal tracking-tight leading-tight transition-colors ${
-              onDark
+            className={`font-display text-2xl sm:text-[27px] font-normal tracking-tight leading-tight transition-colors ${onDark
                 ? 'text-[#F5EFE5]'
                 : 'text-[#292323] dark:text-[#F5EFE5]'
-            }`}
+              }`}
           >
             Royal{' '}
             <span
-              className={`font-display italic ${
-                onDark
+              className={`font-display italic ${onDark
                   ? 'text-[#D6B56F]'
                   : 'text-[#193C3B] dark:text-[#D6B56F]'
-              }`}
+                }`}
             >
               Enterprise
             </span>
           </span>
 
-          {/* Subtitle / Disciplines */}
-          <div className="flex items-center space-x-1.5 mt-0.5">
-            <span
-              className={`text-[9.5px] sm:text-[10px] uppercase tracking-[0.22em] font-medium font-sans ${
-                onDark
-                  ? 'text-[#D66D59]'
-                  : 'text-[#D66D59] dark:text-[#D6B56F]'
-              }`}
-            >
-              Weddings • In-House Kitchen • Events
-            </span>
-          </div>
 
           {variant === 'stacked' && (
             <span
-              className={`text-[9.5px] uppercase tracking-[0.18em] font-medium font-sans mt-0.5 ${
-                onDark
+              className={`text-[9.5px] uppercase tracking-[0.18em] font-medium font-sans mt-0.5 ${onDark
                   ? 'text-[#D6B56F]/80'
                   : 'text-[#8C8282] dark:text-[#8FA4A3]'
-              }`}
+                }`}
             >
               Kolkata • Est. 2014
             </span>

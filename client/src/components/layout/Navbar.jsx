@@ -86,8 +86,8 @@ const Navbar = ({ onOpenQuoteModal }) => {
       {/* Main Editorial Navbar */}
       <div
         className={`transition-all duration-300 border-b ${scrolled
-            ? 'bg-[#F5EFE5]/95 dark:bg-[#102726]/95 backdrop-blur-md shadow-sm py-2.5 sm:py-3 border-[#E8DFD3] dark:border-[#244C4A]'
-            : 'bg-[#F5EFE5]/90 dark:bg-[#102726]/90 backdrop-blur-md py-3 sm:py-3.5 border-[#E8DFD3]/80 dark:border-[#244C4A]/60'
+          ? 'bg-[#F5EFE5]/95 dark:bg-[#102726]/95 backdrop-blur-md shadow-sm py-2.5 sm:py-3 border-[#E8DFD3] dark:border-[#244C4A]'
+          : 'bg-[#F5EFE5]/90 dark:bg-[#102726]/90 backdrop-blur-md py-3 sm:py-3.5 border-[#E8DFD3]/80 dark:border-[#244C4A]/60'
           }`}
       >
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
@@ -106,9 +106,9 @@ const Navbar = ({ onOpenQuoteModal }) => {
                     key={link.name}
                     to={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className={`text-[12.5px] uppercase tracking-[0.18em] font-medium whitespace-nowrap py-1 transition-all duration-200 relative group font-sans ${isActive
-                        ? 'text-[#193C3B] dark:text-[#D6B56F] font-semibold'
-                        : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-[#D6B56F]'
+                    className={`text-[11.5px] uppercase tracking-[0.18em] font-medium whitespace-nowrap py-1 transition-all duration-200 relative group font-sans ${isActive
+                      ? 'text-[#193C3B] dark:text-[#D6B56F] font-semibold'
+                      : 'text-[#665C5C] dark:text-[#C8D6D5] hover:text-[#193C3B] dark:hover:text-[#D6B56F]'
                       }`}
                   >
                     {link.name}
@@ -217,8 +217,8 @@ const Navbar = ({ onOpenQuoteModal }) => {
                     setIsOpen(false);
                   }}
                   className={`flex items-center justify-between py-2.5 px-3 rounded-lg text-xs uppercase tracking-[0.16em] font-medium transition-colors font-sans ${isActive
-                      ? 'bg-[#193C3B] text-white dark:bg-[#193C3B] dark:text-[#D6B56F] font-semibold'
-                      : 'hover:bg-[#ECE3D5] dark:hover:bg-[#143130]'
+                    ? 'bg-[#193C3B] text-white dark:bg-[#193C3B] dark:text-[#D6B56F] font-semibold'
+                    : 'hover:bg-[#ECE3D5] dark:hover:bg-[#143130]'
                     }`}
                 >
                   <span>{link.name}</span>

@@ -23,6 +23,20 @@ const HeroSection = ({ onOpenQuote }) => {
 
   return (
     <section className="relative min-h-[92vh] lg:min-h-screen flex items-center bg-[#F5EFE5] dark:bg-[#102726] text-[#292323] dark:text-[#F5EFE5] overflow-hidden pt-24 xs:pt-28 sm:pt-32 lg:pt-40 xl:pt-44 pb-14 sm:pb-16 lg:pb-24 transition-colors">
+      {/* --------------------------------------------------------------------- */}
+      {/* ROYAL ENTERPRISE MONOGRAM CREST WATERMARK (FAINT EMBOSSED BRAND BACKGROUND) */}
+      {/* --------------------------------------------------------------------- */}
+      <div
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-[53%] pointer-events-none select-none z-0 overflow-hidden flex items-center justify-center"
+      >
+        <img
+          src="/logo-crest.png"
+          alt=""
+          className="w-[500px] h-[500px] xs:w-[350px] xs:h-[350px] sm:w-[480px] sm:h-[480px] lg:w-[620px] lg:h-[620px] xl:w-[700px] xl:h-[700px] max-w-none object-contain opacity-[0.095] dark:opacity-[0.04] filter grayscale sepia-[0.35] contrast-125 dark:sepia-[0.5] mix-blend-multiply dark:mix-blend-screen transition-opacity duration-300"
+        />
+      </div>
+
       {/* Background botanical vector watermarks - Desktop only to keep mobile clean & legible */}
       <div className="hidden lg:block absolute top-24 -left-14 pointer-events-none opacity-20 dark:opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
         <BotanicalBranch className="w-64 h-64" rotate={40} />
@@ -36,12 +50,12 @@ const HeroSection = ({ onOpenQuote }) => {
         {/* ASYMMETRIC EDITORIAL SPLIT COMPOSITION */}
         {/* ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
-          
+
           {/* ----------------------------------------------------------------------- */}
           {/* LEFT SIDE: EDITORIAL TYPOGRAPHY & STORY */}
           {/* ----------------------------------------------------------------------- */}
           <div className="lg:col-span-6 xl:col-span-7 space-y-5 sm:space-y-7 text-left">
-            
+
             {/* Pre-Heading Badge / Editorial Stamp */}
             <div className="flex items-center space-x-2.5">
               <EditorialStamp text="Kolkata & Eastern India • Established 2014" />

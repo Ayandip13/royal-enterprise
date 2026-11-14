@@ -126,87 +126,87 @@ export const HeroVisualCollage = () => {
   // ==========================================================================
   const slots = isMobile
     ? [
-        // Mobile Slot 0 (Upper Center Prominent)
-        {
-          x: 0,
-          y: -44,
-          z: 35,
-          rotateX: -3,
-          rotateY: 0,
-          rotateZ: 0,
-          scale: 1.0,
-          opacity: 1.0,
-          zIndex: 30,
-          isProminent: true,
-        },
-        // Mobile Slot 1 (Lower Right Flank)
-        {
-          x: 52,
-          y: 44,
-          z: -28,
-          rotateX: 5,
-          rotateY: -15,
-          rotateZ: 3,
-          scale: 0.85,
-          opacity: 0.86,
-          zIndex: 20,
-          isProminent: false,
-        },
-        // Mobile Slot 2 (Lower Left Flank)
-        {
-          x: -52,
-          y: 44,
-          z: -28,
-          rotateX: 5,
-          rotateY: 15,
-          rotateZ: -3,
-          scale: 0.85,
-          opacity: 0.86,
-          zIndex: 15,
-          isProminent: false,
-        },
-      ]
+      // Mobile Slot 0 (Upper Center Prominent - Refined 7% dimension increase)
+      {
+        x: 0,
+        y: -44,
+        z: 35,
+        rotateX: -3,
+        rotateY: 0,
+        rotateZ: 0,
+        scale: 1.07,
+        opacity: 1.0,
+        zIndex: 30,
+        isProminent: true,
+      },
+      // Mobile Slot 1 (Lower Right Flank)
+      {
+        x: 52,
+        y: 44,
+        z: -28,
+        rotateX: 5,
+        rotateY: -15,
+        rotateZ: 3,
+        scale: 0.85,
+        opacity: 0.86,
+        zIndex: 20,
+        isProminent: false,
+      },
+      // Mobile Slot 2 (Lower Left Flank)
+      {
+        x: -52,
+        y: 44,
+        z: -28,
+        rotateX: 5,
+        rotateY: 15,
+        rotateZ: -3,
+        scale: 0.85,
+        opacity: 0.86,
+        zIndex: 15,
+        isProminent: false,
+      },
+    ]
     : [
-        // Desktop Slot 0 (Upper Center Prominent)
-        {
-          x: 0,
-          y: -65,
-          z: 55,
-          rotateX: -4,
-          rotateY: 0,
-          rotateZ: 0,
-          scale: 1.0,
-          opacity: 1.0,
-          zIndex: 30,
-          isProminent: true,
-        },
-        // Desktop Slot 1 (Lower Right Flank)
-        {
-          x: 88,
-          y: 58,
-          z: -38,
-          rotateX: 6,
-          rotateY: -18,
-          rotateZ: 4,
-          scale: 0.86,
-          opacity: 0.88,
-          zIndex: 20,
-          isProminent: false,
-        },
-        // Desktop Slot 2 (Lower Left Flank)
-        {
-          x: -88,
-          y: 58,
-          z: -38,
-          rotateX: 6,
-          rotateY: 18,
-          rotateZ: -4,
-          scale: 0.86,
-          opacity: 0.88,
-          zIndex: 15,
-          isProminent: false,
-        },
-      ];
+      // Desktop Slot 0 (Upper Center Prominent - Refined 7% dimension increase)
+      {
+        x: 0,
+        y: -65,
+        z: 55,
+        rotateX: -4,
+        rotateY: 0,
+        rotateZ: 0,
+        scale: 1.07,
+        opacity: 1.0,
+        zIndex: 30,
+        isProminent: true,
+      },
+      // Desktop Slot 1 (Lower Right Flank)
+      {
+        x: 88,
+        y: 58,
+        z: -38,
+        rotateX: 6,
+        rotateY: -18,
+        rotateZ: 4,
+        scale: 0.86,
+        opacity: 0.88,
+        zIndex: 20,
+        isProminent: false,
+      },
+      // Desktop Slot 2 (Lower Left Flank)
+      {
+        x: -88,
+        y: 58,
+        z: -38,
+        rotateX: 6,
+        rotateY: 18,
+        rotateZ: -4,
+        scale: 0.86,
+        opacity: 0.88,
+        zIndex: 15,
+        isProminent: false,
+      },
+    ];
 
   return (
     <div
@@ -294,32 +294,29 @@ export const HeroVisualCollage = () => {
             >
               {/* Card Canvas with Elegant Image Framing & Subtle Rounded Corners */}
               <div
-                className={`relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 bg-[#102726] ${
-                  isProminent
-                    ? 'border-2 border-[#D6B56F] shadow-2xl shadow-[#102726]/40 dark:shadow-black/70'
-                    : 'border border-[#D6B56F]/40 shadow-xl shadow-[#102726]/20 hover:border-[#D6B56F]/80'
-                }`}
+                className={`relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 bg-[#102726] ${isProminent
+                  ? 'border-2 border-[#D6B56F] shadow-2xl shadow-[#102726]/40 dark:shadow-black/70'
+                  : 'border border-[#D6B56F]/40 shadow-xl shadow-[#102726]/20 hover:border-[#D6B56F]/80'
+                  }`}
               >
                 {/* Photographic Artwork */}
                 <CarouselCardImage src={item.image} alt={item.alt} />
 
                 {/* Dark Vignette Gradient for Editorial Legibility */}
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t ${
-                    isProminent
-                      ? 'from-[#102726]/90 via-[#102726]/25 to-transparent'
-                      : 'from-[#102726]/95 via-[#102726]/45 to-black/20'
-                  }`}
+                  className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t ${isProminent
+                    ? 'from-[#102726]/90 via-[#102726]/25 to-transparent'
+                    : 'from-[#102726]/95 via-[#102726]/45 to-black/20'
+                    }`}
                 />
 
                 {/* Top Discipline Badge */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white font-sans pointer-events-none">
                   <span
-                    className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-[0.16em] font-semibold border backdrop-blur-md ${
-                      isProminent
-                        ? 'bg-[#102726]/80 text-[#D6B56F] border-[#D6B56F]/50'
-                        : 'bg-black/60 text-[#F5EFE5]/80 border-white/15 text-[8.5px]'
-                    }`}
+                    className={`inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-[0.16em] font-semibold border backdrop-blur-md ${isProminent
+                      ? 'bg-[#102726]/80 text-[#D6B56F] border-[#D6B56F]/50'
+                      : 'bg-black/60 text-[#F5EFE5]/80 border-white/15 text-[8.5px]'
+                      }`}
                   >
                     {isProminent && (
                       <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F] animate-pulse" />
@@ -342,9 +339,8 @@ export const HeroVisualCollage = () => {
                   </div>
 
                   <h3
-                    className={`font-display text-[#F5EFE5] font-normal leading-tight line-clamp-1 ${
-                      isProminent ? 'text-lg sm:text-xl' : 'text-sm sm:text-base opacity-90'
-                    }`}
+                    className={`font-display text-[#F5EFE5] font-normal leading-tight line-clamp-1 ${isProminent ? 'text-lg sm:text-xl' : 'text-sm sm:text-base opacity-90'
+                      }`}
                   >
                     {item.title}
                   </h3>
@@ -370,21 +366,6 @@ export const HeroVisualCollage = () => {
             </motion.div>
           );
         })}
-
-        {/* Floating Golden Seal on Upper Left of Carousel */}
-        <div className="absolute -top-3 -left-2 xs:-left-4 sm:-left-5 z-40 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-2xl border-2 border-[#D6B56F] pointer-events-none">
-          <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
-          <span className="text-[7.5px] sm:text-[8.5px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
-            3 Disciplines
-          </span>
-          <span className="text-[7px] uppercase tracking-wider text-white/90 font-light font-sans">
-            One Standard
-          </span>
-
-          <div className="absolute -bottom-1 -left-1.5 z-40 pointer-events-none text-[#D6B56F]">
-            <GoldParticleCluster className="w-4 h-4 text-[#D6B56F]" />
-          </div>
-        </div>
       </div>
 
       {/* ------------------------------------------------------------------- */}
@@ -398,19 +379,17 @@ export const HeroVisualCollage = () => {
               key={item.id}
               type="button"
               onClick={() => setActiveProminentIndex(idx)}
-              className={`group flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-sans font-medium transition-all duration-300 cursor-pointer ${
-                isActive
-                  ? 'bg-[#193C3B] text-[#F5EFE5] shadow-md dark:bg-[#D6B56F] dark:text-[#102726] font-semibold ring-1 ring-[#D6B56F]/50'
-                  : 'bg-white/70 dark:bg-white/10 text-[#665C5C] dark:text-[#C8D6D5] hover:bg-white dark:hover:bg-white/20'
-              }`}
+              className={`group flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-sans font-medium transition-all duration-300 cursor-pointer ${isActive
+                ? 'bg-[#193C3B] text-[#F5EFE5] shadow-md dark:bg-[#D6B56F] dark:text-[#102726] font-semibold ring-1 ring-[#D6B56F]/50'
+                : 'bg-white/70 dark:bg-white/10 text-[#665C5C] dark:text-[#C8D6D5] hover:bg-white dark:hover:bg-white/20'
+                }`}
               aria-label={`Select ${item.purpose}`}
             >
               <span
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  isActive
-                    ? 'bg-[#D6B56F] dark:bg-[#102726] scale-125'
-                    : 'bg-[#CBBFB0] group-hover:bg-[#193C3B]'
-                }`}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${isActive
+                  ? 'bg-[#D6B56F] dark:bg-[#102726] scale-125'
+                  : 'bg-[#CBBFB0] group-hover:bg-[#193C3B]'
+                  }`}
               />
               <span>{item.purpose}</span>
             </button>

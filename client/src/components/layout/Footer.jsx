@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import Logo from '../common/Logo';
+import { WhatsAppIcon, InstagramIcon, FacebookIcon, YouTubeIcon, LinkedInIcon } from '../common/SocialIcons';
 import {
   AntiqueStar,
   BotanicalBranch,
@@ -43,25 +44,37 @@ const Footer = ({ onOpenQuoteModal }) => {
               Kolkata wedding planning, event management, and in-house catering company serving Eastern India and destination celebrations. Planned, cooked, and run by one team since 2014.
             </p>
 
-            {/* Social Channels */}
+            {/* Social Channels with Authentic Brand Icons */}
             <div className="flex items-center space-x-2.5 pt-2 text-[#F5EFE5]/80">
+              <a
+                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all duration-200"
+                aria-label="WhatsApp"
+                title="WhatsApp: [WhatsApp Number]"
+              >
+                <WhatsAppIcon className="w-4 h-4" />
+              </a>
               <a
                 href={COMPANY_INFO.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#E1306C] hover:bg-[#E1306C] hover:text-white flex items-center justify-center transition-all duration-200"
                 aria-label="Instagram"
+                title="Instagram: [Your_Instagram_ID]"
               >
-                <Instagram className="w-4 h-4" />
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
                 href={COMPANY_INFO.socials.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white flex items-center justify-center transition-all duration-200"
                 aria-label="Facebook"
+                title="Facebook: [Your_Facebook_ID]"
               >
-                <Facebook className="w-4 h-4" />
+                <FacebookIcon className="w-4 h-4" />
               </a>
               <a
                 href={COMPANY_INFO.socials.linkedin}
@@ -69,17 +82,19 @@ const Footer = ({ onOpenQuoteModal }) => {
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
+                title="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <LinkedInIcon className="w-4 h-4" />
               </a>
               <a
                 href={COMPANY_INFO.socials.youtube}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#D6B56F] hover:text-[#D6B56F] flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#FF0000] hover:bg-[#FF0000] hover:text-white flex items-center justify-center transition-all duration-200"
                 aria-label="YouTube"
+                title="YouTube"
               >
-                <Youtube className="w-4 h-4" />
+                <YouTubeIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

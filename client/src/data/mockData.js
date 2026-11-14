@@ -1,21 +1,29 @@
 export const COMPANY_INFO = {
   name: 'Royal Enterprise',
   tagline: 'Kolkata Weddings, Authentic Feasts & Celebrations — Run by One Local Team',
+  
+  // Phone numbers (Replace placeholders with your phone numbers)
   phone: '+91 [Insert Contact Number]',
   displayPhone: '+91 [Insert Contact Number]',
   secondaryPhone: '+91 [Secondary Contact Number]',
+  
+  // WhatsApp number (Replace with your WhatsApp number with country code, e.g. '919876543210')
   whatsapp: '[WhatsApp Number]',
+  
   email: 'contact@royalenterprise.com',
   bookingEmail: 'contact@royalenterprise.com',
   address: '[Insert Business Address, City, State, PIN]',
   officeHours: '[Insert Working Hours]',
   mapUrl: 'https://maps.google.com/?q=Kolkata',
   website: 'www.royalenterprise.com',
+  
+  // Social media profile links / IDs (Replace with your actual profiles / IDs)
   socials: {
-    instagram: '[Instagram Link]',
-    facebook: '[Facebook Link]',
-    linkedin: '[LinkedIn Link]',
-    youtube: '[YouTube Link]',
+    whatsapp: 'https://wa.me/[WhatsApp Number]',
+    instagram: 'https://instagram.com/[Your_Instagram_ID]',
+    facebook: 'https://facebook.com/[Your_Facebook_ID]',
+    linkedin: 'https://linkedin.com/company/[Your_LinkedIn_ID]',
+    youtube: 'https://youtube.com/@[Your_YouTube_Channel]',
   },
 };
 

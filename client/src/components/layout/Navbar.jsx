@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageSquare, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import Logo from '../common/Logo';
 import ThemeToggle from '../common/ThemeToggle';
 import { AntiqueStar } from '../common/BotanicalDecor';
+import { WhatsAppIcon, InstagramIcon, FacebookIcon } from '../common/SocialIcons';
 
 const Navbar = ({ onOpenQuoteModal }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ const Navbar = ({ onOpenQuoteModal }) => {
               rel="noreferrer"
               className="inline-flex items-center space-x-1.5 text-emerald-300 hover:text-white transition-colors"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <WhatsAppIcon className="w-3.5 h-3.5" />
               <span>WhatsApp: {COMPANY_INFO.displayPhone}</span>
             </a>
             <span className="text-white/20">|</span>
@@ -107,20 +108,50 @@ const Navbar = ({ onOpenQuoteModal }) => {
               })}
             </nav>
 
-            {/* Desktop Action Triggers */}
-            <div className="hidden lg:flex items-center space-x-3.5">
+            {/* Desktop Action Triggers: Real WhatsApp, Facebook, Instagram Icons & CTAs */}
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
               <ThemeToggle size="md" />
 
+              {/* Real Social Icon Quick Links */}
+              <div className="flex items-center space-x-1.5 pl-1 border-l border-[#E8DFD3] dark:border-[#244C4A]">
+                {/* Real Instagram Icon */}
+                <a
+                  href={COMPANY_INFO.socials.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Instagram: [Your_Instagram_ID]"
+                  aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] bg-white/70 dark:bg-[#143130] text-[#E1306C] hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] shadow-sm transition-all duration-200 flex items-center justify-center group"
+                >
+                  <InstagramIcon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                </a>
+
+                {/* Real Facebook Icon */}
+                <a
+                  href={COMPANY_INFO.socials.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Facebook: [Your_Facebook_ID]"
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] bg-white/70 dark:bg-[#143130] text-[#1877F2] hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] shadow-sm transition-all duration-200 flex items-center justify-center group"
+                >
+                  <FacebookIcon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                </a>
+              </div>
+
+              {/* Real WhatsApp CTA Button */}
               <a
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-whatsapp px-3.5 py-2 text-xs font-semibold inline-flex items-center space-x-1.5 shadow-sm rounded-lg"
+                title="WhatsApp Direct Desk"
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white px-3.5 py-2 text-xs font-semibold inline-flex items-center space-x-1.5 shadow-sm rounded-lg transition-all duration-200 hover:shadow-md"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <WhatsAppIcon className="w-4 h-4 shrink-0" />
                 <span>WhatsApp</span>
               </a>
 
+              {/* Plan Your Event CTA Button */}
               <button
                 type="button"
                 onClick={onOpenQuoteModal}
@@ -178,14 +209,53 @@ const Navbar = ({ onOpenQuoteModal }) => {
             })}
           </nav>
 
-          <div className="pt-3 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-2">
+          <div className="pt-3 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-3">
+            {/* Real Social Channels Row for Mobile */}
+            <div className="flex items-center justify-between px-1 py-1">
+              <span className="text-[11px] uppercase tracking-wider text-[#665C5C] dark:text-[#C8D6D5] font-medium font-sans">
+                Connect With Us
+              </span>
+              <div className="flex items-center space-x-2">
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="WhatsApp"
+                  aria-label="WhatsApp"
+                  className="w-8 h-8 rounded-lg bg-[#25D366] text-white flex items-center justify-center shadow-sm"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={COMPANY_INFO.socials.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Instagram"
+                  aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg bg-[#E1306C] text-white flex items-center justify-center shadow-sm"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={COMPANY_INFO.socials.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Facebook"
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg bg-[#1877F2] text-white flex items-center justify-center shadow-sm"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
             <a
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
               target="_blank"
               rel="noreferrer"
-              className="btn-whatsapp w-full py-2.5 px-4 text-xs font-semibold flex items-center justify-center space-x-2 rounded-lg"
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full py-2.5 px-4 text-xs font-semibold flex items-center justify-center space-x-2 rounded-lg shadow-sm"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               <span>WhatsApp Direct Desk</span>
             </a>
 

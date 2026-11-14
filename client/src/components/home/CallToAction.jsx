@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Phone, CheckCircle2, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../../data/mockData';
 import { useNotification } from '../../context/NotificationContext';
 import { submitContactEnquiry } from '../../services/api';
+import { WhatsAppIcon } from '../common/SocialIcons';
 import {
   BotanicalBranch,
   AntiqueStar,
@@ -131,9 +132,9 @@ const CallToAction = ({ onOpenQuote }) => {
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-whatsapp py-3.5 px-6 text-xs uppercase tracking-wider font-semibold flex items-center justify-center space-x-2 shadow-md w-full rounded-lg"
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 text-xs uppercase tracking-wider font-semibold flex items-center justify-center space-x-2 shadow-md w-full rounded-lg transition-all duration-200 hover:shadow-lg"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Instant WhatsApp Chat</span>
               </a>
 

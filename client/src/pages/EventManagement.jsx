@@ -23,10 +23,10 @@ import {
   Clock,
   Radio,
   FileText,
-  MessageSquare,
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/mockData';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
+import { WhatsAppIcon } from '../components/common/SocialIcons';
 
 const EventManagement = () => {
   const [selectedCategory, setSelectedCategory] = useState('Corporate Events & Conferences');
@@ -544,9 +544,9 @@ const EventManagement = () => {
                   href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20upcoming%20corporate%20event.`}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn-whatsapp px-5 py-3.5 text-xs uppercase tracking-[0.12em] font-semibold inline-flex items-center space-x-2 shadow-sm rounded-lg"
+                  className="bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-3.5 text-xs uppercase tracking-[0.12em] font-semibold inline-flex items-center space-x-2 shadow-sm rounded-lg transition-all duration-200"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
               </div>

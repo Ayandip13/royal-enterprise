@@ -9,14 +9,10 @@ import {
   Clock,
   Send,
   CheckCircle2,
-  MessageSquare,
   ExternalLink,
-  Instagram,
-  Facebook,
-  Linkedin,
-  Youtube,
 } from 'lucide-react';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
+import { WhatsAppIcon, InstagramIcon, FacebookIcon, YouTubeIcon, LinkedInIcon } from '../components/common/SocialIcons';
 
 const Contact = () => {
   const { showToast } = useNotification();
@@ -151,7 +147,7 @@ const Contact = () => {
             {/* Direct WhatsApp Callout Banner */}
             <div className="p-6 bg-[#102726]/80 border border-[#D6B56F]/30 rounded-2xl space-y-3.5 shadow-xl backdrop-blur-md">
               <div className="flex items-center space-x-2.5 text-white font-bold text-sm">
-                <MessageSquare className="w-5 h-5 text-emerald-400" />
+                <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
                 <span>Prefer a quick WhatsApp chat?</span>
               </div>
               <p className="text-xs text-[#F5EFE5]/80 leading-relaxed font-light">
@@ -161,9 +157,9 @@ const Contact = () => {
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-whatsapp py-2.5 px-4 text-xs font-semibold inline-flex items-center space-x-2 rounded-lg shadow-sm"
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white py-2.5 px-4 text-xs font-semibold inline-flex items-center space-x-2 rounded-lg shadow-sm transition-all duration-200"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Message us on WhatsApp: {COMPANY_INFO.displayPhone}</span>
               </a>
             </div>
@@ -235,47 +231,61 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Social Channels */}
+              {/* Social Channels with Authentic Brand Icons */}
               <div className="pt-4 border-t border-white/15">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#D6B56F] block mb-2.5">
                   Social Channels
                 </span>
                 <div className="flex items-center space-x-2.5">
                   <a
+                    href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2.5 bg-white/5 hover:bg-[#25D366] rounded-lg text-white transition-all duration-200"
+                    aria-label="WhatsApp"
+                    title="WhatsApp: [WhatsApp Number]"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                  </a>
+                  <a
                     href={COMPANY_INFO.socials.instagram}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-white hover:text-[#D6B56F] transition-colors"
+                    className="p-2.5 bg-white/5 hover:bg-[#E1306C] rounded-lg text-white transition-all duration-200"
                     aria-label="Instagram"
+                    title="Instagram: [Your_Instagram_ID]"
                   >
-                    <Instagram className="w-4 h-4" />
+                    <InstagramIcon className="w-4 h-4" />
                   </a>
                   <a
                     href={COMPANY_INFO.socials.facebook}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-white hover:text-[#D6B56F] transition-colors"
+                    className="p-2.5 bg-white/5 hover:bg-[#1877F2] rounded-lg text-white transition-all duration-200"
                     aria-label="Facebook"
+                    title="Facebook: [Your_Facebook_ID]"
                   >
-                    <Facebook className="w-4 h-4" />
+                    <FacebookIcon className="w-4 h-4" />
                   </a>
                   <a
                     href={COMPANY_INFO.socials.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-white hover:text-[#D6B56F] transition-colors"
+                    className="p-2.5 bg-white/5 hover:bg-[#D6B56F] rounded-lg text-white hover:text-[#102726] transition-all duration-200"
                     aria-label="LinkedIn"
+                    title="LinkedIn"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <LinkedInIcon className="w-4 h-4" />
                   </a>
                   <a
                     href={COMPANY_INFO.socials.youtube}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 bg-white/5 hover:bg-white/10 rounded-lg text-white hover:text-[#D6B56F] transition-colors"
+                    className="p-2.5 bg-white/5 hover:bg-[#FF0000] rounded-lg text-white transition-all duration-200"
                     aria-label="YouTube"
+                    title="YouTube"
                   >
-                    <Youtube className="w-4 h-4" />
+                    <YouTubeIcon className="w-4 h-4" />
                   </a>
                 </div>
               </div>

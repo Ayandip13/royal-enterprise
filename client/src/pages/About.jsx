@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../data/mockData';
-import { ArrowRight, MessageSquare } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
+import { WhatsAppIcon } from '../components/common/SocialIcons';
 
 const About = () => {
   return (
@@ -148,9 +149,9 @@ const About = () => {
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20would%20like%20to%20discuss%20an%20event.`}
               target="_blank"
               rel="noreferrer"
-              className="btn-whatsapp px-5 py-3 text-xs font-semibold inline-flex items-center space-x-1.5 shadow-md rounded-lg"
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-3 text-xs font-semibold inline-flex items-center space-x-1.5 shadow-md rounded-lg transition-all duration-200"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <WhatsAppIcon className="w-4 h-4" />
               <span>WhatsApp us</span>
             </a>
             <Link

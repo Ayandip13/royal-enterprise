@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import {
   X,
@@ -129,7 +130,12 @@ export const HeroVisualCollage = () => {
 
   // Keyboard accessibility for Lightbox Modal
   useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (lightboxIndex === null) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setLightboxIndex(null);
@@ -145,7 +151,10 @@ export const HeroVisualCollage = () => {
       }
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
   }, [lightboxIndex]);
 
   // ==========================================================================
@@ -218,8 +227,8 @@ export const HeroVisualCollage = () => {
         rotateX: 6,
         rotateY: -18,
         rotateZ: 4,
-        scale: 0.86,
-        opacity: 0.88,
+        scale: 0.76,
+        opacity: 0.58,
         zIndex: 20,
         isProminent: false,
       },
@@ -231,8 +240,8 @@ export const HeroVisualCollage = () => {
         rotateX: 6,
         rotateY: 18,
         rotateZ: -4,
-        scale: 0.86,
-        opacity: 0.88,
+        scale: 0.76,
+        opacity: 0.78,
         zIndex: 15,
         isProminent: false,
       },
@@ -336,11 +345,11 @@ export const HeroVisualCollage = () => {
                 {/* Photographic Artwork */}
                 <CarouselCardImage src={item.image} alt={item.alt} />
 
-                {/* Dark Vignette Gradient for Editorial Legibility */}
+                {/* Subtle natural bottom shadow for text legibility without darkening the photo */}
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 bg-gradient-to-t ${isProminent
-                    ? 'from-[#102726]/90 via-[#102726]/25 to-transparent'
-                    : 'from-[#102726]/95 via-[#102726]/45 to-black/20'
+                  className={`absolute bottom-0 inset-x-0 h-28 sm:h-32 transition-opacity duration-500 bg-gradient-to-t pointer-events-none ${isProminent
+                    ? 'from-black/75 via-black/25 to-transparent'
+                    : 'from-black/80 via-black/35 to-transparent'
                     }`}
                 />
 
@@ -405,21 +414,6 @@ export const HeroVisualCollage = () => {
             </motion.div>
           );
         })}
-
-        {/* Floating Golden Seal on Upper Left of Carousel */}
-        <div className="absolute -top-3 -left-2 xs:-left-4 sm:-left-5 z-40 w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-[#193C3B] text-[#F5EFE5] p-2 flex flex-col items-center justify-center text-center shadow-2xl border-2 border-[#D6B56F] pointer-events-none">
-          <AntiqueStar className="w-3 h-3 text-[#D6B56F] mb-0.5" />
-          <span className="text-[7.5px] sm:text-[8.5px] uppercase tracking-[0.16em] font-semibold text-[#D6B56F] leading-tight font-sans">
-            3 Disciplines
-          </span>
-          <span className="text-[7px] uppercase tracking-wider text-white/90 font-light font-sans">
-            One Standard
-          </span>
-
-          <div className="absolute -bottom-1 -left-1.5 z-40 pointer-events-none text-[#D6B56F]">
-            <GoldParticleCluster className="w-4 h-4 text-[#D6B56F]" />
-          </div>
-        </div>
       </div>
 
       {/* ------------------------------------------------------------------- */}
@@ -452,94 +446,119 @@ export const HeroVisualCollage = () => {
       </div>
 
       {/* =================================================================== */}
-      {/* FULLSCREEN EDITORIAL LIGHTBOX MODAL FOR CLICKED HERO PHOTOGRAPH     */}
+      {/* FULLSCREEN EDITORIAL LIGHTBOX MODAL (PORTAL TO BODY - COVERS NAVBAR) */}
       {/* =================================================================== */}
-      {lightboxIndex !== null && HERO_CAROUSEL_IMAGES[lightboxIndex] && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 backdrop-blur-lg p-4 sm:p-6 transition-opacity"
-          onClick={() => setLightboxIndex(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          {/* Close Button */}
-          <button
-            type="button"
-            onClick={() => setLightboxIndex(null)}
-            className="absolute top-5 right-5 sm:top-6 sm:right-6 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-            aria-label="Close photograph view"
-          >
-            <X className="w-6 h-6" />
-          </button>
-
-          {/* Previous Arrow */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              const prev = (lightboxIndex - 1 + HERO_CAROUSEL_IMAGES.length) % HERO_CAROUSEL_IMAGES.length;
-              setLightboxIndex(prev);
-              setActiveProminentIndex(prev);
-            }}
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer focus:outline-none"
-            aria-label="Previous photograph"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          {/* Next Arrow */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              const next = (lightboxIndex + 1) % HERO_CAROUSEL_IMAGES.length;
-              setLightboxIndex(next);
-              setActiveProminentIndex(next);
-            }}
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer focus:outline-none"
-            aria-label="Next photograph"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Lightbox Content Container */}
+      {typeof document !== 'undefined' &&
+        lightboxIndex !== null &&
+        HERO_CAROUSEL_IMAGES[lightboxIndex] &&
+        createPortal(
           <div
-            className="relative max-w-4xl w-full flex flex-col items-center space-y-4"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-black/95 backdrop-blur-2xl p-4 sm:p-6 py-6 sm:py-8 overflow-y-auto"
+            onClick={() => setLightboxIndex(null)}
+            role="dialog"
+            aria-modal="true"
           >
-            <div className="w-full max-h-[75vh] flex items-center justify-center rounded-2xl overflow-hidden border border-white/20 bg-[#102726] shadow-2xl">
-              <img
-                src={HERO_CAROUSEL_IMAGES[lightboxIndex].image}
-                alt={HERO_CAROUSEL_IMAGES[lightboxIndex].alt}
-                className="max-h-[75vh] w-auto max-w-full object-contain"
-              />
+            {/* Top Bar: Discipline Tag & High-Contrast Close Button */}
+            <div
+              className="w-full max-w-4xl flex items-center justify-between z-50 shrink-0 mb-3"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#102726] border border-[#D6B56F]/40 text-xs text-[#D6B56F]">
+                <AntiqueStar className="w-3.5 h-3.5 text-[#D6B56F]" />
+                <span className="uppercase tracking-widest font-semibold text-[10px]">
+                  {HERO_CAROUSEL_IMAGES[lightboxIndex].discipline}
+                </span>
+              </div>
+
+              {/* Prominent High-Contrast Close Button */}
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(null)}
+                className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 text-white transition-all cursor-pointer border border-white/20 shadow-lg group"
+                aria-label="Close photograph view"
+              >
+                <span className="text-xs font-sans tracking-wider uppercase font-medium">Close</span>
+                <X className="w-4 h-4 group-hover:rotate-90 transition-transform duration-200" />
+              </button>
             </div>
 
-            {/* Lightbox Caption Header */}
-            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 text-white font-sans px-2">
-              <div className="text-center sm:text-left space-y-0.5">
-                <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-[#D6B56F]">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{HERO_CAROUSEL_IMAGES[lightboxIndex].location}</span>
-                  <span>•</span>
-                  <span className="uppercase tracking-wider font-semibold">
-                    {HERO_CAROUSEL_IMAGES[lightboxIndex].discipline}
+            {/* Previous Arrow */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                const prev = (lightboxIndex - 1 + HERO_CAROUSEL_IMAGES.length) % HERO_CAROUSEL_IMAGES.length;
+                setLightboxIndex(prev);
+                setActiveProminentIndex(prev);
+              }}
+              className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 p-3 sm:p-3.5 rounded-full bg-black/70 hover:bg-[#102726] border border-white/25 hover:border-[#D6B56F] text-white transition-all cursor-pointer shadow-2xl focus:outline-none"
+              aria-label="Previous photograph"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-[#D6B56F]" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                const next = (lightboxIndex + 1) % HERO_CAROUSEL_IMAGES.length;
+                setLightboxIndex(next);
+                setActiveProminentIndex(next);
+              }}
+              className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 p-3 sm:p-3.5 rounded-full bg-black/70 hover:bg-[#102726] border border-white/25 hover:border-[#D6B56F] text-white transition-all cursor-pointer shadow-2xl focus:outline-none"
+              aria-label="Next photograph"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-[#D6B56F]" />
+            </button>
+
+            {/* Central Photograph Frame with Generous Margins & Visible Gold Borders */}
+            <div
+              className="relative max-w-4xl w-full flex-1 flex items-center justify-center my-auto py-2"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative max-h-[62vh] sm:max-h-[66vh] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#D6B56F]/50 bg-[#0B1C1B] shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
+                <img
+                  src={HERO_CAROUSEL_IMAGES[lightboxIndex].image}
+                  alt={HERO_CAROUSEL_IMAGES[lightboxIndex].alt}
+                  className="max-h-[62vh] sm:max-h-[66vh] w-auto max-w-full object-contain block"
+                />
+              </div>
+            </div>
+
+            {/* Solid High-Contrast Editorial Caption Card (100% Readable in Light & Dark Themes) */}
+            <div
+              className="w-full max-w-4xl bg-[#102726] border border-[#D6B56F]/40 rounded-2xl p-4 sm:p-5 shadow-2xl shrink-0 mt-3 z-50 text-left font-sans"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white">
+                <div className="space-y-1 text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-[#D6B56F] font-semibold">
+                    <MapPin className="w-3.5 h-3.5 shrink-0 text-[#D6B56F]" />
+                    <span>{HERO_CAROUSEL_IMAGES[lightboxIndex].location}</span>
+                    <span className="text-[#D6B56F]/50">•</span>
+                    <span className="uppercase tracking-widest text-[#D6B56F]">
+                      {HERO_CAROUSEL_IMAGES[lightboxIndex].purpose}
+                    </span>
+                  </div>
+                  <h4 className="font-display text-xl sm:text-2xl text-[#F5EFE5] font-normal tracking-tight">
+                    {HERO_CAROUSEL_IMAGES[lightboxIndex].title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-[#F5EFE5]/85 font-light">
+                    {HERO_CAROUSEL_IMAGES[lightboxIndex].subtitle}
+                  </p>
+                </div>
+
+                <div className="shrink-0 flex items-center space-x-3">
+                  <span className="text-xs text-[#D6B56F] font-mono bg-black/50 px-3.5 py-1.5 rounded-full border border-[#D6B56F]/30">
+                    {lightboxIndex + 1} of {HERO_CAROUSEL_IMAGES.length}
                   </span>
                 </div>
-                <h4 className="font-display text-xl sm:text-2xl text-white font-normal">
-                  {HERO_CAROUSEL_IMAGES[lightboxIndex].title}
-                </h4>
-                <p className="text-xs text-[#F5EFE5]/75 font-light">
-                  {HERO_CAROUSEL_IMAGES[lightboxIndex].subtitle}
-                </p>
-              </div>
-
-              <div className="text-xs text-white/70 font-mono bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15">
-                {lightboxIndex + 1} of {HERO_CAROUSEL_IMAGES.length}
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 };

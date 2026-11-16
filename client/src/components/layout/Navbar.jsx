@@ -72,13 +72,23 @@ const Navbar = ({ onOpenQuoteModal }) => {
               <span>WhatsApp: {COMPANY_INFO.displayPhone}</span>
             </a>
             <span className="text-white/20">|</span>
-            <a
-              href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
-              className="inline-flex items-center space-x-1.5 text-[#F5EFE5]/90 hover:text-[#D6B56F] transition-colors"
-            >
+            <div className="inline-flex items-center space-x-1.5 text-[#F5EFE5]/90">
               <Phone className="w-3.5 h-3.5 text-[#D6B56F]" />
-              <span>Call: {COMPANY_INFO.displayPhone}</span>
-            </a>
+              <span>Call: </span>
+              <a
+                href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
+                className="hover:text-[#D6B56F] transition-colors"
+              >
+                {COMPANY_INFO.displayPhone}
+              </a>
+              <span className="text-white/30">/</span>
+              <a
+                href={`tel:${COMPANY_INFO.secondaryPhone.replace(/\s+/g, '')}`}
+                className="hover:text-[#D6B56F] transition-colors"
+              >
+                {COMPANY_INFO.secondaryPhone}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -275,16 +285,24 @@ const Navbar = ({ onOpenQuoteModal }) => {
               className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full py-2.5 px-4 text-xs font-semibold flex items-center justify-center space-x-2 rounded-lg shadow-sm"
             >
               <WhatsAppIcon className="w-4 h-4" />
-              <span>WhatsApp Direct Desk</span>
+              <span>WhatsApp Direct Desk ({COMPANY_INFO.displayPhone})</span>
             </a>
 
-            <a
-              href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`}
-              className="w-full py-2.5 px-4 text-xs font-semibold border border-[#CBBFB0] dark:border-[#2B5755] flex items-center justify-center space-x-2 rounded-lg text-[#292323] dark:text-[#F5EFE5]"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#D6B56F]" />
-              <span>Call: {COMPANY_INFO.displayPhone}</span>
-            </a>
+            <div className="w-full py-2.5 px-4 text-xs font-semibold border border-[#CBBFB0] dark:border-[#2B5755] flex flex-col items-center justify-center space-y-1 rounded-lg text-[#292323] dark:text-[#F5EFE5]">
+              <div className="flex items-center space-x-1.5">
+                <Phone className="w-3.5 h-3.5 text-[#D6B56F]" />
+                <span>Call Desk:</span>
+              </div>
+              <div className="flex items-center space-x-2 text-[11.5px]">
+                <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`} className="text-[#193C3B] dark:text-[#D6B56F] hover:underline font-mono">
+                  {COMPANY_INFO.displayPhone}
+                </a>
+                <span className="text-stone-400">/</span>
+                <a href={`tel:${COMPANY_INFO.secondaryPhone.replace(/\s+/g, '')}`} className="text-[#193C3B] dark:text-[#D6B56F] hover:underline font-mono">
+                  {COMPANY_INFO.secondaryPhone}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -30,7 +30,7 @@ const CallToAction = ({ onOpenQuote }) => {
       await submitContactEnquiry({
         customerName: 'Quick Callback Request',
         phone: phoneInput,
-        email: 'contact@royalenterprise.com',
+        email: COMPANY_INFO.email || 'query@royal.enterprise.com',
         subject: 'Quick Callback Request from Website Banner',
         message: 'Client requested an immediate consultation callback via homepage banner.',
       });

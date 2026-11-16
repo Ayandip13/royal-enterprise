@@ -52,7 +52,7 @@ const Footer = ({ onOpenQuoteModal }) => {
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all duration-200"
                 aria-label="WhatsApp"
-                title="WhatsApp: [WhatsApp Number]"
+                title={`WhatsApp: ${COMPANY_INFO.displayPhone}`}
               >
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
@@ -197,18 +197,33 @@ const Footer = ({ onOpenQuoteModal }) => {
                   >
                     {COMPANY_INFO.displayPhone}
                   </a>
-                  <span className="text-[11px] text-[#F5EFE5]/50 block">Alt: {COMPANY_INFO.secondaryPhone}</span>
+                  <a
+                    href={`tel:${COMPANY_INFO.secondaryPhone.replace(/\s+/g, '')}`}
+                    className="text-xs text-[#F5EFE5]/70 hover:text-[#D6B56F] block transition-colors mt-0.5"
+                  >
+                    Alt: {COMPANY_INFO.secondaryPhone}
+                  </a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 text-[#D6B56F] shrink-0 mt-0.5" />
-                <a
-                  href={`mailto:${COMPANY_INFO.email}`}
-                  className="hover:text-[#D6B56F] block transition-colors"
-                >
-                  {COMPANY_INFO.email}
-                </a>
+                <div className="space-y-0.5">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="hover:text-[#D6B56F] block transition-colors font-medium text-white"
+                  >
+                    {COMPANY_INFO.email}
+                  </a>
+                  {COMPANY_INFO.supportEmail && (
+                    <a
+                      href={`mailto:${COMPANY_INFO.supportEmail}`}
+                      className="text-xs text-[#F5EFE5]/70 hover:text-[#D6B56F] block transition-colors"
+                    >
+                      {COMPANY_INFO.supportEmail}
+                    </a>
+                  )}
+                </div>
               </div>
 
               <div className="pt-2">

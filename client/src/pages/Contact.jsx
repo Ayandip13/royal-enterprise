@@ -203,22 +203,35 @@ const Contact = () => {
                     >
                       {COMPANY_INFO.displayPhone}
                     </a>
-                    <span className="text-xs text-white/50 block font-light">
+                    <a
+                      href={`tel:${COMPANY_INFO.secondaryPhone.replace(/\s+/g, '')}`}
+                      className="text-xs text-[#F5EFE5]/75 hover:text-[#D6B56F] block font-light mt-0.5"
+                    >
                       Alternate: {COMPANY_INFO.secondaryPhone}
-                    </span>
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3.5">
                   <Mail className="w-4 h-4 text-[#D6B56F] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-semibold block text-white">Email:</span>
-                    <a
-                      href={`mailto:${COMPANY_INFO.email}`}
-                      className="text-[#D6B56F] hover:text-white font-semibold hover:underline transition-colors"
-                    >
-                      {COMPANY_INFO.email}
-                    </a>
+                  <div className="space-y-1">
+                    <span className="font-semibold block text-white">Email Enquiries:</span>
+                    <div className="space-y-0.5">
+                      <a
+                        href={`mailto:${COMPANY_INFO.email}`}
+                        className="text-[#D6B56F] hover:text-white font-semibold hover:underline block transition-colors"
+                      >
+                        {COMPANY_INFO.email}
+                      </a>
+                      {COMPANY_INFO.supportEmail && (
+                        <a
+                          href={`mailto:${COMPANY_INFO.supportEmail}`}
+                          className="text-xs text-[#F5EFE5]/75 hover:text-[#D6B56F] block transition-colors"
+                        >
+                          Support: {COMPANY_INFO.supportEmail}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -243,7 +256,7 @@ const Contact = () => {
                     rel="noreferrer"
                     className="p-2.5 bg-white/5 hover:bg-[#25D366] rounded-lg text-white transition-all duration-200"
                     aria-label="WhatsApp"
-                    title="WhatsApp: [WhatsApp Number]"
+                    title={`WhatsApp: ${COMPANY_INFO.displayPhone}`}
                   >
                     <WhatsAppIcon className="w-4 h-4" />
                   </a>
@@ -359,7 +372,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+91 [Insert Contact Number]"
+                        placeholder="+91 98310 11474"
                         required
                         className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[#D6B56F]"
                       />

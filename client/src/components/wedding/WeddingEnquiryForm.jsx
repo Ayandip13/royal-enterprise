@@ -255,7 +255,7 @@ const WeddingEnquiryForm = ({ initialPackageType = 'Complete Wedding Package' })
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+91 [Insert Contact Number]"
+              placeholder="+91 98310 11474"
               required
               error={errors.phone}
             />

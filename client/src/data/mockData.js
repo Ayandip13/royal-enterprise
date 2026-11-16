@@ -2,28 +2,30 @@ export const COMPANY_INFO = {
   name: 'Royal Enterprise',
   tagline: 'Kolkata Weddings, Authentic Feasts & Celebrations — Run by One Local Team',
   
-  // Phone numbers (Replace placeholders with your phone numbers)
-  phone: '+91 [Insert Contact Number]',
-  displayPhone: '+91 [Insert Contact Number]',
-  secondaryPhone: '+91 [Secondary Contact Number]',
+  // Phone numbers
+  phone: '+919831011474',
+  displayPhone: '+91 98310 11474',
+  secondaryPhone: '+91 80136 93587',
+  phones: ['+91 98310 11474', '+91 80136 93587'],
   
-  // WhatsApp number (Replace with your WhatsApp number with country code, e.g. '919876543210')
-  whatsapp: '[WhatsApp Number]',
+  // WhatsApp number
+  whatsapp: '919831011474',
   
-  email: 'contact@royalenterprise.com',
-  bookingEmail: 'contact@royalenterprise.com',
-  address: '[Insert Business Address, City, State, PIN]',
-  officeHours: '[Insert Working Hours]',
+  email: 'query@royal.enterprise.com',
+  supportEmail: 'support@royal.enterprise.com',
+  bookingEmail: 'query@royal.enterprise.com',
+  address: 'Kolkata, West Bengal, India',
+  officeHours: 'Mon - Sun: 9:00 AM - 9:00 PM IST',
   mapUrl: 'https://maps.google.com/?q=Kolkata',
   website: 'www.royalenterprise.com',
   
-  // Social media profile links / IDs (Replace with your actual profiles / IDs)
+  // Social media profile links / IDs
   socials: {
-    whatsapp: 'https://wa.me/[WhatsApp Number]',
-    instagram: 'https://instagram.com/[Your_Instagram_ID]',
-    facebook: 'https://facebook.com/[Your_Facebook_ID]',
-    linkedin: 'https://linkedin.com/company/[Your_LinkedIn_ID]',
-    youtube: 'https://youtube.com/@[Your_YouTube_Channel]',
+    whatsapp: 'https://wa.me/919831011474',
+    instagram: 'https://instagram.com/royalenterprise',
+    facebook: 'https://facebook.com/royalenterprise',
+    linkedin: 'https://linkedin.com/company/royalenterprise',
+    youtube: 'https://youtube.com/@royalenterprise',
   },
 };
 

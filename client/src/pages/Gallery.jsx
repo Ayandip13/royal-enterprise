@@ -61,7 +61,7 @@ const GalleryCardCanvas = ({ item }) => {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-75 group-hover:opacity-90 transition-opacity pointer-events-none" />
-        
+
         {/* Caption Overlay on Hover / Always at bottom */}
         <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 text-white z-10 pointer-events-none">
           <div className="flex items-center space-x-1.5 text-[10px] text-[#D6B56F] font-sans font-medium mb-0.5">
@@ -226,7 +226,7 @@ const Gallery = () => {
       {/* 02. GALLERY FILTER BAR & ASYMMETRICAL EDITORIAL GRID */}
       {/* ======================================================================= */}
       <section className="max-w-[1320px] mx-auto px-5 sm:px-8 pt-12 sm:pt-16">
-        
+
         {/* Category Filters Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-[#E8DFD3]/80 dark:border-[#244C4A]/80 font-sans">
           <div className="flex flex-wrap items-center gap-2">
@@ -242,20 +242,18 @@ const Gallery = () => {
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`inline-flex items-center space-x-2 text-xs uppercase tracking-[0.14em] font-medium px-4 sm:px-5 py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
-                    isSelected
+                  className={`inline-flex items-center space-x-2 text-xs uppercase tracking-[0.14em] font-medium px-4 sm:px-5 py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${isSelected
                       ? 'bg-[#193C3B] text-white shadow-md dark:bg-[#D6B56F] dark:text-[#102726] font-semibold'
                       : 'bg-white/80 dark:bg-[#143130] text-[#665C5C] dark:text-[#C8D6D5] border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F]'
-                  }`}
+                    }`}
                   aria-pressed={isSelected}
                 >
                   <span>{cat}</span>
                   <span
-                    className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                      isSelected
+                    className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected
                         ? 'bg-white/20 dark:bg-black/20 text-white dark:text-[#102726]'
                         : 'bg-[#E8DFD3] dark:bg-black/30 text-[#665C5C] dark:text-[#C8D6D5]'
-                    }`}
+                      }`}
                   >
                     {count}
                   </span>
@@ -298,15 +296,6 @@ const Gallery = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Developer / Admin Path Reference */}
-        <div className="mt-14 p-5 rounded-2xl bg-white/60 dark:bg-[#143130]/60 border border-dashed border-[#D6B56F]/40 max-w-xl mx-auto text-center">
-          <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-sans">
-            <span className="font-semibold text-[#D66D59] dark:text-[#D6B56F]">Ready to add photographs?</span>
-            <br />
-            Simply update the image paths in <code className="font-mono text-[11px] bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded text-[#193C3B] dark:text-[#F5EFE5]">client/src/data/galleryData.js</code>
-          </p>
         </div>
       </section>
 

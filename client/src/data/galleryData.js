@@ -27,8 +27,8 @@ export const GALLERY_ITEMS = [
     title: 'Heritage Rajbari Vedic Mandap',
     subtitle: 'Sacred Floral Architecture, Hand-Carved Pillars & Marigold Chhatra',
     location: 'Sovabazar Heritage Rajbari, Kolkata',
-    image: '', // PLACEHOLDER: Put your wedding photo path here
-    placeholderNote: 'Wedding Photography 01 • Recommended: 1600 × 1000px',
+    image: '/wedding-gallary/20241129_183629.jpg',
+    placeholderNote: 'Wedding Photography 01 • Recommended: 1600 * 1000px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-8',
     featured: true,
@@ -39,8 +39,8 @@ export const GALLERY_ITEMS = [
     title: 'Traditional Shubho Drishti & Bridal Grace',
     subtitle: 'Classic Bengali Bridal Styling, Betel Leaf Ritual & Quiet Grandeur',
     location: 'North Kolkata Biye Bari',
-    image: '', // PLACEHOLDER: Put your wedding photo path here
-    placeholderNote: 'Wedding Photography 02 • Recommended: 1200 × 1500px (Portrait)',
+    image: '/wedding-gallary/20240407_171722.jpg',
+    placeholderNote: 'Wedding Photography 02 • Recommended: 1200 * 1500px (Portrait)',
     aspect: 'aspect-[4/5]',
     colSpan: 'lg:col-span-4',
     featured: false,
@@ -48,11 +48,11 @@ export const GALLERY_ITEMS = [
   {
     id: 'wedding-03',
     category: 'Weddings',
-    title: 'Grand Chandelier Ballroom Reception',
-    subtitle: 'Lustrous Crystal Chandeliers, Terracotta Accents & Royal Seating',
-    location: 'Five-Star Hotel Ballroom, Kolkata',
-    image: '', // PLACEHOLDER: Put your wedding photo path here
-    placeholderNote: 'Wedding Photography 03 • Recommended: 1200 × 900px',
+    title: 'Sacred Vedic Sindoor Daan Ritual',
+    subtitle: 'Holy Fire, Sindoor Offering & Lifelong Sacred Vows',
+    location: 'Kolkata Vedic Biye Bari',
+    image: '/wedding-gallary/bengali-sindoor-daan.jpg',
+    placeholderNote: 'Wedding Photography 03 • Recommended: 1200 * 900px',
     aspect: 'aspect-[4/3]',
     colSpan: 'lg:col-span-4',
     featured: false,
@@ -60,13 +60,25 @@ export const GALLERY_ITEMS = [
   {
     id: 'wedding-04',
     category: 'Weddings',
-    title: 'Boubhat Evening Floral Canopy & Ambience',
-    subtitle: 'Curated Fairy Light Pathway, Cascading Tuberoses & Warm Elegance',
-    location: 'Open Lawn Pavilion, Alipore',
-    image: '', // PLACEHOLDER: Put your wedding photo path here
-    placeholderNote: 'Wedding Photography 04 • Recommended: 1600 × 1000px',
-    aspect: 'aspect-[16/10]',
-    colSpan: 'lg:col-span-8',
+    title: 'Bengali Bride & Groom Couple Portrait',
+    subtitle: 'Traditional Mukut, Topor, Garland Exchange & Warm Elegance',
+    location: 'Heritage Reception Lawn, Kolkata',
+    image: '/wedding-gallary/bengali-wedding-couple.jpg',
+    placeholderNote: 'Wedding Photography 04 • Recommended: 1600 * 1000px',
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-4',
+    featured: false,
+  },
+  {
+    id: 'wedding-05',
+    category: 'Weddings',
+    title: 'Classic Bengali Bridal Adornment',
+    subtitle: 'Traditional Alta, Polki Nose Ring & Handcrafted Wedding Gold',
+    location: 'North Kolkata Biye Bari',
+    image: '/wedding-gallary/bengali-wedding-2.jpg',
+    placeholderNote: 'Wedding Photography 05 • Recommended: 1200 * 1500px',
+    aspect: 'aspect-[4/3]',
+    colSpan: 'lg:col-span-4',
     featured: false,
   },
 
@@ -80,7 +92,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Bespoke Curved LED Backdrops, Structural Trusses & Acoustic Sound',
     location: 'Biswa Bangla Convention Centre, Kolkata',
     image: '', // PLACEHOLDER: Put your event photo path here
-    placeholderNote: 'Event Photography 01 • Recommended: 1600 × 1000px',
+    placeholderNote: 'Event Photography 01 • Recommended: 1600 * 1000px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-8',
     featured: true,
@@ -92,7 +104,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'High-Impact Synchronized Intelligent Lighting & Immersive Audio',
     location: 'Indoor Sports Complex & Arena',
     image: '', // PLACEHOLDER: Put your event photo path here
-    placeholderNote: 'Event Photography 02 • Recommended: 1200 × 1500px (Portrait)',
+    placeholderNote: 'Event Photography 02 • Recommended: 1200 * 1500px (Portrait)',
     aspect: 'aspect-[4/5]',
     colSpan: 'lg:col-span-4',
     featured: false,
@@ -104,7 +116,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'VIP Table Scenography, Custom Centerpieces & Presentation Stages',
     location: 'ITC Sonar Ballroom, Kolkata',
     image: '', // PLACEHOLDER: Put your event photo path here
-    placeholderNote: 'Event Photography 03 • Recommended: 1400 × 950px',
+    placeholderNote: 'Event Photography 03 • Recommended: 1400 * 950px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-6',
     featured: false,
@@ -116,7 +128,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Seamless Audio-Visual Broadcasting, Media Walls & Delegate Stations',
     location: 'Hyatt Regency Convention, Kolkata',
     image: '', // PLACEHOLDER: Put your event photo path here
-    placeholderNote: 'Event Photography 04 • Recommended: 1400 × 950px',
+    placeholderNote: 'Event Photography 04 • Recommended: 1400 * 950px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-6',
     featured: false,
@@ -132,7 +144,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Multi-Station Live Feasts with Bengali, Awadhi & Continental Menus',
     location: 'Heritage Banquet Pavilion, Kolkata',
     image: '', // PLACEHOLDER: Put your catering photo path here
-    placeholderNote: 'Catering Photography 01 • Recommended: 1600 × 1000px',
+    placeholderNote: 'Catering Photography 01 • Recommended: 1600 * 1000px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-8',
     featured: true,
@@ -144,7 +156,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Golden-Crumbed Pure Bhetki Fillets Fried Fresh on Order',
     location: 'Live Culinary Counter',
     image: '', // PLACEHOLDER: Put your catering photo path here
-    placeholderNote: 'Catering Photography 02 • Recommended: 1200 × 1500px (Portrait)',
+    placeholderNote: 'Catering Photography 02 • Recommended: 1200 * 1500px (Portrait)',
     aspect: 'aspect-[4/5]',
     colSpan: 'lg:col-span-4',
     featured: false,
@@ -156,7 +168,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Authentic Mustard Gravy, Steaming Basmati Pulao & Kacha Lonka',
     location: 'Biye Bari Kitchen Floor',
     image: '', // PLACEHOLDER: Put your catering photo path here
-    placeholderNote: 'Catering Photography 03 • Recommended: 1400 × 950px',
+    placeholderNote: 'Catering Photography 03 • Recommended: 1400 * 950px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-6',
     featured: false,
@@ -168,7 +180,7 @@ export const GALLERY_ITEMS = [
     subtitle: 'Artisanal Bengali Mishti, Hot Syrupy Jalebis & Rich Shahi Phirni',
     location: 'Dessert Courtyard',
     image: '', // PLACEHOLDER: Put your catering photo path here
-    placeholderNote: 'Catering Photography 04 • Recommended: 1400 × 950px',
+    placeholderNote: 'Catering Photography 04 • Recommended: 1400 * 950px',
     aspect: 'aspect-[16/10]',
     colSpan: 'lg:col-span-6',
     featured: false,

@@ -48,30 +48,30 @@ const getCategoryAccent = (category) => {
 };
 
 // Editorial Placeholder Canvas for items awaiting user's photographs
-const GalleryCardCanvas = ({ item, isHero }) => {
+const GalleryCardCanvas = ({ item }) => {
   const accent = getCategoryAccent(item.category);
 
   if (item.image) {
     return (
-      <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden bg-[#102726]">
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="w-full h-full object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-75 group-hover:opacity-90 transition-opacity pointer-events-none" />
         
         {/* Caption Overlay on Hover / Always at bottom */}
-        <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white z-10">
-          <div className="flex items-center space-x-1.5 text-[11px] text-[#D6B56F] font-sans font-medium mb-1">
-            <MapPin className="w-3.5 h-3.5 shrink-0" />
+        <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 text-white z-10 pointer-events-none">
+          <div className="flex items-center space-x-1.5 text-[10px] text-[#D6B56F] font-sans font-medium mb-0.5">
+            <MapPin className="w-3 h-3 shrink-0 text-[#D6B56F]" />
             <span className="line-clamp-1">{item.location}</span>
           </div>
-          <h3 className={`font-display font-normal text-white leading-snug line-clamp-1 ${isHero ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'}`}>
+          <h3 className="font-display font-normal text-white leading-snug line-clamp-1 text-base sm:text-lg">
             {item.title}
           </h3>
-          <p className="text-xs text-[#F5EFE5]/80 font-light font-sans line-clamp-1 mt-0.5">
+          <p className="text-[11px] text-[#F5EFE5]/80 font-light font-sans line-clamp-1 mt-0.5">
             {item.subtitle}
           </p>
         </div>
@@ -123,11 +123,7 @@ const GalleryCardCanvas = ({ item, isHero }) => {
           <MapPin className="w-3 h-3 shrink-0" />
           <span className="line-clamp-1">{item.location}</span>
         </div>
-        <h3
-          className={`font-display font-normal text-[#193C3B] dark:text-[#F5EFE5] leading-snug line-clamp-1 ${
-            isHero ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'
-          }`}
-        >
+        <h3 className="font-display font-normal text-[#193C3B] dark:text-[#F5EFE5] leading-snug line-clamp-1 text-base sm:text-lg">
           {item.title}
         </h3>
         <p className="text-[11px] text-[#665C5C] dark:text-[#C8D6D5] font-light font-sans line-clamp-1 mt-0.5">
@@ -273,16 +269,14 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* Masonry / Asymmetrical Editorial Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        {/* Responsive Balanced Gallery Grid (Compact & Short) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 items-stretch">
           {filteredItems.map((item, idx) => {
-            const isHero = item.colSpan.includes('col-span-8');
-
             return (
               <div
                 key={item.id}
                 onClick={() => setLightboxIndex(idx)}
-                className={`${item.colSpan} group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col`}
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col"
                 tabIndex={0}
                 role="button"
                 aria-label={`Open ${item.title}`}
@@ -293,11 +287,11 @@ const Gallery = () => {
                   }
                 }}
               >
-                <div className={`relative ${item.aspect} w-full h-full overflow-hidden`}>
-                  <GalleryCardCanvas item={item} isHero={isHero} />
+                <div className="relative aspect-[4/3] w-full h-full overflow-hidden">
+                  <GalleryCardCanvas item={item} />
 
                   {/* Floating View Icon Hover Overlay */}
-                  <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md">
+                  <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md">
                     <Eye className="w-4 h-4" />
                   </div>
                 </div>

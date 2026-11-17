@@ -9,10 +9,12 @@ import { useNotification } from '../../context/NotificationContext';
 import { Utensils, Send, CheckCircle2, Sparkles } from 'lucide-react';
 
 const packageOptions = [
-  'Package A: Classic Heritage Feast (Standard Non-Veg)',
-  'Package B: The Grand Imperial Royal Spread (Premium Non-Veg)',
-  'Package C: Pure Vegetarian Shubh Vivah Spread',
-  'Custom Multi-Cuisine Menu / Discussion Required',
+  'Package 01: Joyguru Traditional Biye Bari Feast (₹720 / plate)',
+  'Package 02: Bangaliana Special Wedding Package (₹750 / plate)',
+  "Package 03: Santanu's Food Adda Rajkio Menu No. 9 (₹750 / plate)",
+  'Package 04: Nilkantha Full-Day Ceremonial Feast (₹950 / plate)',
+  'Package 05: Imperial Luxury Diamond Spread (₹1,250 / plate)',
+  'Customized Banquet Rate Chart / Discussion Required',
 ];
 
 const cuisineOptions = [

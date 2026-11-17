@@ -19,17 +19,24 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  Eye,
+  Maximize2,
+  FileText,
+  CheckCircle2,
+  Tag,
 } from 'lucide-react';
-import { COMPANY_INFO } from '../data/mockData';
+import { COMPANY_INFO, RATE_CHART_POSTERS, CATERING_PACKAGES } from '../data/mockData';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
 import { WhatsAppIcon } from '../components/common/SocialIcons';
 
 const Catering = () => {
   const [selectedPackage, setSelectedPackage] = useState(
-    'Package B: The Grand Imperial Royal Spread (Premium Non-Veg)'
+    'Package 02: Bangaliana Special Wedding Package (₹750 / plate)'
   );
   const [galleryCategory, setGalleryCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [rateChartLightbox, setRateChartLightbox] = useState(null);
+  const [equipmentLightbox, setEquipmentLightbox] = useState(null);
 
   // =========================================================================
   // 1. CATERING SERVICES & CULINARY DISCIPLINES (EDITORIAL SHOWCASE)
@@ -86,17 +93,17 @@ const Catering = () => {
     {
       id: 'live-theatres',
       num: '04',
-      title: 'Live Interactive Food Stations',
-      subtitle: 'Charcoal Tandoor, Italian Pasta & Turkish Sand Coffee',
+      title: 'Live Interactive Food & Dessert Theatres',
+      subtitle: 'In-House Softy Dispensers, Frozen Slush, Korean Bingsu & Clay Grills',
       description:
-        'Transform dining into engaging entertainment. Sizzling charcoal tandoori grills, toss-to-order artisanal pastas, wood-fired pizzas, and brewed Turkish sand coffee that keep your guests mingling.',
-      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+        'Transform dining into engaging entertainment. Sizzling charcoal tandoori grills, toss-to-order artisanal pastas, in-house commercial softy dispensers, frozen slush bars, and instant Korean bingsu snowmakers.',
+      image: '/catering-equipment/live-korean-bingsu-snow-ice-machine.jpg',
       badge: 'Live Experience',
       highlights: [
-        'Live Charcoal Tandoori Kebab Station',
-        'Wood-fired artisanal pizzas & toss-to-order pasta',
-        'Interactive Banarasi Paan & Fire Paan bar',
-        'Turkish sand coffee & signature mocktails',
+        'In-house digital softy & soft-serve ice cream dispenser',
+        'Dolphin rapid-freeze slush & frozen granita mocktail bar',
+        'Touchscreen snowmaker for Korean Bingsu & fresh fruit snow ice',
+        'Live charcoal tandoori kebabs, pasta & Banarasi paan counters',
       ],
     },
     {
@@ -118,90 +125,172 @@ const Catering = () => {
   ];
 
   // =========================================================================
-  // 2. LUXURY FOOD SHOWCASE HIGHLIGHTS
+  // 2. LUXURY FOOD SHOWCASE HIGHLIGHTS (BALANCED UNIFORM SIZING)
   // =========================================================================
   const foodHighlights = [
     {
-      title: 'Pure Kolkata Bhetki Paturi',
-      subtitle: 'Steamed in fresh banana leaf with mustard & green chilli',
-      image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80',
+      title: 'Live Gourmet Chef Buffet Counter',
+      subtitle: 'Uniformed chefs serving live hot delicacies at wedding receptions',
+      image: '/catering-gallary/20241129_202026.jpg',
+      tag: 'Live Chef Hospitality',
+    },
+    {
+      title: 'Authentic Bengali Basanti Pulao',
+      subtitle: 'Fragrant Gobindobhog rice, golden pure ghee & whole dry fruits',
+      image: '/catering-gallary/20250725_195009.jpg',
       tag: 'Heritage Signature',
-      aspect: 'col-span-1 md:col-span-2 aspect-[16/10]',
     },
     {
       title: 'Royal Handi Dum Biryani',
       subtitle: 'Slow-cooked with saffron, rose water, tender meat & potato',
       image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80',
       tag: 'Awadhi Royalty',
-      aspect: 'col-span-1 aspect-[4/5]',
     },
     {
-      title: 'Charcoal Reshmi Kebabs',
-      subtitle: 'Melt-in-mouth chicken skewers from the live clay tandoor',
-      image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80',
-      tag: 'Live Tandoor',
-      aspect: 'col-span-1 aspect-[4/5]',
-    },
-    {
-      title: 'Hot Malpua with Creamy Rabri',
-      subtitle: 'Crisp golden malpuas simmered in saffron syrup',
-      image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80',
+      title: 'Artisanal Clay Pot Mishti Doi',
+      subtitle: 'Traditional sweet red curd set in earthen matir shora',
+      image: '/catering-gallary/20250725_205208.jpg',
       tag: 'Artisanal Mishti',
-      aspect: 'col-span-1 md:col-span-2 aspect-[16/10]',
     },
   ];
 
   // =========================================================================
-  // 3. EDITORIAL MASONRY CATERING GALLERY
+  // 2.5 IN-HOUSE LIVE DESSERT & BEVERAGE EQUIPMENT SPECIFICATIONS
+  // =========================================================================
+  const liveEquipmentItems = [
+    {
+      id: 'equip-softy-1',
+      title: 'Commercial Soft-Serve & Softy Ice Cream Dispenser',
+      bengaliTitle: 'ডিজিটাল সফটি আইসক্রিম ডিসপেন্সার মেশিন',
+      category: 'Live Dessert Counter',
+      badge: 'Wedding Reception Favorite',
+      image: '/catering-equipment/live-softy-ice-cream-machine.png',
+      caption: 'Digital countertop commercial soft-serve dispenser',
+      description:
+        'Commercial grade soft-serve ice cream machine featuring intelligent digital temperature & viscosity control, churning smooth vanilla, chocolate, and strawberry swirl cones for 600+ guests.',
+      features: [
+        'Dual micro-digital temperature & viscosity regulation',
+        'Continuous smooth swirl dispensing with crisp waffle cones',
+        'Rapid freezing recovery between serves (zero melting)',
+        'Hygienic 304 food-grade stainless steel internal refrigeration',
+      ],
+      idealFor: 'Wedding receptions, Sangeet dessert lounges, and milestone birthdays.',
+    },
+    {
+      id: 'equip-slush-1',
+      title: 'Dolphin Commercial Frozen Slush & Granita Dispenser',
+      bengaliTitle: 'ডলফিন ফ্রোজেন স্লাশ ও গ্রানিতা মকটেল মেশিন',
+      category: 'Live Beverage Lounge',
+      badge: 'Welcome Lounge Essential',
+      image: '/catering-equipment/live-slush-frozen-mocktail-dispenser.jpg',
+      caption: 'High-capacity clear cylinder frozen beverage dispenser by Dolphin Appliances',
+      description:
+        'Heavy-duty frozen granita and slush machine equipped with a clear illuminated hopper and slow-spiral churning auger, serving frosty Blue Lagoon, Virgin Mojito, and chilled Aam Panna slush.',
+      features: [
+        'Rapid cryogenic freezing cylinder with heavy-duty spiral auger',
+        'Crystal-clear illuminated bowl showcasing vibrant iced mocktails',
+        'Ergonomic push-dispense handle for swift guest hospitality',
+        'Maintains uniform velvety frost texture even in summer weddings',
+      ],
+      idealFor: 'Entrance welcome drinks lounge, Summer Biye Bari, and cocktail evenings.',
+    },
+    {
+      id: 'equip-snow-1',
+      title: 'Dolphin Smart Snowmaker & Korean Bingsu Machine',
+      bengaliTitle: 'ডলফিন টাচস্ক্রিন স্নোমেকার ও কোরিয়ান বিংসু মেশিন',
+      category: 'Gourmet Live Dessert Bar',
+      badge: 'Artisanal Dessert Theatre',
+      image: '/catering-equipment/live-korean-bingsu-snow-ice-machine.jpg',
+      caption: 'Instant cryogenic ribbon snowmaker with rotating turntable',
+      description:
+        'State-of-the-art commercial snowmaker crafting ultra-fine ribbon snow ice bowls topped with fresh Alphonso mango pulp, berries, Belgian chocolate drizzle, and sweet condensed milk.',
+      features: [
+        'Digital smart touchscreen console for precision speed & blade control',
+        'Instant cryogenic roller transforming fruit juices & milk into snow',
+        'Motorized spinning turntable for artistic 360° dessert bowl plating',
+        'Spectacular interactive counter that guests love watching live',
+      ],
+      idealFor: 'Gourmet dessert lounges, VIP wedding receptions, and anniversary galas.',
+    },
+    {
+      id: 'equip-softy-2',
+      title: 'Live Softy Ice Cream Station Setup',
+      bengaliTitle: 'অন-সাইট লাইভ সফটি স্টেশন অ্যান্ড সার্ভিস কাউন্টার',
+      category: 'Live Dessert Counter',
+      badge: 'In-House Banquet Service',
+      image: '/catering-equipment/live-soft-serve-ice-cream-station.jpg',
+      caption: 'Full operational on-site soft-serve setup ready for banquet service',
+      description:
+        'Fully managed on-site dessert stall staffed by our uniformed attendants, equipped with assorted sprinkles, chocolate sauce, and waffle cones for non-stop guest delight.',
+      features: [
+        'Manned by polite, uniformed Royal Enterprise dessert captains',
+        'Choice of sprinkles, choco chips, gems & warm chocolate sauce',
+        'Compact hygienic footprint integrating seamlessly with venue decor',
+        'Top crowd-pleaser for children, families & dessert lovers alike',
+      ],
+      idealFor: 'Boubhat receptions, Annaprashan, and family celebration feasts.',
+    },
+  ];
+
+  // =========================================================================
+  // 3. EDITORIAL CATERING GALLERY (BALANCED UNIFORM GRID)
   // =========================================================================
   const galleryItems = [
     {
       id: 1,
-      title: 'Grand Wedding Feast Service & Polished Copper Warmers',
+      title: 'Live Gourmet Buffet Counter with Uniformed Chefs',
       category: 'Wedding Feasts',
-      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80',
-      location: 'Grand Ballroom Buffet',
-      aspect: 'col-span-1 md:col-span-2 row-span-2 aspect-[16/10] md:aspect-auto',
+      image: '/catering-gallary/20241129_202026.jpg',
+      location: 'Grand Ballroom Buffet, Kolkata',
     },
     {
       id: 2,
-      title: 'Live Sizzling Tandoor Skewers',
+      title: 'Commercial Soft-Serve & Softy Ice Cream Dispenser',
       category: 'Live Counters',
-      image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=800&q=80',
-      location: 'Live Clay Oven Station',
-      aspect: 'col-span-1 aspect-[4/5]',
+      image: '/catering-equipment/live-softy-ice-cream-machine.png',
+      location: 'Live Dessert Lounge',
     },
     {
       id: 3,
-      title: 'Royal Awadhi Dum Biryani in Clay Handi',
-      category: 'All Dishes',
-      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80',
-      location: 'Handi Dum Station',
-      aspect: 'col-span-1 aspect-[4/5]',
+      title: 'Dolphin Frozen Slush & Granita Mocktail Dispenser',
+      category: 'Live Counters',
+      image: '/catering-equipment/live-slush-frozen-mocktail-dispenser.jpg',
+      location: 'Live Beverage Counter',
     },
     {
       id: 4,
-      title: 'Fine Dining Table Scape & Crystal Glassware',
-      category: 'Wedding Feasts',
-      image: '/images/hero-stage.png',
-      location: 'VIP Table Arrangement',
-      aspect: 'col-span-1 aspect-[16/10]',
+      title: 'Dolphin Smart Snowmaker & Korean Bingsu Machine',
+      category: 'Live Counters',
+      image: '/catering-equipment/live-korean-bingsu-snow-ice-machine.jpg',
+      location: 'Live Dessert Theatre',
     },
     {
       id: 5,
-      title: 'Artisanal Bengali Sweets & Dessert Lounge',
+      title: 'Live Softy Ice Cream Station Setup',
       category: 'Desserts & Sweets',
-      image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80',
-      location: 'Live Sweet Counter',
-      aspect: 'col-span-1 aspect-[16/10]',
+      image: '/catering-equipment/live-soft-serve-ice-cream-station.jpg',
+      location: 'Reception Dessert Stall',
     },
     {
       id: 6,
-      title: 'Outdoor Garden Buffet & Evening Canopy',
+      title: 'Authentic Bengali Basanti Pulao in Golden Chafing Handi',
       category: 'Wedding Feasts',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=80',
-      location: 'Lawn Pavilion Dining',
-      aspect: 'col-span-1 md:col-span-2 aspect-[16/9]',
+      image: '/catering-gallary/20250725_195009.jpg',
+      location: 'Royal Feast Buffet',
+    },
+    {
+      id: 7,
+      title: 'Artisanal Clay Pots for Bengali Mishti Doi',
+      category: 'Desserts & Sweets',
+      image: '/catering-gallary/20250725_205208.jpg',
+      location: 'Traditional Mishti Counter',
+    },
+    {
+      id: 8,
+      title: 'Fresh Salad & Gourmet Appetizer Bar',
+      category: 'Wedding Feasts',
+      image: '/catering-gallary/20241129_202341 (1).jpg',
+      location: 'Live Dining Pavilion',
     },
   ];
 
@@ -210,9 +299,29 @@ const Catering = () => {
     ? galleryItems
     : galleryItems.filter((i) => i.category === galleryCategory || (galleryCategory === 'All Dishes' && i.category === 'All Dishes'));
 
-  // Keyboard navigation for Lightbox
+  // Keyboard navigation for Lightbox, Rate Chart Lightbox & Equipment Lightbox
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (equipmentLightbox !== null) {
+        if (e.key === 'Escape') setEquipmentLightbox(null);
+        if (e.key === 'ArrowRight') {
+          setEquipmentLightbox((prev) => (prev + 1) % liveEquipmentItems.length);
+        }
+        if (e.key === 'ArrowLeft') {
+          setEquipmentLightbox((prev) => (prev - 1 + liveEquipmentItems.length) % liveEquipmentItems.length);
+        }
+        return;
+      }
+      if (rateChartLightbox !== null) {
+        if (e.key === 'Escape') setRateChartLightbox(null);
+        if (e.key === 'ArrowRight') {
+          setRateChartLightbox((prev) => (prev + 1) % RATE_CHART_POSTERS.length);
+        }
+        if (e.key === 'ArrowLeft') {
+          setRateChartLightbox((prev) => (prev - 1 + RATE_CHART_POSTERS.length) % RATE_CHART_POSTERS.length);
+        }
+        return;
+      }
       if (lightboxIndex === null) return;
       if (e.key === 'Escape') setLightboxIndex(null);
       if (e.key === 'ArrowRight') {
@@ -224,7 +333,7 @@ const Catering = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex, filteredGallery.length]);
+  }, [lightboxIndex, filteredGallery.length, rateChartLightbox, equipmentLightbox]);
 
   // =========================================================================
   // 4. SIGNATURE FEAST PACKAGES (PRESERVED DATA)
@@ -378,24 +487,33 @@ const Catering = () => {
   ];
 
   // =========================================================================
-  // 5. CATERING PRICING GUIDE (BENCHMARKS)
+  // 5. CATERING PRICING GUIDE (BENCHMARKS BASED ON ANALYZED RATE CHARTS)
   // =========================================================================
   const pricingGuide = [
     {
-      category: 'Standard Vegetarian',
-      highlights: '2 Starters + Pulao/Breads + 2 Mains + Chutney + 2 Sweets',
+      category: 'Budget Traditional (₹720 / plate)',
+      caterer: 'Joyguru Caterer',
+      highlights: 'Phuchka & Coffee stalls, Fish Fry with Kasundi, Kolkata Mutton Biryani, Chicken Kosha, Doi Katla, Rumali Roti, Rajbhog & Kesar Jalebi.',
     },
     {
-      category: 'Classic Non-Vegetarian',
-      highlights: 'Fish Starter + Chicken Main + Fish/Katla + Pulao + Sweets',
+      category: 'Special Wedding Feast (₹750 / plate)',
+      caterer: 'Bangaliana Caterer (Best Value)',
+      highlights: 'Live Radhaballabhi, Fish Kabiraji, Doi Katla, Mutton/Chicken Kosha, Dal Maharani, Rosogolla, Sandesh + Free 20-Guest Breakfast & Lunch.',
     },
     {
-      category: 'Royal Multi-Cuisine',
-      highlights: '4 Starters + Live Chaat + Bhetki + Mutton Kosha + Sweets',
+      category: 'Grand Multi-Course Banquet (₹750 / plate)',
+      caterer: "Santanu's Food Adda (Rajkio Menu #9)",
+      highlights: '2 Welcome Coolers, 3 Starters (Golden Prawns, Bhetki Fry), Clear Soup, Basanti Pulao, 4 Non-Veg Mains (Mutton Kosha, Chingri Malaikari), 4 Desserts & Meetha Paan.',
     },
     {
-      category: 'Luxury Imperial Banquet',
-      highlights: 'Bhetki Paturi + Chingri Malai Curry + Mutton Biryani + Live Counters',
+      category: 'Full-Day Ceremonial Feast (₹950 / plate)',
+      caterer: 'Nilkantha Caterer (Full Day)',
+      highlights: 'All-Day Care: Morning Luchi-Alur Dom, Afternoon Katla Kalia Lunch, Evening Live Tandoor Kebabs, Bhetki Paturi, Mutton Kosha & Dedicated Veg Counter.',
+    },
+    {
+      category: 'Imperial Luxury Diamond (₹1,250 / plate)',
+      caterer: 'Maa Sandhya Caterers (Min 250 Plates)',
+      highlights: '14-item Mocktail Counter, Diamond Bhetki Fry, Chicken Malai Kebab, Bhetki Paturi, Chingri Malaikari, Mutton Maharaja / Rogan Josh, Rabri, 3 Ice Creams & Fire Paan.',
     },
   ];
 
@@ -449,12 +567,24 @@ const Catering = () => {
                 <button
                   type="button"
                   onClick={() => {
+                    const el = document.getElementById('rate-charts');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-lg transition-all inline-flex items-center space-x-2"
+                >
+                  <Tag className="w-3.5 h-3.5 text-white" />
+                  <span>Rate Charts (₹720 - ₹1,250)</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
                     const el = document.getElementById('signature-menus');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-8 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-lg transition-all"
+                  className="px-6 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-white/80 dark:bg-[#102726] hover:bg-white dark:hover:bg-[#193C3B] text-[#193C3B] dark:text-[#F5EFE5] border border-[#E8DFD3] dark:border-[#244C4A] transition-all"
                 >
-                  Explore Signature Menus
+                  Signature Menus
                 </button>
 
                 <button
@@ -550,26 +680,26 @@ const Catering = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {foodHighlights.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 group ${item.aspect}`}
+                className="relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 group h-[260px] sm:h-[280px] flex flex-col justify-end"
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-                <div className="absolute top-4 left-4 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10.5px] uppercase tracking-wider font-semibold text-[#D6B56F] font-sans">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute top-3.5 left-3.5 bg-[#193C3B]/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-[10px] uppercase tracking-wider font-semibold text-[#D6B56F] font-sans z-10">
                   {item.tag}
                 </div>
-                <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 font-sans">
-                  <h3 className="font-display text-2xl font-normal leading-snug text-white">
+                <div className="relative z-10 p-4 sm:p-5 text-white space-y-1 font-sans">
+                  <h3 className="font-display text-lg sm:text-xl font-normal leading-snug text-white drop-shadow-md">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#F5EFE5]/85 font-light">
+                  <p className="text-xs text-[#F5EFE5]/85 font-light line-clamp-2">
                     {item.subtitle}
                   </p>
                 </div>
@@ -775,6 +905,242 @@ const Catering = () => {
         </section>
 
         {/* ========================================================================= */}
+        {/* 4.5 AUTHENTIC CATERER RATE CHARTS & POSTERS */}
+        {/* ========================================================================= */}
+        <section id="rate-charts" className="space-y-8">
+          <SectionHeader
+            badge="Verified Rate Charts & Menu Cards"
+            title="Authentic Caterer Rate Charts & Plate Pricing"
+            subtitle="প্রামাণ্য ক্যাটারার রেট চার্ট ও মেনু কার্ড — Transparent, authentic plate rates from ₹720 to ₹1,250 with verified course breakdowns and original posters."
+          />
+
+          {/* Quick Rate Badges Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 font-sans pb-2">
+            {RATE_CHART_POSTERS.map((rc, idx) => (
+              <button
+                key={rc.id}
+                type="button"
+                onClick={() => setRateChartLightbox(idx)}
+                className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] hover:border-[#D6B56F] hover:bg-[#193C3B] hover:text-[#D6B56F] transition-all"
+              >
+                <Tag className="w-3 h-3 text-[#D66D59] shrink-0" />
+                <span className="font-semibold">{rc.price}</span>
+                <span className="text-[11px] opacity-80">({rc.caterer})</span>
+              </button>
+            ))}
+          </div>
+
+          {/* 5 Rate Chart Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {RATE_CHART_POSTERS.map((poster, idx) => (
+              <div
+                key={poster.id}
+                className="group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Poster Thumbnail with Hover Zoom & Click to Open Lightbox */}
+                  <div
+                    onClick={() => setRateChartLightbox(idx)}
+                    className="relative aspect-[3/4] overflow-hidden bg-[#102726] cursor-pointer"
+                  >
+                    <img
+                      src={poster.image}
+                      alt={poster.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 opacity-70 group-hover:opacity-40 transition-opacity" />
+                    
+                    {/* Badge top-left */}
+                    <div className="absolute top-3.5 left-3.5 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#D6B56F]/40 text-[10.5px] uppercase tracking-wider font-semibold text-[#D6B56F]">
+                      {poster.badge}
+                    </div>
+
+                    {/* Zoom Icon top-right */}
+                    <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                      <Maximize2 className="w-4 h-4" />
+                    </div>
+
+                    {/* Bottom overlay with Price Tag */}
+                    <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-end justify-between">
+                      <div className="max-w-[70%]">
+                        <span className="text-[11px] text-white/80 uppercase tracking-widest block font-sans">
+                          {poster.caterer}
+                        </span>
+                        <h4 className="text-white font-display text-lg font-normal drop-shadow-md truncate">
+                          {poster.title}
+                        </h4>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className="font-display text-2xl font-bold text-[#D6B56F] drop-shadow-md block">
+                          {poster.price}
+                        </span>
+                        <span className="block text-[10px] text-white/80 font-sans">
+                          {poster.priceUnit}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 space-y-4 font-sans text-left">
+                    <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+                      {poster.summary}
+                    </p>
+
+                    {/* Highlighted items */}
+                    <div className="space-y-2 pt-2 border-t border-[#E8DFD3] dark:border-[#244C4A]">
+                      <span className="text-[11px] uppercase tracking-wider font-semibold text-[#193C3B] dark:text-[#D6B56F] block">
+                        Course Highlights:
+                      </span>
+                      <ul className="space-y-1.5 text-xs text-[#292323] dark:text-[#C8D6D5]">
+                        {poster.highlights.map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-start">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#D66D59] mr-2 mt-0.5 shrink-0" />
+                            <span className="font-light">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card CTA Actions */}
+                <div className="p-6 pt-0 grid grid-cols-2 gap-3 font-sans">
+                  <button
+                    type="button"
+                    onClick={() => setRateChartLightbox(idx)}
+                    className="py-2.5 px-3 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F] text-[#193C3B] dark:text-[#F5EFE5] text-xs font-medium inline-flex items-center justify-center space-x-1.5 transition-colors bg-white/60 dark:bg-[#102726]"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#D6B56F]" />
+                    <span>View Poster</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const matched = CATERING_PACKAGES.find(p => p.price.includes(poster.price.replace(/[^\d]/g, '')) || p.name.includes(poster.caterer.split(' ')[0]));
+                      const pkgName = matched ? `${matched.code}: ${matched.name} (${matched.price})` : `${poster.title} (${poster.price})`;
+                      handleSelectPackage(pkgName);
+                    }}
+                    className="py-2.5 px-3 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-xs font-semibold inline-flex items-center justify-center space-x-1 transition-colors shadow-sm"
+                  >
+                    <span>Select Menu</span>
+                    <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* 4.8 IN-HOUSE LIVE DESSERT THEATRES & BEVERAGE STATIONS */}
+        {/* ========================================================================= */}
+        <section id="live-stations" className="space-y-8">
+          <SectionHeader
+            badge="In-House Culinary Equipment"
+            title="Live Dessert Theatres & Frozen Beverage Stations"
+            subtitle="ইন-হাউস লাইভ ডেজার্ট ও ফ্রোজেন বেভারেজ কাউন্টার — We own and deploy our own commercial softy dispensers, frozen slush granita machines, and Korean bingsu snowmakers for live wedding hospitality."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {liveEquipmentItems.map((item, idx) => (
+              <div
+                key={item.id}
+                className="group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Equipment Photography */}
+                  <div
+                    onClick={() => setEquipmentLightbox(idx)}
+                    className="relative aspect-[4/5] overflow-hidden bg-white/90 dark:bg-[#102726] flex items-center justify-center p-3 cursor-pointer"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+
+                    {/* Badge top-left */}
+                    <div className="absolute top-3 left-3 bg-[#193C3B]/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#D6B56F]/40 text-[10px] uppercase tracking-wider font-semibold text-[#D6B56F]">
+                      {item.badge}
+                    </div>
+
+                    {/* Zoom Icon top-right */}
+                    <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    </div>
+
+                    {/* Bottom overlay with Category */}
+                    <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 flex items-center justify-between text-white text-[11px] font-sans">
+                      <span className="text-[#D6B56F] font-medium">{item.category}</span>
+                      <span className="text-white/70 text-[10px]">In-House Asset</span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-5 space-y-3 font-sans text-left">
+                    <div>
+                      <span className="text-[11px] text-[#D66D59] dark:text-[#D6B56F] font-semibold block mb-0.5">
+                        {item.bengaliTitle}
+                      </span>
+                      <h4 className="font-display text-lg font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
+                        {item.title}
+                      </h4>
+                    </div>
+
+                    <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {/* Features List */}
+                    <div className="space-y-1.5 pt-2 border-t border-[#E8DFD3] dark:border-[#244C4A]">
+                      <span className="text-[10.5px] uppercase tracking-wider font-semibold text-[#193C3B] dark:text-[#D6B56F] block">
+                        Equipment Highlights:
+                      </span>
+                      <ul className="space-y-1 text-xs text-[#292323] dark:text-[#C8D6D5]">
+                        {item.features.map((f, fIdx) => (
+                          <li key={fIdx} className="flex items-start">
+                            <CheckCircle2 className="w-3 h-3 text-[#D66D59] mr-1.5 mt-0.5 shrink-0" />
+                            <span className="font-light text-[11px] leading-tight">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card CTA Actions */}
+                <div className="p-5 pt-0 grid grid-cols-2 gap-2.5 font-sans">
+                  <button
+                    type="button"
+                    onClick={() => setEquipmentLightbox(idx)}
+                    className="py-2 px-2.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F] text-[#193C3B] dark:text-[#F5EFE5] text-[11px] font-medium inline-flex items-center justify-center space-x-1 transition-colors bg-white/60 dark:bg-[#102726]"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#D6B56F]" />
+                    <span>Inspect</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const formElement = document.getElementById('catering-enquiry-form');
+                      if (formElement) formElement.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="py-2 px-2.5 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-[11px] font-semibold inline-flex items-center justify-center space-x-1 transition-colors shadow-sm"
+                  >
+                    <span>Add to Menu</span>
+                    <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
         {/* 5. SIGNATURE MENUS (PRESERVED DATA & LOGIC) */}
         {/* ========================================================================= */}
         <section id="signature-menus">
@@ -884,28 +1250,42 @@ const Catering = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[260px] sm:auto-rows-[280px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredGallery.map((item, idx) => (
               <div
                 key={item.id}
                 onClick={() => setLightboxIndex(idx)}
-                className={`group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer ${item.aspect}`}
+                className="group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer h-[320px] sm:h-[350px] flex flex-col justify-end"
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+
+                {/* Subtle permanent dark gradient to ensure text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                {/* Rich Full Dark Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                {/* Category Badge top-left */}
+                <div className="absolute top-3.5 left-3.5 bg-[#193C3B]/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#D6B56F]/40 text-[10px] uppercase tracking-wider font-semibold text-[#D6B56F] shadow-sm z-10">
+                  {item.category}
+                </div>
+
+                {/* Zoom Icon top-right */}
+                <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 shadow-sm z-10">
                   <Plus className="w-4 h-4 stroke-[2]" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 font-sans">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#D6B56F] block mb-1">
-                    {item.category} • {item.location}
+
+                {/* Bottom Details Container - ALWAYS visible and never clipped! */}
+                <div className="relative z-10 p-4 sm:p-5 text-white font-sans w-full">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#D6B56F] block mb-1 drop-shadow-sm truncate">
+                    {item.location}
                   </span>
-                  <h4 className="font-display text-lg font-normal leading-snug">
+                  <h4 className="font-display text-base sm:text-lg font-normal leading-snug text-white line-clamp-2 drop-shadow-md">
                     {item.title}
                   </h4>
                 </div>
@@ -932,22 +1312,24 @@ const Catering = () => {
         <section id="pricing-guide" className="bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl p-8 sm:p-12 shadow-sm">
           <SectionHeader
             badge="Menu Benchmarks"
-            title="Catering Menu Guide"
-            subtitle="Standard course breakdowns to help plan your wedding or milestone banquet."
+            title="Catering Menu & Rate Benchmark Guide"
+            subtitle="Standard course breakdowns and authentic market plate rates to help plan your wedding or milestone banquet."
           />
 
           <div className="overflow-x-auto rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] bg-white/70 dark:bg-[#102726] font-sans">
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead className="bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] uppercase tracking-[0.16em] font-semibold border-b border-[#E8DFD3] dark:border-[#244C4A]">
                 <tr>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/3">Package Category</th>
-                  <th className="p-4 text-[11px]">Typical Menu Highlights</th>
+                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Package Tier & Rate</th>
+                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Caterer Reference</th>
+                  <th className="p-4 text-[11px]">Verified Course Highlights</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#E8DFD3] dark:divide-[#244C4A] text-[#292323] dark:text-[#C8D6D5]">
                 {pricingGuide.map((row, idx) => (
                   <tr key={idx} className="hover:bg-white/60 dark:hover:bg-[#193C3B]/40 transition-colors">
-                    <td className="p-4 font-semibold text-[#292323] dark:text-[#F5EFE5] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.category}</td>
+                    <td className="p-4 font-semibold text-[#193C3B] dark:text-[#D6B56F] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.category}</td>
+                    <td className="p-4 font-medium text-[#292323] dark:text-[#F5EFE5] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.caterer}</td>
                     <td className="p-4 font-light text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed">{row.highlights}</td>
                   </tr>
                 ))}
@@ -1040,6 +1422,220 @@ const Catering = () => {
             <h4 className="font-display text-xl sm:text-2xl font-normal text-white">
               {filteredGallery[lightboxIndex].title}
             </h4>
+          </div>
+        </div>
+      )}
+
+      {/* Full-Screen Lightbox for Rate Chart Posters */}
+      {rateChartLightbox !== null && RATE_CHART_POSTERS[rateChartLightbox] && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in"
+          onClick={() => setRateChartLightbox(null)}
+        >
+          {/* Header */}
+          <div
+            className="flex items-center justify-between text-white/90 max-w-[1320px] w-full mx-auto pb-3 border-b border-white/10 font-sans"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center space-x-3">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-mono">
+                RATE CHART 0{rateChartLightbox + 1} / 0{RATE_CHART_POSTERS.length}
+              </span>
+              <span className="hidden sm:inline-block bg-[#D66D59] text-white text-[11px] px-2.5 py-0.5 rounded-full font-semibold">
+                {RATE_CHART_POSTERS[rateChartLightbox].price} {RATE_CHART_POSTERS[rateChartLightbox].priceUnit}
+              </span>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <button
+                type="button"
+                onClick={() => {
+                  const current = RATE_CHART_POSTERS[rateChartLightbox];
+                  const matched = CATERING_PACKAGES.find(p => p.price.includes(current.price.replace(/[^\d]/g, '')) || p.name.includes(current.caterer.split(' ')[0]));
+                  const pkgName = matched ? `${matched.code}: ${matched.name} (${matched.price})` : `${current.title} (${current.price})`;
+                  handleSelectPackage(pkgName);
+                  setRateChartLightbox(null);
+                }}
+                className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white text-xs font-semibold shadow-md transition-all"
+              >
+                <span>Select This Package</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRateChartLightbox(null)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Close Rate Chart"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Image & Navigation */}
+          <div
+            className="relative flex items-center justify-center my-auto max-w-5xl mx-auto w-full h-[72vh] p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={RATE_CHART_POSTERS[rateChartLightbox].image}
+              alt={RATE_CHART_POSTERS[rateChartLightbox].title}
+              className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/20 bg-black/40"
+            />
+
+            <button
+              type="button"
+              onClick={() =>
+                setRateChartLightbox(
+                  (rateChartLightbox - 1 + RATE_CHART_POSTERS.length) % RATE_CHART_POSTERS.length
+                )
+              }
+              className="absolute left-2 sm:-left-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
+              aria-label="Previous Rate Chart"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                setRateChartLightbox((rateChartLightbox + 1) % RATE_CHART_POSTERS.length)
+              }
+              className="absolute right-2 sm:-right-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
+              aria-label="Next Rate Chart"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Footer Details */}
+          <div
+            className="text-center text-white max-w-2xl mx-auto pt-2 pb-2 font-sans space-y-1.5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-semibold">
+                {RATE_CHART_POSTERS[rateChartLightbox].caterer}
+              </span>
+              <span className="text-white/40">•</span>
+              <span className="text-xs text-white/90">
+                {RATE_CHART_POSTERS[rateChartLightbox].title}
+              </span>
+              <span className="text-white/40">•</span>
+              <span className="text-xs font-bold text-[#D6B56F]">
+                {RATE_CHART_POSTERS[rateChartLightbox].price} {RATE_CHART_POSTERS[rateChartLightbox].priceUnit}
+              </span>
+            </div>
+            <p className="text-xs text-white/70 max-w-xl mx-auto font-light line-clamp-2">
+              {RATE_CHART_POSTERS[rateChartLightbox].summary}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Full-Screen Lightbox for Live Equipment */}
+      {equipmentLightbox !== null && liveEquipmentItems[equipmentLightbox] && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in"
+          onClick={() => setEquipmentLightbox(null)}
+        >
+          {/* Header */}
+          <div
+            className="flex items-center justify-between text-white/90 max-w-[1320px] w-full mx-auto pb-3 border-b border-white/10 font-sans"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center space-x-3">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-mono">
+                LIVE EQUIPMENT 0{equipmentLightbox + 1} / 0{liveEquipmentItems.length}
+              </span>
+              <span className="hidden sm:inline-block bg-[#193C3B] border border-[#D6B56F]/40 text-[#D6B56F] text-[11px] px-2.5 py-0.5 rounded-full font-semibold">
+                {liveEquipmentItems[equipmentLightbox].badge}
+              </span>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setEquipmentLightbox(null);
+                  const el = document.getElementById('catering-enquiry-form');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white text-xs font-semibold shadow-md transition-all"
+              >
+                <span>Add Station to Menu</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setEquipmentLightbox(null)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Close Machine Preview"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Image & Navigation */}
+          <div
+            className="relative flex items-center justify-center my-auto max-w-5xl mx-auto w-full h-[68vh] p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={liveEquipmentItems[equipmentLightbox].image}
+              alt={liveEquipmentItems[equipmentLightbox].title}
+              className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/20 bg-white/10 p-4"
+            />
+
+            <button
+              type="button"
+              onClick={() =>
+                setEquipmentLightbox(
+                  (equipmentLightbox - 1 + liveEquipmentItems.length) % liveEquipmentItems.length
+                )
+              }
+              className="absolute left-2 sm:-left-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
+              aria-label="Previous Machine"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                setEquipmentLightbox((equipmentLightbox + 1) % liveEquipmentItems.length)
+              }
+              className="absolute right-2 sm:-right-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
+              aria-label="Next Machine"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Footer Details */}
+          <div
+            className="text-center text-white max-w-2xl mx-auto pt-2 pb-2 font-sans space-y-1.5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-semibold">
+                {liveEquipmentItems[equipmentLightbox].bengaliTitle}
+              </span>
+              <span className="text-white/40">•</span>
+              <span className="text-xs text-white/90 font-medium">
+                {liveEquipmentItems[equipmentLightbox].title}
+              </span>
+              <span className="text-white/40">•</span>
+              <span className="text-xs text-[#D66D59]">
+                {liveEquipmentItems[equipmentLightbox].category}
+              </span>
+            </div>
+            <p className="text-xs text-white/80 max-w-xl mx-auto font-light leading-relaxed">
+              {liveEquipmentItems[equipmentLightbox].description}
+            </p>
           </div>
         </div>
       )}

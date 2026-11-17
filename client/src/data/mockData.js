@@ -11,9 +11,9 @@ export const COMPANY_INFO = {
   // WhatsApp number
   whatsapp: '919831011474',
   
-  email: 'query@royal.enterprise.com',
-  supportEmail: 'support@royal.enterprise.com',
-  bookingEmail: 'query@royal.enterprise.com',
+  email: 'query@royalenterprisesp.com',
+  supportEmail: 'support@royalenterprisesp.com',
+  bookingEmail: 'query@royalenterprisesp.com',
   address: 'Kolkata, West Bengal, India',
   officeHours: 'Mon - Sun: 9:00 AM - 9:00 PM IST',
   mapUrl: 'https://maps.google.com/?q=Kolkata',

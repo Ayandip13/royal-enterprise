@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Camera,
   MapPin,
@@ -135,9 +136,21 @@ const GalleryCardCanvas = ({ item }) => {
 };
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    const cat = searchParams.get('category');
+    return (cat && GALLERY_CATEGORIES.includes(cat)) ? cat : 'All';
+  });
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+
+  // Sync category if URL search param changes
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && GALLERY_CATEGORIES.includes(cat)) {
+      setSelectedCategory(cat);
+    }
+  }, [searchParams]);
 
   // Scroll to top on mount
   useEffect(() => {

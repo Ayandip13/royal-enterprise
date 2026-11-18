@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../data/mockData';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
 import { WhatsAppIcon } from '../components/common/SocialIcons';
 
@@ -68,15 +68,34 @@ const About = () => {
               </div>
               <div className="flex justify-between py-1 border-b border-[#E8DFD3] dark:border-[#244C4A]">
                 <span className="text-[#8C8282] dark:text-[#8FA4A3]">Official Phone:</span>
-                <span className="font-semibold text-[#292323] dark:text-[#F5EFE5]">{COMPANY_INFO.phone}</span>
+                <a
+                  href={`tel:${COMPANY_INFO.phone.replace(/[^0-9+]/g, '')}`}
+                  className="font-semibold text-[#292323] dark:text-[#F5EFE5] hover:text-[#D66D59] dark:hover:text-[#D6B56F] transition-colors"
+                >
+                  {COMPANY_INFO.phone}
+                </a>
               </div>
               <div className="flex justify-between py-1 border-b border-[#E8DFD3] dark:border-[#244C4A]">
                 <span className="text-[#8C8282] dark:text-[#8FA4A3]">Official Email:</span>
-                <span className="font-semibold text-[#292323] dark:text-[#F5EFE5]">{COMPANY_INFO.email}</span>
+                <a
+                  href={`mailto:${COMPANY_INFO.email}`}
+                  className="font-semibold text-[#292323] dark:text-[#F5EFE5] hover:text-[#D66D59] dark:hover:text-[#D6B56F] transition-colors"
+                >
+                  {COMPANY_INFO.email}
+                </a>
               </div>
-              <div className="flex justify-between py-1">
+              <div className="flex justify-between py-1 items-center">
                 <span className="text-[#8C8282] dark:text-[#8FA4A3]">Official Website:</span>
-                <span className="font-semibold text-[#292323] dark:text-[#F5EFE5]">{COMPANY_INFO.website}</span>
+                <a
+                  href={`https://${COMPANY_INFO.website.replace(/^https?:\/\//, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#292323] dark:text-[#F5EFE5] hover:text-[#D66D59] dark:hover:text-[#D6B56F] underline decoration-[#D66D59]/40 hover:decoration-[#D66D59] transition-colors inline-flex items-center gap-1 group"
+                  title="Open official website in a new tab"
+                >
+                  <span>{COMPANY_INFO.website}</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#D66D59] dark:text-[#D6B56F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
               </div>
             </div>
           </div>

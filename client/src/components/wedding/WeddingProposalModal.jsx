@@ -80,7 +80,7 @@ const WeddingProposalModal = ({ isOpen, onClose }) => {
                 Office: {COMPANY_INFO.address}
               </p>
               <p className="text-[11px] text-slate-600">
-                Phone: {COMPANY_INFO.phone} | Email: {COMPANY_INFO.email} | Web: {COMPANY_INFO.website}
+                Phone: <a href={`tel:${COMPANY_INFO.phone.replace(/[^0-9+]/g, '')}`} className="hover:underline">{COMPANY_INFO.phone}</a> | Email: <a href={`mailto:${COMPANY_INFO.email}`} className="hover:underline">{COMPANY_INFO.email}</a> | Web: <a href={`https://${COMPANY_INFO.website.replace(/^https?:\/\//, '')}`} target="_blank" rel="noopener noreferrer" className="hover:underline font-medium text-amber-900">{COMPANY_INFO.website}</a>
               </p>
             </div>
             <div className="text-left sm:text-right text-[11px] text-slate-600 space-y-1">

@@ -4,12 +4,12 @@ export const COMPANY_INFO = {
   
   // Phone numbers
   phone: '+919831011474',
-  displayPhone: '+91 98310 11474',
-  secondaryPhone: '+91 80136 93587',
+  displayPhone: '+91 80136 93587',
+  secondaryPhone: '+91 98310 11474',
   phones: ['+91 98310 11474', '+91 80136 93587'],
   
   // WhatsApp number
-  whatsapp: '919831011474',
+  whatsapp: '9180136 93587',
   
   email: 'query@royalenterprisesp.com',
   supportEmail: 'support@royalenterprisesp.com',
@@ -17,7 +17,7 @@ export const COMPANY_INFO = {
   address: 'Kolkata, West Bengal, India',
   officeHours: 'Mon - Sun: 9:00 AM - 9:00 PM IST',
   mapUrl: 'https://maps.google.com/?q=Kolkata',
-  website: 'www.royalenterprise.com',
+  website: 'www.royalenterprisesp.com',
   
   // Social media profile links / IDs
   socials: {

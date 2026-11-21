@@ -24,18 +24,19 @@ import {
   FileText,
   CheckCircle2,
   Tag,
+  Gift,
 } from 'lucide-react';
-import { COMPANY_INFO, RATE_CHART_POSTERS, CATERING_PACKAGES } from '../data/mockData';
+import { COMPANY_INFO, ROYAL_CATERING_PACKAGES } from '../data/mockData';
 import { BotanicalBranch, AntiqueStar } from '../components/common/BotanicalDecor';
 import { WhatsAppIcon } from '../components/common/SocialIcons';
 
 const Catering = () => {
   const [selectedPackage, setSelectedPackage] = useState(
-    'Package 02: Bangaliana Special Wedding Package (₹750 / plate)'
+    'Package 02: Royal Biye Bari Special Feast (+20 Family Day Meals Free) (₹750 / plate)'
   );
+  const [activePackageTab, setActivePackageTab] = useState(1);
   const [galleryCategory, setGalleryCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const [rateChartLightbox, setRateChartLightbox] = useState(null);
   const [equipmentLightbox, setEquipmentLightbox] = useState(null);
 
   // =========================================================================
@@ -299,7 +300,7 @@ const Catering = () => {
     ? galleryItems
     : galleryItems.filter((i) => i.category === galleryCategory || (galleryCategory === 'All Dishes' && i.category === 'All Dishes'));
 
-  // Keyboard navigation for Lightbox, Rate Chart Lightbox & Equipment Lightbox
+  // Keyboard navigation for Lightbox & Equipment Lightbox
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (equipmentLightbox !== null) {
@@ -309,16 +310,6 @@ const Catering = () => {
         }
         if (e.key === 'ArrowLeft') {
           setEquipmentLightbox((prev) => (prev - 1 + liveEquipmentItems.length) % liveEquipmentItems.length);
-        }
-        return;
-      }
-      if (rateChartLightbox !== null) {
-        if (e.key === 'Escape') setRateChartLightbox(null);
-        if (e.key === 'ArrowRight') {
-          setRateChartLightbox((prev) => (prev + 1) % RATE_CHART_POSTERS.length);
-        }
-        if (e.key === 'ArrowLeft') {
-          setRateChartLightbox((prev) => (prev - 1 + RATE_CHART_POSTERS.length) % RATE_CHART_POSTERS.length);
         }
         return;
       }
@@ -333,7 +324,7 @@ const Catering = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex, filteredGallery.length, rateChartLightbox, equipmentLightbox]);
+  }, [lightboxIndex, filteredGallery.length, equipmentLightbox]);
 
   // =========================================================================
   // 4. SIGNATURE FEAST PACKAGES (PRESERVED DATA)
@@ -487,33 +478,38 @@ const Catering = () => {
   ];
 
   // =========================================================================
-  // 5. CATERING PRICING GUIDE (BENCHMARKS BASED ON ANALYZED RATE CHARTS)
+  // 5. CATERING PRICING GUIDE (ROYAL ENTERPRISE OFFICIAL PACKAGES)
   // =========================================================================
   const pricingGuide = [
     {
-      category: 'Budget Traditional (₹720 / plate)',
-      caterer: 'Joyguru Caterer',
-      highlights: 'Phuchka & Coffee stalls, Fish Fry with Kasundi, Kolkata Mutton Biryani, Chicken Kosha, Doi Katla, Rumali Roti, Rajbhog & Kesar Jalebi.',
+      category: 'Package 01: Royal Classic Heritage (₹720 / plate)',
+      caterer: 'Traditional Bengali Reception & Live Stalls',
+      highlights: 'Live Phuchka & Coffee stalls, Pure Kolkata Fish Fry with Kasundi, Soft Rumali Roti, Royal Kolkata Dum Mutton Biryani, Chicken Kosha, Doi Katla, Spongy Rajbhog, Chhap Sandesh & Live Kesar Jalebi.',
+      packageRef: 'Package 01: Royal Classic Heritage Feast (₹720 / plate)',
     },
     {
-      category: 'Special Wedding Feast (₹750 / plate)',
-      caterer: 'Bangaliana Caterer (Best Value)',
-      highlights: 'Live Radhaballabhi, Fish Kabiraji, Doi Katla, Mutton/Chicken Kosha, Dal Maharani, Rosogolla, Sandesh + Free 20-Guest Breakfast & Lunch.',
+      category: 'Package 02: Royal Biye Bari Special (+20 Free Meals) (₹750 / plate)',
+      caterer: 'Signature Wedding Banquet + 20 Family Day Meals Free',
+      highlights: 'Complimentary 20-Guest Morning Breakfast (Luchi Alur Dom) & Afternoon Lunch (Katla Kalia). Evening Live Radhaballabhi, Fish Kabiraji, Doi Katla, Mutton Kosha / Chicken Kosha, Dal Maharani, Rosogolla & Sandesh.',
+      packageRef: 'Package 02: Royal Biye Bari Special Feast (+20 Family Day Meals Free) (₹750 / plate)',
     },
     {
-      category: 'Grand Multi-Course Banquet (₹750 / plate)',
-      caterer: "Santanu's Food Adda (Rajkio Menu #9)",
-      highlights: '2 Welcome Coolers, 3 Starters (Golden Prawns, Bhetki Fry), Clear Soup, Basanti Pulao, 4 Non-Veg Mains (Mutton Kosha, Chingri Malaikari), 4 Desserts & Meetha Paan.',
+      category: 'Package 03: Royal Rajkio Grand Banquet - Menu 09 (₹750 / plate)',
+      caterer: 'Custom Choice Banquet (4 Non-Veg Mains + 4 Sweets)',
+      highlights: '2 Welcome Coolers, 3 Starters (Golden Fried Prawns, Pure Bhetki Fry), Clear Soup, Basanti Pulao, 4 Non-Veg Mains (Mutton Kosha 2 pcs, Chingri Malaikari, Bhetki Paturi), 4 Desserts & Meetha Paan.',
+      packageRef: 'Package 03: Royal Rajkio Grand Banquet Feast - Menu 09 (₹750 / plate)',
     },
     {
-      category: 'Full-Day Ceremonial Feast (₹950 / plate)',
-      caterer: 'Nilkantha Caterer (Full Day)',
-      highlights: 'All-Day Care: Morning Luchi-Alur Dom, Afternoon Katla Kalia Lunch, Evening Live Tandoor Kebabs, Bhetki Paturi, Mutton Kosha & Dedicated Veg Counter.',
+      category: 'Package 04: Royal Full-Day Ceremonial Care (₹950 / plate)',
+      caterer: 'Complete All-Day Care (Morning + Afternoon + Evening)',
+      highlights: 'Sacred Morning Luchi & Kashmiri Alur Dom, Afternoon Family Basmati Rice & Katla Kalia Lunch, Evening Live Reshmi Kebabs, Kulcha Naan, Bhetki Paturi, Mutton Kosha & Dedicated 8-Item Pure Veg Counter.',
+      packageRef: 'Package 04: Royal Full-Day Complete Ceremonial Package (₹950 / plate)',
     },
     {
-      category: 'Imperial Luxury Diamond (₹1,250 / plate)',
-      caterer: 'Maa Sandhya Caterers (Min 250 Plates)',
-      highlights: '14-item Mocktail Counter, Diamond Bhetki Fry, Chicken Malai Kebab, Bhetki Paturi, Chingri Malaikari, Mutton Maharaja / Rogan Josh, Rabri, 3 Ice Creams & Fire Paan.',
+      category: 'Package 05: Royal Imperial Luxury Diamond (₹1,250 / plate)',
+      caterer: 'Five-Star VVIP Banquet (Regular ₹1,325 • Min 250 Plates)',
+      highlights: '14-item Signature Mocktail Bar, Butter Coffee, Diamond Cut Bhetki Fry, Chicken Malai Kebab, Steamed Bhetki Paturi, Chingri Malaikari, Mutton Maharaja / Rogan Josh, Thick Rabri, 3 Ice Creams & Fire Paan.',
+      packageRef: 'Package 05: Royal Imperial Luxury Diamond Spread (₹1,250 / plate)',
     },
   ];
 
@@ -573,7 +569,7 @@ const Catering = () => {
                   className="px-8 py-3.5 text-xs uppercase tracking-[0.14em] font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-lg transition-all inline-flex items-center space-x-2"
                 >
                   <Tag className="w-3.5 h-3.5 text-white" />
-                  <span>Rate Charts (₹720 - ₹1,250)</span>
+                  <span>Royal Packages (₹720 - ₹1,250)</span>
                 </button>
 
                 <button
@@ -905,132 +901,309 @@ const Catering = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* 4.5 AUTHENTIC CATERER RATE CHARTS & POSTERS */}
+        {/* 4.5 OFFICIAL ROYAL CATERING PACKAGES & COMPREHENSIVE RATE CHARTS */}
         {/* ========================================================================= */}
-        <section id="rate-charts" className="space-y-8">
+        <section id="rate-charts" className="space-y-10">
           <SectionHeader
-            badge="Verified Rate Charts & Menu Cards"
-            title="Authentic Caterer Rate Charts & Plate Pricing"
-            subtitle="প্রামাণ্য ক্যাটারার রেট চার্ট ও মেনু কার্ড — Transparent, authentic plate rates from ₹720 to ₹1,250 with verified course breakdowns and original posters."
+            badge="Official Royal Banquet Packages"
+            title="Official Catering Packages & Transparent Rates"
+            subtitle="প্রামাণ্য রয়্যাল ক্যাটারিং মেনু ও রেট কার্ড — Five transparent, all-inclusive banquet packages from ₹720 to ₹1,250 with authentic course-by-course breakdowns, live cooking stalls, and ceremonial hospitality."
           />
 
-          {/* Quick Rate Badges Bar */}
+          {/* 5-Package Tab Selector Bar */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 font-sans pb-2">
-            {RATE_CHART_POSTERS.map((rc, idx) => (
-              <button
-                key={rc.id}
-                type="button"
-                onClick={() => setRateChartLightbox(idx)}
-                className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] hover:border-[#D6B56F] hover:bg-[#193C3B] hover:text-[#D6B56F] transition-all"
-              >
-                <Tag className="w-3 h-3 text-[#D66D59] shrink-0" />
-                <span className="font-semibold">{rc.price}</span>
-                <span className="text-[11px] opacity-80">({rc.caterer})</span>
-              </button>
-            ))}
+            {ROYAL_CATERING_PACKAGES.map((pkg, idx) => {
+              const isActive = activePackageTab === idx;
+              return (
+                <button
+                  key={pkg.id}
+                  type="button"
+                  onClick={() => setActivePackageTab(idx)}
+                  className={`inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl text-xs font-medium border transition-all ${
+                    isActive
+                      ? 'bg-[#193C3B] text-[#D6B56F] border-[#D6B56F] shadow-md scale-[1.02]'
+                      : 'border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#F5EFE5] hover:border-[#D6B56F]/60'
+                  }`}
+                >
+                  <Tag className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#D6B56F]' : 'text-[#D66D59]'}`} />
+                  <span className="font-semibold">{pkg.price.split(' ')[0]}</span>
+                  <span className="text-[11px] opacity-90 hidden sm:inline">• {pkg.code}</span>
+                  {pkg.popular && (
+                    <span className="ml-1 px-1.5 py-0.5 rounded text-[9.5px] font-bold uppercase tracking-wider bg-[#D66D59] text-white">
+                      Popular
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          {/* 5 Rate Chart Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {RATE_CHART_POSTERS.map((poster, idx) => (
-              <div
-                key={poster.id}
-                className="group relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Poster Thumbnail with Hover Zoom & Click to Open Lightbox */}
-                  <div
-                    onClick={() => setRateChartLightbox(idx)}
-                    className="relative aspect-[3/4] overflow-hidden bg-[#102726] cursor-pointer"
-                  >
-                    <img
-                      src={poster.image}
-                      alt={poster.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 opacity-70 group-hover:opacity-40 transition-opacity" />
-                    
-                    {/* Badge top-left */}
-                    <div className="absolute top-3.5 left-3.5 bg-[#193C3B]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#D6B56F]/40 text-[10.5px] uppercase tracking-wider font-semibold text-[#D6B56F]">
-                      {poster.badge}
+          {/* Active Package Detailed Showcase Card */}
+          {(() => {
+            const currentPkg = ROYAL_CATERING_PACKAGES[activePackageTab] || ROYAL_CATERING_PACKAGES[0];
+            return (
+              <div className="rounded-2xl border-2 border-[#D6B56F]/40 bg-[#FAF5ED] dark:bg-[#143130] p-6 sm:p-10 shadow-xl space-y-8 relative overflow-hidden">
+                {/* Background Botanical Accent */}
+                <div className="absolute top-0 right-0 pointer-events-none opacity-10 text-[#193C3B] dark:text-[#D6B56F]">
+                  <BotanicalBranch className="w-64 h-64" rotate={15} />
+                </div>
+
+                {/* Header Information */}
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-[#E8DFD3] dark:border-[#244C4A] pb-6 relative z-10 font-sans">
+                  <div className="space-y-2 max-w-2xl text-left">
+                    <div className="inline-flex items-center space-x-2 bg-[#193C3B]/10 dark:bg-white/10 px-3 py-1 rounded-full border border-[#D6B56F]/30 text-xs font-semibold text-[#D66D59] dark:text-[#D6B56F]">
+                      <Crown className="w-3.5 h-3.5 text-[#D6B56F]" />
+                      <span>{currentPkg.badge}</span>
                     </div>
 
-                    {/* Zoom Icon top-right */}
-                    <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md text-[#D6B56F] border border-white/20 flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
-                      <Maximize2 className="w-4 h-4" />
-                    </div>
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-tight">
+                      {currentPkg.code}: {currentPkg.name}
+                    </h3>
 
-                    {/* Bottom overlay with Price Tag */}
-                    <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-end justify-between">
-                      <div className="max-w-[70%]">
-                        <span className="text-[11px] text-white/80 uppercase tracking-widest block font-sans">
-                          {poster.caterer}
-                        </span>
-                        <h4 className="text-white font-display text-lg font-normal drop-shadow-md truncate">
-                          {poster.title}
-                        </h4>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <span className="font-display text-2xl font-bold text-[#D6B56F] drop-shadow-md block">
-                          {poster.price}
-                        </span>
-                        <span className="block text-[10px] text-white/80 font-sans">
-                          {poster.priceUnit}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 space-y-4 font-sans text-left">
-                    <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
-                      {poster.summary}
+                    <p className="text-sm font-semibold text-[#D66D59] dark:text-[#D6B56F]">
+                      {currentPkg.bengaliName}
                     </p>
 
-                    {/* Highlighted items */}
-                    <div className="space-y-2 pt-2 border-t border-[#E8DFD3] dark:border-[#244C4A]">
-                      <span className="text-[11px] uppercase tracking-wider font-semibold text-[#193C3B] dark:text-[#D6B56F] block">
-                        Course Highlights:
+                    <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] italic">
+                      {currentPkg.guestRange}
+                    </p>
+                  </div>
+
+                  <div className="md:text-right shrink-0 bg-white/60 dark:bg-[#102726] p-4 sm:p-5 rounded-2xl border border-[#E8DFD3] dark:border-[#244C4A]">
+                    {currentPkg.originalPrice && (
+                      <span className="line-through text-xs sm:text-sm text-[#8C8282] block">
+                        Regular {currentPkg.originalPrice}
                       </span>
-                      <ul className="space-y-1.5 text-xs text-[#292323] dark:text-[#C8D6D5]">
-                        {poster.highlights.map((h, hIdx) => (
-                          <li key={hIdx} className="flex items-start">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#D66D59] mr-2 mt-0.5 shrink-0" />
-                            <span className="font-light">{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    )}
+                    <span className="font-display text-3xl sm:text-4xl font-bold text-[#193C3B] dark:text-[#D6B56F] block leading-none my-1">
+                      {currentPkg.price}
+                    </span>
+                    <span className="text-[11px] text-[#665C5C] dark:text-[#C8D6D5] uppercase tracking-wider block font-semibold">
+                      Transparent Royal Rate
+                    </span>
                   </div>
                 </div>
 
-                {/* Card CTA Actions */}
-                <div className="p-6 pt-0 grid grid-cols-2 gap-3 font-sans">
-                  <button
-                    type="button"
-                    onClick={() => setRateChartLightbox(idx)}
-                    className="py-2.5 px-3 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F] text-[#193C3B] dark:text-[#F5EFE5] text-xs font-medium inline-flex items-center justify-center space-x-1.5 transition-colors bg-white/60 dark:bg-[#102726]"
-                  >
-                    <Eye className="w-3.5 h-3.5 text-[#D6B56F]" />
-                    <span>View Poster</span>
-                  </button>
+                {/* Free Day Meals / Bonus Offer Banner if present */}
+                {currentPkg.bonusOffer && (
+                  <div className="p-5 rounded-xl border border-[#25D366]/40 bg-[#25D366]/10 dark:bg-[#25D366]/5 space-y-3 font-sans relative z-10 text-left">
+                    <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#193C3B] dark:text-[#25D366]">
+                      <Gift className="w-4 h-4 text-[#25D366]" />
+                      <span>{currentPkg.bonusOffer.title}</span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-[#292323] dark:text-[#C8D6D5]">
+                      <div className="bg-white/80 dark:bg-[#102726] p-3.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] shadow-xs">
+                        <span className="font-semibold block text-[#193C3B] dark:text-[#D6B56F] mb-1">
+                          ☀️ {currentPkg.bonusOffer.breakfast.split(':')[0]}:
+                        </span>
+                        <span className="font-light">{currentPkg.bonusOffer.breakfast.split(':')[1] || currentPkg.bonusOffer.breakfast}</span>
+                      </div>
+                      <div className="bg-white/80 dark:bg-[#102726] p-3.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] shadow-xs">
+                        <span className="font-semibold block text-[#193C3B] dark:text-[#D6B56F] mb-1">
+                          🍲 {currentPkg.bonusOffer.lunch.split(':')[0]}:
+                        </span>
+                        <span className="font-light">{currentPkg.bonusOffer.lunch.split(':')[1] || currentPkg.bonusOffer.lunch}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Special Note / Offer Tag if present */}
+                {currentPkg.note && (
+                  <div className="p-3.5 rounded-xl border border-[#D6B56F]/40 bg-[#D6B56F]/10 text-xs text-[#193C3B] dark:text-[#D6B56F] font-sans flex items-center space-x-2 relative z-10 text-left">
+                    <Sparkles className="w-4 h-4 text-[#D6B56F] shrink-0" />
+                    <span className="font-medium">{currentPkg.note}</span>
+                  </div>
+                )}
+
+                {/* Package Summary & 4 Key Feature Badges */}
+                <div className="space-y-4 relative z-10 text-left font-sans">
+                  <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+                    {currentPkg.summary}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {currentPkg.highlights.map((h, hIdx) => (
+                      <div
+                        key={hIdx}
+                        className="flex items-start space-x-2 p-3 rounded-xl bg-white/70 dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] shadow-xs"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#D66D59] shrink-0 mt-0.5" />
+                        <span className="text-xs font-medium text-[#292323] dark:text-[#F5EFE5] leading-snug">
+                          {h}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Multi-Course Course Breakdown Grid */}
+                <div className="space-y-4 pt-2 relative z-10 text-left">
+                  <div className="flex items-center justify-between border-b border-[#E8DFD3] dark:border-[#244C4A] pb-2">
+                    <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans flex items-center space-x-2">
+                      <Utensils className="w-3.5 h-3.5 text-[#D6B56F]" />
+                      <span>Itemized Course Breakdown & Authentic Dishes</span>
+                    </span>
+                    <span className="text-xs text-[#8C8282] font-sans">
+                      {currentPkg.sections.length} Course Stages
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {currentPkg.sections.map((section, sIdx) => (
+                      <div
+                        key={sIdx}
+                        className="rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] bg-white/80 dark:bg-[#102726] p-5 space-y-3 shadow-xs hover:border-[#D6B56F]/50 transition-colors"
+                      >
+                        <div className="flex items-center space-x-2.5 border-b border-[#E8DFD3] dark:border-[#244C4A] pb-2.5">
+                          <ChefHat className="w-4 h-4 text-[#D6B56F] shrink-0" />
+                          <h4 className="font-display text-base font-normal text-[#193C3B] dark:text-[#D6B56F]">
+                            {section.heading}
+                          </h4>
+                        </div>
+
+                        <ul className="space-y-2 text-xs text-[#292323] dark:text-[#C8D6D5] font-sans">
+                          {section.items.map((item, iIdx) => (
+                            <li key={iIdx} className="flex items-start">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#D66D59] mr-2.5 mt-1.5 shrink-0" />
+                              <span className="font-light leading-relaxed">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Active Package Action CTA Bar */}
+                <div className="pt-6 border-t border-[#E8DFD3] dark:border-[#244C4A] flex flex-wrap items-center justify-between gap-4 relative z-10 font-sans">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => handleSelectPackage(`${currentPkg.code}: ${currentPkg.name} (${currentPkg.price})`)}
+                      className="px-7 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-md transition-all inline-flex items-center space-x-2"
+                    >
+                      <span>Select This Package ({currentPkg.price.split(' ')[0]})</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+
+                    <a
+                      href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Royal%20Enterprise,%20I%20am%20interested%20in%20${encodeURIComponent(currentPkg.code + ': ' + currentPkg.name + ' (' + currentPkg.price + ')')}.`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-5 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-sm inline-flex items-center space-x-2 transition-all"
+                    >
+                      <WhatsAppIcon className="w-3.5 h-3.5" />
+                      <span>WhatsApp Inquiry</span>
+                    </a>
+                  </div>
 
                   <button
                     type="button"
                     onClick={() => {
-                      const matched = CATERING_PACKAGES.find(p => p.price.includes(poster.price.replace(/[^\d]/g, '')) || p.name.includes(poster.caterer.split(' ')[0]));
-                      const pkgName = matched ? `${matched.code}: ${matched.name} (${matched.price})` : `${poster.title} (${poster.price})`;
-                      handleSelectPackage(pkgName);
+                      const el = document.getElementById('live-stations');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="py-2.5 px-3 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-xs font-semibold inline-flex items-center justify-center space-x-1 transition-colors shadow-sm"
+                    className="text-xs text-[#193C3B] dark:text-[#D6B56F] hover:underline inline-flex items-center space-x-1 font-medium font-sans"
                   >
-                    <span>Select Menu</span>
-                    <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
+                    <span>Explore Live In-House Machines</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
-            ))}
+            );
+          })()}
+
+          {/* 5 Packages Side-by-Side Comparison Grid */}
+          <div className="space-y-6 pt-6">
+            <div className="text-center space-y-1">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
+                Quick Comparison Matrix
+              </span>
+              <h3 className="font-display text-2xl sm:text-3xl text-[#292323] dark:text-[#F5EFE5] font-normal">
+                All 5 Official Royal Banquet Tiers
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+              {ROYAL_CATERING_PACKAGES.map((pkg, idx) => {
+                const isSelected = activePackageTab === idx;
+                return (
+                  <div
+                    key={pkg.id}
+                    className={`rounded-2xl border p-5 flex flex-col justify-between transition-all duration-300 text-left ${
+                      isSelected
+                        ? 'border-[#D6B56F] bg-white dark:bg-[#102726] shadow-xl ring-2 ring-[#D6B56F]/40 scale-[1.01]'
+                        : 'border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-lg'
+                    }`}
+                  >
+                    <div className="space-y-3 font-sans">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10.5px] uppercase tracking-wider font-bold text-[#D66D59] dark:text-[#D6B56F]">
+                          {pkg.code}
+                        </span>
+                        {pkg.popular && (
+                          <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#D66D59] text-white">
+                            Best Value
+                          </span>
+                        )}
+                      </div>
+
+                      <div>
+                        <h4 className="font-display text-lg font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
+                          {pkg.name}
+                        </h4>
+                        <span className="text-[11px] text-[#665C5C] dark:text-[#C8D6D5] block mt-0.5">
+                          {pkg.bengaliName}
+                        </span>
+                      </div>
+
+                      <div className="pt-1 pb-2 border-b border-[#E8DFD3] dark:border-[#244C4A]">
+                        <span className="font-display text-2xl font-bold text-[#193C3B] dark:text-[#D6B56F] block">
+                          {pkg.price.split(' ')[0]}
+                        </span>
+                        <span className="text-[10px] text-[#8C8282] uppercase tracking-wider">
+                          {pkg.priceUnit}
+                        </span>
+                      </div>
+
+                      <ul className="space-y-1.5 text-[11px] text-[#292323] dark:text-[#C8D6D5]">
+                        {pkg.highlights.slice(0, 4).map((h, hIdx) => (
+                          <li key={hIdx} className="flex items-start">
+                            <CheckCircle2 className="w-3 h-3 text-[#D66D59] mr-1.5 mt-0.5 shrink-0" />
+                            <span className="font-light leading-tight line-clamp-2">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 mt-3 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-2 font-sans">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActivePackageTab(idx);
+                          const el = document.getElementById('rate-charts');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="w-full py-2 px-2.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F] text-[#193C3B] dark:text-[#F5EFE5] text-[11px] font-medium transition-colors bg-white/60 dark:bg-[#102726] inline-flex items-center justify-center space-x-1"
+                      >
+                        <Eye className="w-3 h-3 text-[#D6B56F]" />
+                        <span>Inspect Full Menu</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleSelectPackage(`${pkg.code}: ${pkg.name} (${pkg.price})`)}
+                        className="w-full py-2 px-2.5 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-[11px] font-semibold transition-colors shadow-sm inline-flex items-center justify-center space-x-1"
+                      >
+                        <span>Select Package</span>
+                        <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -1321,8 +1494,9 @@ const Catering = () => {
               <thead className="bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] uppercase tracking-[0.16em] font-semibold border-b border-[#E8DFD3] dark:border-[#244C4A]">
                 <tr>
                   <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Package Tier & Rate</th>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Caterer Reference</th>
-                  <th className="p-4 text-[11px]">Verified Course Highlights</th>
+                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Curated Banquet Concept</th>
+                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px]">Verified Course Highlights & Inclusions</th>
+                  <th className="p-4 text-[11px] text-right w-28">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#E8DFD3] dark:divide-[#244C4A] text-[#292323] dark:text-[#C8D6D5]">
@@ -1330,7 +1504,17 @@ const Catering = () => {
                   <tr key={idx} className="hover:bg-white/60 dark:hover:bg-[#193C3B]/40 transition-colors">
                     <td className="p-4 font-semibold text-[#193C3B] dark:text-[#D6B56F] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.category}</td>
                     <td className="p-4 font-medium text-[#292323] dark:text-[#F5EFE5] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.caterer}</td>
-                    <td className="p-4 font-light text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed">{row.highlights}</td>
+                    <td className="p-4 font-light text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.highlights}</td>
+                    <td className="p-4 text-right">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectPackage(row.packageRef || row.category)}
+                        className="px-3 py-1.5 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-[11px] font-semibold transition-colors shadow-xs inline-flex items-center space-x-1"
+                      >
+                        <span>Select</span>
+                        <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -1426,113 +1610,7 @@ const Catering = () => {
         </div>
       )}
 
-      {/* Full-Screen Lightbox for Rate Chart Posters */}
-      {rateChartLightbox !== null && RATE_CHART_POSTERS[rateChartLightbox] && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-fade-in"
-          onClick={() => setRateChartLightbox(null)}
-        >
-          {/* Header */}
-          <div
-            className="flex items-center justify-between text-white/90 max-w-[1320px] w-full mx-auto pb-3 border-b border-white/10 font-sans"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center space-x-3">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-mono">
-                RATE CHART 0{rateChartLightbox + 1} / 0{RATE_CHART_POSTERS.length}
-              </span>
-              <span className="hidden sm:inline-block bg-[#D66D59] text-white text-[11px] px-2.5 py-0.5 rounded-full font-semibold">
-                {RATE_CHART_POSTERS[rateChartLightbox].price} {RATE_CHART_POSTERS[rateChartLightbox].priceUnit}
-              </span>
-            </div>
 
-            <div className="flex items-center space-x-3">
-              <button
-                type="button"
-                onClick={() => {
-                  const current = RATE_CHART_POSTERS[rateChartLightbox];
-                  const matched = CATERING_PACKAGES.find(p => p.price.includes(current.price.replace(/[^\d]/g, '')) || p.name.includes(current.caterer.split(' ')[0]));
-                  const pkgName = matched ? `${matched.code}: ${matched.name} (${matched.price})` : `${current.title} (${current.price})`;
-                  handleSelectPackage(pkgName);
-                  setRateChartLightbox(null);
-                }}
-                className="hidden sm:inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white text-xs font-semibold shadow-md transition-all"
-              >
-                <span>Select This Package</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setRateChartLightbox(null)}
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-                aria-label="Close Rate Chart"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Image & Navigation */}
-          <div
-            className="relative flex items-center justify-center my-auto max-w-5xl mx-auto w-full h-[72vh] p-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={RATE_CHART_POSTERS[rateChartLightbox].image}
-              alt={RATE_CHART_POSTERS[rateChartLightbox].title}
-              className="max-h-full max-w-full object-contain rounded-xl shadow-2xl border border-white/20 bg-black/40"
-            />
-
-            <button
-              type="button"
-              onClick={() =>
-                setRateChartLightbox(
-                  (rateChartLightbox - 1 + RATE_CHART_POSTERS.length) % RATE_CHART_POSTERS.length
-                )
-              }
-              className="absolute left-2 sm:-left-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
-              aria-label="Previous Rate Chart"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() =>
-                setRateChartLightbox((rateChartLightbox + 1) % RATE_CHART_POSTERS.length)
-              }
-              className="absolute right-2 sm:-right-16 p-3 rounded-full bg-black/70 hover:bg-black/95 text-white border border-white/20 transition-colors"
-              aria-label="Next Rate Chart"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Footer Details */}
-          <div
-            className="text-center text-white max-w-2xl mx-auto pt-2 pb-2 font-sans space-y-1.5"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#D6B56F] font-semibold">
-                {RATE_CHART_POSTERS[rateChartLightbox].caterer}
-              </span>
-              <span className="text-white/40">•</span>
-              <span className="text-xs text-white/90">
-                {RATE_CHART_POSTERS[rateChartLightbox].title}
-              </span>
-              <span className="text-white/40">•</span>
-              <span className="text-xs font-bold text-[#D6B56F]">
-                {RATE_CHART_POSTERS[rateChartLightbox].price} {RATE_CHART_POSTERS[rateChartLightbox].priceUnit}
-              </span>
-            </div>
-            <p className="text-xs text-white/70 max-w-xl mx-auto font-light line-clamp-2">
-              {RATE_CHART_POSTERS[rateChartLightbox].summary}
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* Full-Screen Lightbox for Live Equipment */}
       {equipmentLightbox !== null && liveEquipmentItems[equipmentLightbox] && (

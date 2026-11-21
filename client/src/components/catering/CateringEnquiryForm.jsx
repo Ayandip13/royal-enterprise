@@ -9,12 +9,12 @@ import { useNotification } from '../../context/NotificationContext';
 import { Utensils, Send, CheckCircle2, Sparkles } from 'lucide-react';
 
 const packageOptions = [
-  'Package 01: Joyguru Traditional Biye Bari Feast (₹720 / plate)',
-  'Package 02: Bangaliana Special Wedding Package (₹750 / plate)',
-  "Package 03: Santanu's Food Adda Rajkio Menu No. 9 (₹750 / plate)",
-  'Package 04: Nilkantha Full-Day Ceremonial Feast (₹950 / plate)',
-  'Package 05: Imperial Luxury Diamond Spread (₹1,250 / plate)',
-  'Customized Banquet Rate Chart / Discussion Required',
+  'Package 01: Royal Classic Heritage Feast (₹720 / plate)',
+  'Package 02: Royal Biye Bari Special Feast (+20 Family Day Meals Free) (₹750 / plate)',
+  'Package 03: Royal Rajkio Grand Banquet Feast - Menu 09 (₹750 / plate)',
+  'Package 04: Royal Full-Day Complete Ceremonial Package (₹950 / plate)',
+  'Package 05: Royal Imperial Luxury Diamond Spread (₹1,250 / plate)',
+  'Customized Royal Banquet Menu / Bespoke Selection',
 ];
 
 const cuisineOptions = [

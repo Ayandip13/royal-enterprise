@@ -8,8 +8,8 @@ export const COMPANY_INFO = {
   secondaryPhone: '+91 98310 11474',
   phones: ['+91 98310 11474', '+91 80136 93587'],
   
-  // WhatsApp number
-  whatsapp: '9180136 93587',
+  // WhatsApp number (Digits only with country code 91, NO spaces or special characters for wa.me URL compatibility)
+  whatsapp: '918013693587',
   
   email: 'query@royalenterprisesp.com',
   supportEmail: 'support@royalenterprisesp.com',
@@ -21,9 +21,9 @@ export const COMPANY_INFO = {
   
   // Social media profile links / IDs
   socials: {
-    whatsapp: 'https://wa.me/919831011474',
+    whatsapp: 'https://wa.me/918013693587',
     instagram: 'https://instagram.com/royalenterprise',
-    facebook: 'https://facebook.com/royalenterprise',
+    facebook: 'https://www.facebook.com/profile.php?id=61596756446795',
     linkedin: 'https://linkedin.com/company/royalenterprise',
     youtube: 'https://youtube.com/@royalenterprise',
   },

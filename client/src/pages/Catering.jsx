@@ -214,22 +214,40 @@ const Catering = () => {
       idealFor: 'Gourmet dessert lounges, VIP wedding receptions, and anniversary galas.',
     },
     {
-      id: 'equip-softy-2',
-      title: 'Live Softy Ice Cream Station Setup',
-      bengaliTitle: 'অন-সাইট লাইভ সফটি স্টেশন অ্যান্ড সার্ভিস কাউন্টার',
-      category: 'Live Dessert Counter',
-      badge: 'In-House Banquet Service',
-      image: '/catering-equipment/live-soft-serve-ice-cream-station.jpg',
-      caption: 'Full operational on-site soft-serve setup ready for banquet service',
+      id: 'equip-popcorn-1',
+      title: 'Commercial Live Popcorn Maker & Warmer Stall',
+      bengaliTitle: 'লাইভ বাটার ও ক্যারামেল পপকর্ন মেকার কাউন্টার',
+      category: 'Live Snack Counter',
+      badge: 'Evening Reception Favorite',
+      image: '/catering-equipment/live-popcorn-machine-counter.jpg',
+      caption: 'Heated glass cabinet commercial popcorn machine with stainless steel kettle',
       description:
-        'Fully managed on-site dessert stall staffed by our uniformed attendants, equipped with assorted sprinkles, chocolate sauce, and waffle cones for non-stop guest delight.',
+        'High-output commercial popcorn machine featuring a heavy-duty stainless steel kettle and heated warming base, serving piping hot, aromatic salted butter, cheese, and sweet caramel popcorn live for guests.',
       features: [
-        'Manned by polite, uniformed Royal Enterprise dessert captains',
-        'Choice of sprinkles, choco chips, gems & warm chocolate sauce',
-        'Compact hygienic footprint integrating seamlessly with venue decor',
-        'Top crowd-pleaser for children, families & dessert lovers alike',
+        'Heavy-duty stainless steel motorized kettle for rapid continuous popping',
+        'Heated storage deck & infrared warming lamp keeping popcorn hot & crisp',
+        'Multiple gourmet seasonings: Classic Butter, Tangy Cheese & Sweet Caramel',
+        'Top crowd-pleaser for children, Sangeet evenings & pre-dinner social hours',
       ],
-      idealFor: 'Boubhat receptions, Annaprashan, and family celebration feasts.',
+      idealFor: 'Sangeet cocktail nights, birthday celebrations, kids entertainment zone & evening receptions.',
+    },
+    {
+      id: 'equip-standee-1',
+      title: 'Interactive Digital Welcome Standee & Kiosk',
+      bengaliTitle: 'ডিজিটাল ওয়েলকাম স্ট্যান্ডি ও ইন্টারেক্টিভ ডিসপ্লে কিওস্ক',
+      category: 'Digital Hospitality & Direction',
+      badge: 'Modern Wedding Essential',
+      image: '/catering-equipment/digital-standee-welcome-kiosk.jpg',
+      caption: 'High-definition vertical digital signage kiosk with white aluminum pedestal',
+      description:
+        'Commercial-grade floor-standing vertical digital signage kiosk featuring an ultra-clear portrait LED display for wedding welcome slides, couple photo stories, digital seating charts, and interactive guest direction.',
+      features: [
+        'Ultra-HD portrait LED display with wide-angle ambient viewing',
+        'Dynamic digital couple photo timeline & personalized welcome slides',
+        'Digital seating plan, table directory & ceremonial itinerary guide',
+        'Minimalist white powder-coated floor-standing architectural frame',
+      ],
+      idealFor: 'Banquet foyer, wedding welcome entrance, corporate summits & gala registration.',
     },
   ];
 
@@ -267,31 +285,45 @@ const Catering = () => {
     },
     {
       id: 5,
-      title: 'Live Softy Ice Cream Station Setup',
-      category: 'Desserts & Sweets',
-      image: '/catering-equipment/live-soft-serve-ice-cream-station.jpg',
-      location: 'Reception Dessert Stall',
+      title: 'Commercial Live Popcorn Maker & Warmer Stall',
+      category: 'Live Counters',
+      image: '/catering-equipment/live-popcorn-machine-counter.jpg',
+      location: 'Live Snack & Sangeet Counter',
     },
     {
       id: 6,
+      title: 'Interactive Digital Welcome Standee & Kiosk',
+      category: 'Live Counters',
+      image: '/catering-equipment/digital-standee-welcome-kiosk.jpg',
+      location: 'Grand Entrance & Welcome Foyer',
+    },
+    {
+      id: 7,
       title: 'Authentic Bengali Basanti Pulao in Golden Chafing Handi',
       category: 'Wedding Feasts',
       image: '/catering-gallary/20250725_195009.jpg',
       location: 'Royal Feast Buffet',
     },
     {
-      id: 7,
+      id: 8,
       title: 'Artisanal Clay Pots for Bengali Mishti Doi',
       category: 'Desserts & Sweets',
       image: '/catering-gallary/20250725_205208.jpg',
       location: 'Traditional Mishti Counter',
     },
     {
-      id: 8,
+      id: 9,
       title: 'Fresh Salad & Gourmet Appetizer Bar',
       category: 'Wedding Feasts',
       image: '/catering-gallary/20241129_202341 (1).jpg',
       location: 'Live Dining Pavilion',
+    },
+    {
+      id: 10,
+      title: 'Fresh Market-Sourced Pure Bhetki Fish',
+      category: 'Wedding Feasts',
+      image: '/catering-gallary/20241019_110837.jpg',
+      location: 'In-House Fresh Sourcing',
     },
   ];
 
@@ -1212,12 +1244,12 @@ const Catering = () => {
         {/* ========================================================================= */}
         <section id="live-stations" className="space-y-8">
           <SectionHeader
-            badge="In-House Culinary Equipment"
-            title="Live Dessert Theatres & Frozen Beverage Stations"
-            subtitle="ইন-হাউস লাইভ ডেজার্ট ও ফ্রোজেন বেভারেজ কাউন্টার — We own and deploy our own commercial softy dispensers, frozen slush granita machines, and Korean bingsu snowmakers for live wedding hospitality."
+            badge="In-House Event & Culinary Equipment"
+            title="Live Food Theatres, Beverage Stations & Digital Hospitality"
+            subtitle="ইন-হাউস লাইভ ডেজার্ট, পপকর্ন, ফ্রোজেন মকটেল ও ডিজিটাল ওয়েলকাম কিওস্ক — We own and deploy our commercial softy dispensers, frozen slush machines, Korean bingsu snowmakers, live popcorn makers, and interactive digital welcome standees."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
             {liveEquipmentItems.map((item, idx) => (
               <div
                 key={item.id}

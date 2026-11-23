@@ -40,88 +40,87 @@ const Catering = () => {
   const [equipmentLightbox, setEquipmentLightbox] = useState(null);
 
   // =========================================================================
-  // 1. CATERING SERVICES & CULINARY DISCIPLINES (EDITORIAL SHOWCASE)
+  // 1. DEDICATED PROPOSED CATERING SERVICE OFFERINGS (GASTRONOMIC TASTING FOLIO)
+  // Easy to edit, replace, or configure without modifying the rest of the application
   // =========================================================================
-  const cateringDisciplines = [
+  const proposedCateringServices = [
     {
-      id: 'wedding-catering',
+      id: 'wedding-event-catering',
       num: '01',
-      title: 'Grand Wedding Catering & Biye Bari Feasts',
-      subtitle: 'Traditional Bengali & North Indian Ceremonial Banquets',
+      roman: 'I',
+      title: 'Wedding & Event Catering',
+      bengaliTitle: 'বিবাহ ও সামাজিক আনুষ্ঠানিক মহাভোজ',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-gallary/20250725_195009.jpg',
       description:
-        'From authentic Gondhoraj coolers and crunchy Kolkata pure Bhetki fry to slow-simmered Kosha Mangsho and hot baked rosogollas, our veteran bawarchis curate an unforgettable course-by-course culinary journey.',
-      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Wedding Banquets',
-      highlights: [
-        'Pure Kolkata Bhetki fry with fresh kasundi',
-        'Slow-cooked mutton kosha & Basanti pulao',
-        'Traditional Mishti Doi in earthen handis',
-        'Hot baked rosogollas & malpua counters',
-      ],
+        'Grand multi-course ceremonial dining for weddings, receptions, and family milestones featuring authentic heritage recipes and transparent per-plate packages.',
+      highlights: ['Authentic Biye Bari courses', 'Slow-cooked Mutton Kosha & Bhetki', 'Transparent per-plate tiers'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      id: 'pure-veg',
+      id: 'live-food-counters',
       num: '02',
-      title: 'Dedicated Pure Vegetarian & Jain Banquets',
-      subtitle: 'Strictly Segregated Cookware, Kitchens & Specialized Chefs',
+      roman: 'II',
+      title: 'Live Food Counters',
+      bengaliTitle: 'আকর্ষণীয় লাইভ ফুড স্টল ও স্ট্রিট ফুড',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-equipment/live-popcorn-machine-counter.jpg',
       description:
-        'Complete peace of mind for sacred ceremonies, Marwari and Jain celebrations. We maintain separate cooking utensils, dedicated raw-material supply, and specialized chefs for authentic Dal Baati Churma, Shahi Paneer, and Sattvic spreads.',
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80',
-      badge: '100% Pure Veg & Jain',
-      highlights: [
-        'Jodhpuri Dal Baati Churma with pure desi ghee',
-        'Shahi Paneer Pasanda in rich cashew cream',
-        'No-onion, no-garlic Sattvic menus upon request',
-        'Live kesariya jalebi & rabri sweet lounge',
-      ],
+        'Interactive on-site culinary counters: artisanal phuchka, Kolkata kathi rolls, sizzling tawa kebabs, live chaat pavilions, and fresh theatre popcorn.',
+      highlights: ['Interactive chef preparation', 'Hygienic live counter setups', 'Kolkata street signatures'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      id: 'milestone-events',
+      id: 'dessert-sweet-stations',
       num: '03',
-      title: 'Milestone Birthdays, Anniversaries & Socials',
-      subtitle: 'Annaprashan, Golden Jubilees & Pre-Wedding Gatherings',
+      roman: 'III',
+      title: 'Dessert & Sweet Stations',
+      bengaliTitle: 'ঐতিহ্যবাহী মিষ্টি ও লাইভ ডেজার্ট লাউঞ্জ',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-gallary/20250725_205208.jpg',
       description:
-        'Relaxed yet refined hospitality where multi-generational families gather. We coordinate live interactive street chaat counters, artisanal skewers, and comforting family main courses.',
-      image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Social & Family Feasts',
-      highlights: [
-        'Live Phuchka and Palak Patta Chaat bars',
-        'Clay-oven chicken reshmi & dahi ke kebabs',
-        'Comforting Bengali Sunday mutton curries',
-        'Artisanal dessert towers & fruit counters',
-      ],
+        'Artisanal clay-pot Mishti Doi, live kesariya jalebi with rabdi, giant baked rosogollas, and in-house commercial soft-serve softy ice cream stations.',
+      highlights: ['Earthen pot Mishti Doi', 'Live jalebi & rabdi kadhai', 'Commercial softy dispenser'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      id: 'live-theatres',
+      id: 'buffet-table-service',
       num: '04',
-      title: 'Live Interactive Food & Dessert Theatres',
-      subtitle: 'In-House Softy Dispensers, Frozen Slush, Korean Bingsu & Clay Grills',
+      roman: 'IV',
+      title: 'Buffet & Table Service',
+      bengaliTitle: 'সুসজ্জিত বুফে ও পরম শ্রদ্ধায় পঙক্তিভোজন',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-gallary/20250725_195041.jpg',
       description:
-        'Transform dining into engaging entertainment. Sizzling charcoal tandoori grills, toss-to-order artisanal pastas, in-house commercial softy dispensers, frozen slush bars, and instant Korean bingsu snowmakers.',
-      image: '/catering-equipment/live-korean-bingsu-snow-ice-machine.jpg',
-      badge: 'Live Experience',
-      highlights: [
-        'In-house digital softy & soft-serve ice cream dispenser',
-        'Dolphin rapid-freeze slush & frozen granita mocktail bar',
-        'Touchscreen snowmaker for Korean Bingsu & fresh fruit snow ice',
-        'Live charcoal tandoori kebabs, pasta & Banarasi paan counters',
-      ],
+        'Elegantly styled chafing buffet lines with heated plate warmers, dedicated elder table service, and traditional sit-down banana-leaf feast options.',
+      highlights: ['Brass & chafing presentation', 'Dedicated elder table care', 'Traditional sit-down feasts'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      id: 'corporate-buffets',
+      id: 'inhouse-kitchen-food-prep',
       num: '05',
-      title: 'Corporate Executive Buffets & Galas',
-      subtitle: 'Pristine Hygiene, Punctual Setup & Boardroom Standards',
+      roman: 'V',
+      title: 'In-house Kitchen & Food Preparation',
+      bengaliTitle: 'নিজস্ব কিচেনে খাঁটি ও টাটকা উপাদানে প্রস্তুত',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-gallary/20241019_110837.jpg',
       description:
-        'Balanced, temperature-controlled, and calorie-conscious dining for leadership summits, shareholder meetings, and corporate award evenings across Kolkata hotel convention centers.',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Corporate Standard',
-      highlights: [
-        'Strictly punctual session buffet synchronization',
-        'Calorie-conscious & international options',
-        'Polite, uniformed bilingual serving captains',
-        'Rapid setup and discreet breakdown',
-      ],
+        'Morning-fresh Kolkata fish market sourcing, cold-pressed kachi ghani mustard oil, slow-cooked whole spices, and strictly zero outsourced cooking.',
+      highlights: ['Morning fish market purchase', 'Cold-pressed mustard oil', '100% in-house food preparation'],
+      aspect: 'aspect-[16/10]',
+    },
+    {
+      id: 'service-staff-hospitality',
+      num: '06',
+      roman: 'VI',
+      title: 'Service Staff & Hospitality',
+      bengaliTitle: 'মার্জিত পোশাকধারী পরিবেশক ও উষ্ণ আতিথেয়তা',
+      badge: 'Proposed Catering Discipline',
+      image: '/catering-gallary/20241129_202026.jpg',
+      description:
+        'Polite, uniformed serving captains, trained floor stewards, continuous chafing replenishment, and warm Bengali family hospitality honoring every guest.',
+      highlights: ['Uniformed captains & stewards', 'Continuous buffet replenishment', 'Respectful Bengali hospitality'],
+      aspect: 'aspect-[16/10]',
     },
   ];
 
@@ -737,98 +736,106 @@ const Catering = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* 3. CATERING DISCIPLINES (ALTERNATING EDITORIAL SHOWCASE) */}
+        {/* 3. DEDICATED PROPOSED CATERING SERVICES (GASTRONOMIC TASTING FOLIO) */}
         {/* ========================================================================= */}
-        <section id="catering-disciplines">
+        <section id="catering-services" className="space-y-10 scroll-mt-24">
+          <div id="catering-disciplines" />
+          
           <SectionHeader
-            badge="Catering Disciplines"
-            title="Traditions and Formats We Specialize In"
-            subtitle="From legendary Bengali Biye Bari courses to clay-oven grills, live theatres, and dedicated vegetarian kitchens."
+            badge="Proposed Culinary Disciplines"
+            title="Dedicated Catering Services & Disciplines"
+            subtitle="ছয়টি স্বতন্ত্র ক্যাটারিং সেবা — From grand wedding banquets and interactive live street-food counters to artisanal dessert lounges, central kitchen slow-cooking, and refined hospitality."
           />
 
-          <div className="space-y-14 sm:space-y-20 pt-6">
-            {cateringDisciplines.map((item, idx) => {
-              const isEven = idx % 2 === 1;
-              return (
-                <div
-                  key={item.id}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
-                >
-                  {/* Image Column */}
-                  <div
-                    className={`lg:col-span-7 relative group ${
-                      isEven ? 'order-1 lg:order-2' : 'order-1'
-                    }`}
-                  >
-                    <div className="relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-lg aspect-[16/10]">
+          {/* Gastronomic Tasting Folio Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {proposedCateringServices.map((item) => (
+              <div
+                key={item.id}
+                className="group bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl overflow-hidden hover:border-[#193C3B]/50 dark:hover:border-[#D6B56F]/50 transition-all duration-300 flex flex-col justify-between shadow-sm hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div>
+                  {/* Small Editorial Culinary Photography Frame */}
+                  <div className="relative overflow-hidden bg-[#E8DFD3] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A]">
+                    <div className={`w-full ${item.aspect} overflow-hidden`}>
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.96]"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.97]"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-sans text-xs">
-                        <span className="uppercase tracking-[0.2em] font-medium text-[#D6B56F]">
-                          {item.badge}
-                        </span>
-                        <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10.5px]">
-                          Fresh On-Site Preparation
-                        </span>
-                      </div>
+                    </div>
+                    {/* Gastronomic Warm Dark Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
+
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white">
+                      <span className="font-display tracking-[0.2em] text-[10.5px] uppercase px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#FAF5ED]">
+                        Folio {item.roman}
+                      </span>
+                      <span className="text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#D66D59]/90 text-white backdrop-blur-md border border-white/20 font-medium">
+                        {item.badge}
+                      </span>
+                    </div>
+
+                    {/* Bottom In-Image Badge */}
+                    <div className="absolute bottom-2.5 left-3 text-white/95 text-[11px] font-sans tracking-wider uppercase flex items-center gap-1.5">
+                      <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
+                      <span className="text-[#D6B56F] font-medium">Taste Discipline {item.num}</span>
                     </div>
                   </div>
 
-                  {/* Text Column */}
-                  <div
-                    className={`lg:col-span-5 space-y-4 ${
-                      isEven ? 'order-2 lg:order-1' : 'order-2'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between border-b border-[#E8DFD3] dark:border-[#244C4A] pb-2">
-                      <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] flex items-center space-x-2 font-sans">
-                        <Utensils className="w-3.5 h-3.5 text-[#D6B56F]" />
-                        <span>Pillar {item.num} • {item.badge}</span>
-                      </span>
-                      <span className="font-display text-4xl font-light text-[#D6B56F]/40 select-none">
-                        {item.num}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display text-2xl sm:text-3xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
+                  {/* Card Content */}
+                  <div className="p-6">
+                    <h3 className="font-display text-2xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug group-hover:text-[#193C3B] dark:group-hover:text-[#D6B56F] transition-colors">
                       {item.title}
                     </h3>
-
-                    <p className="text-xs sm:text-sm text-[#D6B56F] font-semibold font-sans">
-                      {item.subtitle}
+                    <p className="text-xs text-[#8A7D7D] dark:text-[#A0B0AF] font-light mt-1">
+                      {item.bengaliTitle}
                     </p>
-
-                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed font-sans">
+                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed font-light mt-3">
                       {item.description}
                     </p>
 
-                    <div className="space-y-2 pt-2 font-sans">
+                    {/* Culinary Highlights */}
+                    <div className="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-[#E8DFD3]/70 dark:border-[#244C4A]/70">
                       {item.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className="flex items-center space-x-2 text-xs text-[#292323] dark:text-[#C8D6D5]">
-                          <Check className="w-3.5 h-3.5 text-[#D66D59] shrink-0" />
-                          <span>{h}</span>
-                        </div>
+                        <span
+                          key={hIdx}
+                          className="text-[11px] px-2.5 py-1 rounded-md bg-white/70 dark:bg-[#102726]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-[#554C4C] dark:text-[#D0DFDE] flex items-center gap-1.5"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-[#D6B56F]" />
+                          {h}
+                        </span>
                       ))}
-                    </div>
-
-                    <div className="pt-3">
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPackage('Package B: The Grand Imperial Royal Spread (Premium Non-Veg)')}
-                        className="px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white shadow-sm inline-flex items-center space-x-2 transition-colors font-sans"
-                      >
-                        <span>Inquire For This Menu</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F]" />
-                      </button>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Interactive Action & Botanical Footer */}
+                <div className="px-6 py-3.5 bg-black/[0.02] dark:bg-black/20 border-t border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-between text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectPackage('Package B: The Grand Imperial Royal Spread (Premium Non-Veg)')}
+                    className="font-medium text-[#193C3B] dark:text-[#D6B56F] hover:text-[#D66D59] inline-flex items-center gap-1.5 group/btn transition-colors"
+                  >
+                    <span>Inquire for this service</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F] group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                  <span className="font-display italic text-[#8A7D7D] dark:text-[#A0B0AF] flex items-center gap-1">
+                    <BotanicalBranch className="w-3.5 h-3.5 text-[#D6B56F]" />
+                    Kitchen {item.num}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quiet Proposed Disclaimer Banner */}
+          <div className="rounded-xl p-4 bg-[#FAF5ED]/80 dark:bg-[#143130]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-center max-w-2xl mx-auto">
+            <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+              <span className="font-medium text-[#193C3B] dark:text-[#D6B56F]">Proposed Catering Disciplines:</span> These listings reflect our specialized culinary and hospitality services. Custom banquet menus, live counter allocations, and special dietary arrangements are confirmed during one-on-one food tastings.
+            </p>
           </div>
         </section>
 
@@ -1026,13 +1033,13 @@ const Catering = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-[#292323] dark:text-[#C8D6D5]">
                       <div className="bg-white/80 dark:bg-[#102726] p-3.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] shadow-xs">
                         <span className="font-semibold block text-[#193C3B] dark:text-[#D6B56F] mb-1">
-                          ☀️ {currentPkg.bonusOffer.breakfast.split(':')[0]}:
+                          {currentPkg.bonusOffer.breakfast.split(':')[0]}:
                         </span>
                         <span className="font-light">{currentPkg.bonusOffer.breakfast.split(':')[1] || currentPkg.bonusOffer.breakfast}</span>
                       </div>
                       <div className="bg-white/80 dark:bg-[#102726] p-3.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] shadow-xs">
                         <span className="font-semibold block text-[#193C3B] dark:text-[#D6B56F] mb-1">
-                          🍲 {currentPkg.bonusOffer.lunch.split(':')[0]}:
+                          {currentPkg.bonusOffer.lunch.split(':')[0]}:
                         </span>
                         <span className="font-light">{currentPkg.bonusOffer.lunch.split(':')[1] || currentPkg.bonusOffer.lunch}</span>
                       </div>

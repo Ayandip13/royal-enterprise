@@ -6,11 +6,8 @@ import {
   HeartHandshake,
   Check,
   FileText,
-  Building,
   Palette,
   Users,
-  Gift,
-  Flame,
   Crown,
   Sparkles,
   ArrowRight,
@@ -77,44 +74,93 @@ const WeddingPlanner = () => {
   ];
 
   // =========================================================================
-  // 2. SCOPE OF PLANNING SERVICES (WHAT WE TAKE CARE OF)
+  // 2. DEDICATED PROPOSED WEDDING SERVICE OFFERINGS (BOTANICAL EDITORIAL ATELIER)
+  // Easy to edit, replace, or configure without modifying the rest of the application
   // =========================================================================
-  const scopeServices = [
+  const proposedWeddingServices = [
     {
-      icon: Building,
-      title: 'Finding the Perfect Venue',
+      id: 'wedding-planning-coordination',
+      num: '01',
+      roman: 'I',
+      title: 'Wedding Planning & Coordination',
+      bengaliTitle: 'বিয়ের সামগ্রিক পরিকল্পনা ও অন-গ্রাউন্ড কো-অর্ডিনেশন',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/wedding-gallary/bengali-wedding-couple.jpg',
       description:
-        'Whether you dream of a heritage rajbari with historic courtyards, a five-star ballroom, or a riverside lawn across Kolkata, we help you pick the right space and lock in honest rates.',
+        'Single-point ceremonial stewardship from timeline charting and vendor synchronization to run-of-show execution and dedicated bridal shadow coordinators on the wedding floor.',
+      highlights: ['Milestone timeline schedules', 'Vendor coordination & contracts', 'Dedicated floor director & shadow'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      icon: Palette,
-      title: 'Mandap Styling & Flower Decor',
+      id: 'wedding-decor-mandap-design',
+      num: '02',
+      roman: 'II',
+      title: 'Wedding Decor & Mandap Design',
+      bengaliTitle: 'বৈদিক মণ্ডপ ও পুষ্পশোভিত রাজকীয় মঞ্চ নির্মাণ',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/wedding-gallary/20241129_183629.jpg',
       description:
-        'From traditional marigold mandaps and fresh tuberose canopies to photogenic entrance gates, we design warm, welcoming settings that look even more magical in person.',
+        'Architectural Vedic mandap structures, fresh tuberose and marigold canopies, thematic reception sets, and photogenic floral entrance gateways crafted with botanical grace.',
+      highlights: ['Vedic mandap architecture', 'Fresh seasonal floral canopies', 'Grand entrance & reception backdrops'],
+      aspect: 'aspect-[4/3]',
     },
     {
-      icon: Users,
-      title: 'Working with Trusted Vendors',
+      id: 'photography-cinematography',
+      num: '03',
+      roman: 'III',
+      title: 'Photography & Cinematography',
+      bengaliTitle: 'স্মৃতিচারণ ফটোগ্রাফি ও সিনেমাটিক ফিল্মিং',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/wedding-gallary/bengali-sindoor-daan.jpg',
       description:
-        'We coordinate with the city’s finest candid photographers, makeup artists, choreographers, shehnai players, and priests so you don’t spend weeks chasing phone calls.',
+        'Fine-art candid ritual portraiture, 4K ceremonial highlight films, traditional family documentation, and cinematic teasers capturing timeless vows.',
+      highlights: ['4K cinematic teasers & films', 'Candid ritual portraiture', 'Heirloom printed family albums'],
+      aspect: 'aspect-[4/3]',
     },
     {
-      icon: HeartHandshake,
-      title: 'Taking Care of Your Guests',
+      id: 'lighting-sound',
+      num: '04',
+      roman: 'IV',
+      title: 'Lighting & Sound',
+      bengaliTitle: 'উৎসবমুখর আলোকসজ্জা ও অ্যাকোস্টিক সাউন্ড',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/images/gala-stage-lighting.jpg',
       description:
-        'Airport pickups, welcoming hotel desks, luggage handling, and friendly coordinators so your outstation relatives and elders feel genuinely cared for from the moment they arrive.',
+        'Warm architectural uplighting, crystal chandelier rigging, sacred shehnai acoustics, and balanced reception sound systems tailored for serene conversation.',
+      highlights: ['Architectural lawn uplighting', 'Acoustic shehnai & vocal sound', 'Sangeet sound reinforcement'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      icon: Gift,
-      title: 'Gifting & Tattwa Packaging',
+      id: 'venue-guest-management',
+      num: '05',
+      roman: 'V',
+      title: 'Venue & Guest Management',
+      bengaliTitle: 'হেরিটেজ ভেন্যু নির্বাচন ও পরম আত্মীয় আপ্যায়ন',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/images/luxury-ballroom-venue.jpg',
       description:
-        'Beautifully arranged tattwa trays, custom wedding invitation hampers, and thoughtful return favors that express your family’s love with elegance and traditional grace.',
+        'Securing heritage Kolkata rajbaris and riverside lawns, managing airport arrivals, personalized welcome kits, hotel check-ins, and attentive elderly concierge care.',
+      highlights: ['Heritage rajbari reservation', 'Airport & station greeting desks', 'Luggage & elderly concierge care'],
+      aspect: 'aspect-[4/3]',
     },
     {
-      icon: Flame,
-      title: 'Traditional Rituals & Timings',
+      id: 'bridal-groom-styling',
+      num: '06',
+      roman: 'VI',
+      title: 'Bridal & Groom Styling',
+      bengaliTitle: 'বর-কনের ঐতিহ্যবাহী সাজসজ্জা ও রাজকীয় বেশভূষা',
+      badge: 'Proposed Atelier Discipline',
+      status: 'Proposed Service',
+      image: '/wedding-gallary/bengali-wedding-2.jpg',
       description:
-        'We make sure the puja samagri, sacred fire, brass thalis, and priest requirements are prepared well ahead of time, ensuring subho drishti and saat phere happen with peaceful dignity.',
+        'Authentic pure silk Benarasi drape artistry, custom topor and mukut coordination, heirloom jewellery pairing, and professional bridal vanity scheduling.',
+      highlights: ['Benarasi & zardozi draping', 'Mukut, topor & kalgi styling', 'Vanity & touch-up scheduling'],
+      aspect: 'aspect-[4/3]',
     },
   ];
 
@@ -461,41 +507,100 @@ const WeddingPlanner = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* 3. SCOPE OF PLANNING SERVICES */}
+        {/* 3. DEDICATED WEDDING SERVICE OFFERINGS (BOTANICAL ATELIER SHOWCASE) */}
         {/* ========================================================================= */}
-        <section id="scope-of-services">
+        <section id="wedding-services" className="space-y-8 scroll-mt-24">
+          <div id="scope-of-services" />
           <SectionHeader
-            badge="Comprehensive Care"
-            title="What We Take Care Of For Your Wedding"
-            subtitle="From booking historic courtyards to personal shadow managers on the big day, we stay by your side so you can enjoy every moment."
+            badge="Proposed Service Offerings"
+            title="Curated Wedding Atelier Services"
+            subtitle="ছয়টি প্রস্তাবিত ওয়েডিং ডিসিপ্লিন — Dedicated wedding services crafted to bring sacred ritual sanctity, architectural elegance, and stress-free family hospitality to your celebration."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {scopeServices.map((service, idx) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl p-7 hover:border-[#193C3B]/50 dark:hover:border-[#D6B56F]/50 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-center mb-5 text-[#193C3B] dark:text-[#D6B56F] group-hover:border-[#193C3B]/50 transition-colors">
-                      <Icon className="w-5 h-5 stroke-[1.6]" />
+          {/* Asymmetric Botanical Editorial Folio Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {proposedWeddingServices.map((service) => (
+              <div
+                key={service.id}
+                className="group bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl overflow-hidden hover:border-[#193C3B]/50 dark:hover:border-[#D6B56F]/50 transition-all duration-300 flex flex-col justify-between shadow-sm hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div>
+                  {/* Small Editorial Photography Crop */}
+                  <div className="relative overflow-hidden bg-[#E8DFD3] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A]">
+                    <div className={`w-full ${service.aspect} overflow-hidden`}>
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                        loading="lazy"
+                      />
                     </div>
-                    <h3 className="font-display text-2xl font-normal text-[#292323] dark:text-[#F5EFE5] mb-2 leading-snug">
+                    {/* Editorial Top Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+                    
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white">
+                      <span className="font-display tracking-[0.25em] text-[10px] uppercase px-2.5 py-0.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-[#FAF5ED]">
+                        Atelier {service.roman}
+                      </span>
+                      <span className="text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-[#193C3B]/80 text-[#FAF5ED] backdrop-blur-md border border-white/20 font-medium">
+                        {service.badge}
+                      </span>
+                    </div>
+
+                    {/* Bottom In-Image Accent */}
+                    <div className="absolute bottom-2.5 left-3 text-white/90 text-[11px] font-display italic tracking-wider flex items-center gap-1.5">
+                      <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
+                      <span>Discipline {service.num}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6">
+                    <h3 className="font-display text-2xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug group-hover:text-[#193C3B] dark:group-hover:text-[#D6B56F] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed font-light">
+                    <p className="text-xs text-[#8A7D7D] dark:text-[#A0B0AF] font-light mt-1">
+                      {service.bengaliTitle}
+                    </p>
+                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed font-light mt-3">
                       {service.description}
                     </p>
-                  </div>
-                  <div className="pt-4 mt-5 border-t border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-between text-xs text-[#193C3B] dark:text-[#D6B56F] font-semibold">
-                    <span>Royal Enterprise personal care</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
+
+                    {/* Curated Touchpoints */}
+                    <div className="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-[#E8DFD3]/70 dark:border-[#244C4A]/70">
+                      {service.highlights.map((item, hIdx) => (
+                        <span
+                          key={hIdx}
+                          className="text-[11px] px-2.5 py-1 rounded-md bg-white/70 dark:bg-[#102726]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-[#554C4C] dark:text-[#D0DFDE] flex items-center gap-1.5"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-[#D6B56F]" />
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Subtle Editorial Bottom Bar */}
+                <div className="px-6 py-3.5 bg-black/[0.02] dark:bg-black/20 border-t border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-between text-xs text-[#8A7D7D] dark:text-[#A0B0AF]">
+                  <span className="flex items-center gap-1.5 font-light">
+                    <BotanicalBranch className="w-3.5 h-3.5 text-[#D6B56F]" />
+                    {service.status}
+                  </span>
+                  <span className="font-display italic text-[#193C3B] dark:text-[#D6B56F] font-medium">
+                    Royal Atelier {service.num}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quiet Proposed Disclaimer Banner */}
+          <div className="rounded-xl p-4 bg-[#FAF5ED]/80 dark:bg-[#143130]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-center max-w-2xl mx-auto">
+            <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+              <span className="font-medium text-[#193C3B] dark:text-[#D6B56F]">Proposed Service Disciplines:</span> These curated categories represent our specialized wedding capabilities. Each offering is reviewed and confirmed during one-on-one family alignment consultations.
+            </p>
           </div>
         </section>
 

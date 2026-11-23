@@ -24,6 +24,7 @@ function App() {
               <Route path="/events" element={<EventManagement />} />
               <Route path="/event-management" element={<EventManagement />} />
               <Route path="/catering" element={<Catering />} />
+              <Route path="/weddings" element={<WeddingPlanner />} />
               <Route path="/wedding-planner" element={<WeddingPlanner />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/about" element={<About />} />

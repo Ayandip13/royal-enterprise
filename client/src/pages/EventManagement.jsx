@@ -114,78 +114,87 @@ const EventManagement = () => {
   ];
 
   // =========================================================================
-  // 2. WHAT WE MANAGE FOR YOU (TRANSFORMED FROM TABLE INTO VISUAL SHOWCASE)
+  // 2. DEDICATED PROPOSED EVENT PRODUCTION SERVICES (ARCHITECTURAL EDITORIAL)
+  // Easy to edit, replace, or configure without modifying the rest of the application
   // =========================================================================
-  const serviceModules = [
+  const proposedEventServices = [
     {
+      id: 'stage-set-production',
       num: '01',
-      icon: Building2,
-      name: 'Finding the Right Venue',
-      category: 'Venue & Logistics',
-      image: '/images/luxury-ballroom-venue.jpg',
+      name: 'Stage & Set Production',
+      bengaliTitle: 'কাস্টম স্টেজ ডিজাইন ও থিমেটিক সেট নির্মাণ',
+      category: 'Stagecraft & Scenic Architecture',
+      badge: 'Proposed Production Discipline',
+      image: '/events-gallary/20230620_214246.jpg',
       deliverable:
-        'Scouting heritage rajbaris, open lawns, banquet halls, and hotel ballrooms; negotiating fair corporate and family rates.',
-      highlights: ['Heritage Rajbaris & Ballrooms', 'Contract negotiations', 'Site capacity planning'],
+        'Custom 3D stage mockups, multi-tiered platforms, acoustic orchestral risers, and structural scenic set pieces engineered to the highest venue safety standards.',
+      highlights: ['Custom 3D scenic sets', 'Multi-tiered stage risers', 'Structural safety certified'],
+      aspect: 'aspect-[16/10]',
     },
     {
+      id: 'led-walls-av-equipment',
       num: '02',
-      icon: Palette,
-      name: 'Stage Design & Visuals',
-      category: 'Stagecraft & Set Design',
-      image: '/images/hero-stage.png',
+      name: 'LED Walls & AV Equipment',
+      bengaliTitle: 'হাই-ডেফিনিশন এলইডি ভিডিও ওয়াল ও ডিজিটাল এভি',
+      category: 'Audiovisuals & Digital Displays',
+      badge: 'Proposed Production Discipline',
+      image: '/events-gallary/20230826_161258.jpg',
       deliverable:
-        'Clear 3D stage mockups, entry arches, fresh floral decor, red carpet walkways, and comfortable VIP seating.',
-      highlights: ['Custom 3D stage previews', 'VIP lounge seating', 'Thematic entry arches'],
+        'High-resolution fine-pitch LED video walls, multi-source video switchers, live relay telecast displays, and digital registration standees.',
+      highlights: ['Ultra-HD pixel pitch LED', 'Seamless video switching', 'Digital interactive displays'],
+      aspect: 'aspect-[16/10]',
     },
     {
+      id: 'event-photography-videography',
       num: '03',
-      icon: Volume2,
-      name: 'Sound, Lights & LED Walls',
-      category: 'Audiovisuals & Engineering',
+      name: 'Event Photography & Videography',
+      bengaliTitle: 'কনফারেন্স ও গালা মিডিয়া কভারেজ',
+      category: 'Media & Live Broadcasting',
+      badge: 'Proposed Production Discipline',
+      image: '/events-gallary/20241202_211726.jpg',
+      deliverable:
+        'Multi-camera 4K stage recording, rapid highlight reels for press, media step-and-repeat backdrops, and live broadcast archiving.',
+      highlights: ['Multi-camera 4K capture', 'Same-day press highlights', 'Media step-and-repeat backdrops'],
+      aspect: 'aspect-[16/10]',
+    },
+    {
+      id: 'sound-lighting-production',
+      num: '04',
+      name: 'Sound & Lighting Production',
+      bengaliTitle: 'কনসার্ট-গ্রেড অ্যাকোস্টিক সাউন্ড ও ইন্টেলিজেন্ট লাইটিং',
+      category: 'Acoustics & Intelligent Lighting',
+      badge: 'Proposed Production Discipline',
       image: '/images/gala-stage-lighting.jpg',
       deliverable:
-        'Crisp speech sound systems, ambient mood lighting, high-definition LED screens, and heavy-duty power generator backups.',
-      highlights: ['Acoustic line-array sound', 'High-res LED video walls', 'Heavy-duty power backups'],
+        'Precision acoustic line-arrays tuned for clear keynotes, DMX moving-head profiles, gobo branding projections, and heavy-duty generator power rigs.',
+      highlights: ['Speech-clear line arrays', 'Intelligent moving heads', 'Heavy-duty generator rigs'],
+      aspect: 'aspect-[16/10]',
     },
     {
-      num: '04',
-      icon: Music,
-      name: 'Live Music & Emcees',
-      category: 'Entertainment & Flow',
-      image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=80',
-      deliverable:
-        'Engaging event hosts, live Bengali and Bollywood musicians, cultural performers, and professional DJs.',
-      highlights: ['Professional bilingual emcees', 'Live musicians & bands', 'DJ consoles & dance floors'],
-    },
-    {
+      id: 'guest-delegate-management',
       num: '05',
-      icon: Camera,
-      name: 'Photo & Video Teams',
-      category: 'Media & Archiving',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80',
+      name: 'Guest & Delegate Management',
+      bengaliTitle: 'ডেল্হিগেট রেজিস্ট্রি ও ভিআইপি প্রোটোকল',
+      category: 'Delegate Logistics & Hospitality',
+      badge: 'Proposed Production Discipline',
+      image: '/events-gallary/20240805_235720_01.jpg',
       deliverable:
-        'Candid ceremony photography, cinematic highlight reels, drone videography, and live screen feeds.',
-      highlights: ['Cinematic 4K highlight reels', 'Live video display feeds', 'Drone aerial coverage'],
+        'Digital QR registration counters, delegate kit assembly, VIP hospitality lounges, and courteous bilingual marshals for orderly crowd flow.',
+      highlights: ['Digital QR check-in desks', 'VIP lounge protocol', 'Bilingual event marshals'],
+      aspect: 'aspect-[16/10]',
     },
     {
+      id: 'branding-event-fabrication',
       num: '06',
-      icon: Users,
-      name: 'Guest Hospitality & Transport',
-      category: 'Guest Experience',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80',
+      name: 'Branding & Event Fabrication',
+      bengaliTitle: 'ব্র্যান্ডিং ফ্রেমওয়ার্ক ও এক্সপেরিয়েনশিয়াল সাইনেজ',
+      category: 'Spatial Branding & Fabrication',
+      badge: 'Proposed Production Discipline',
+      image: '/events-gallary/20231029_160443.jpg',
       deliverable:
-        'Airport and Howrah/Sealdah station pickups, hotel check-in assistance, welcome kits, and valet parking coordination.',
-      highlights: ['Airport/Station arrivals', 'Hotel welcome desks', 'Valet parking management'],
-    },
-    {
-      num: '07',
-      icon: ShieldCheck,
-      name: 'Safety & Crowd Care',
-      category: 'Compliance & Security',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80',
-      deliverable:
-        'Trained event marshals, female security staff, fire safety equipment, and on-ground medical first-aid.',
-      highlights: ['Municipal safety clearances', 'Trained event marshals', 'Medical first-aid readiness'],
+        'Architectural entrance gateways, backlit sponsor panels, custom experiential photo pavilions, and directional wayfinding signage.',
+      highlights: ['Backlit sponsor pillars', 'Experiential photo pavilions', 'Precision wayfinding signage'],
+      aspect: 'aspect-[16/10]',
     },
   ];
 
@@ -673,114 +682,120 @@ const EventManagement = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* 3. WHAT WE MANAGE FOR YOU (VISUAL EDITORIAL SHOWCASE) */}
+        {/* 3. DEDICATED PROPOSED EVENT PRODUCTION SERVICES (ARCHITECTURAL MATRIX) */}
         {/* ========================================================================= */}
-        <section id="service-modules">
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <section id="services" className="space-y-10 scroll-mt-24">
+          <div id="service-modules" />
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D6B56F]" />
               <span className="text-xs uppercase tracking-[0.24em] font-semibold text-[#D66D59] dark:text-[#D6B56F]">
-                Production & Execution
+                Proposed Production Disciplines
               </span>
             </div>
 
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#292323] dark:text-[#F5EFE5] font-normal tracking-tight leading-[1.08]">
-              What We Manage For You. <br />
+              Dedicated Event Production <br />
               <span className="italic font-display text-[#193C3B] dark:text-[#D6B56F]">
-                Every Operational Discipline.
+                & Technical Disciplines.
               </span>
             </h2>
 
             <p className="text-base text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
-              Every detail handled directly by our dedicated crew so you don't have to chase disconnected contractors or suppliers.
+              ছয়টি প্রস্তাবিত ইভেন্ট প্রোডাকশন সেবা — Architectural stagecraft, audiovisual engineering, and turnkey delegate hospitality tailored for corporate summits, award galas, and cultural showcases.
             </p>
           </div>
 
-          <div className="space-y-12 sm:space-y-16">
-            {serviceModules.map((item, idx) => {
-              const isEven = idx % 2 === 1;
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
-                >
-                  {/* Visual Image Column */}
-                  <div
-                    className={`lg:col-span-6 relative group ${
-                      isEven ? 'order-1 lg:order-2' : 'order-1'
-                    }`}
-                  >
-                    <div className="relative rounded-2xl overflow-hidden border border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-lg aspect-[16/10]">
+          {/* Architectural Modular Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {proposedEventServices.map((item) => (
+              <div
+                key={item.id}
+                className="group bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl overflow-hidden hover:border-[#193C3B]/50 dark:hover:border-[#D6B56F]/50 transition-all duration-300 flex flex-col justify-between shadow-sm hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div>
+                  {/* Small Editorial Architectural Photography Frame */}
+                  <div className="relative overflow-hidden bg-[#E8DFD3] dark:bg-[#102726] border-b border-[#E8DFD3] dark:border-[#244C4A]">
+                    <div className={`w-full ${item.aspect} overflow-hidden`}>
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.96]"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-[0.97]"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white font-sans text-xs">
-                        <span className="uppercase tracking-[0.2em] font-medium text-[#D6B56F]">
-                          {item.category}
-                        </span>
-                        <span className="bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-[10.5px]">
-                          Direct Crew Delivery
-                        </span>
-                      </div>
                     </div>
-                  </div>
+                    {/* Architectural Dark Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent pointer-events-none" />
 
-                  {/* Text Column */}
-                  <div
-                    className={`lg:col-span-6 space-y-4 font-sans ${
-                      isEven ? 'order-2 lg:order-1' : 'order-2'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between border-b border-[#E8DFD3] dark:border-[#244C4A] pb-2">
-                      <div className="flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F]">
-                        <div className="w-8 h-8 rounded-lg bg-white dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-center text-[#193C3B] dark:text-[#D6B56F] shrink-0">
-                          <Icon className="w-4 h-4 stroke-[1.8]" />
-                        </div>
-                        <span>Service Module {item.num}</span>
-                      </div>
-                      <span className="font-display text-4xl font-light text-[#D6B56F]/40 select-none">
-                        {item.num}
+                    {/* Architectural Top Badges */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white">
+                      <span className="font-mono text-[10.5px] tracking-widest uppercase px-2.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[#FAF5ED]">
+                        {item.num} / PRODUCTION
+                      </span>
+                      <span className="text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#193C3B]/85 text-[#FAF5ED] backdrop-blur-md border border-white/20 font-medium">
+                        {item.badge}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
+                    {/* Bottom In-Image Category */}
+                    <div className="absolute bottom-2.5 left-3 text-white/90 text-[11px] font-sans tracking-wider uppercase flex items-center gap-1.5">
+                      <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
+                      <span className="text-[#D6B56F] font-medium">{item.category}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6">
+                    <h3 className="font-display text-2xl font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug group-hover:text-[#193C3B] dark:group-hover:text-[#D6B56F] transition-colors">
                       {item.name}
                     </h3>
-
-                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+                    <p className="text-xs text-[#8A7D7D] dark:text-[#A0B0AF] font-light mt-1">
+                      {item.bengaliTitle}
+                    </p>
+                    <p className="text-sm text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed font-light mt-3">
                       {item.deliverable}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 pt-1">
+                    {/* Structural Highlights */}
+                    <div className="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-[#E8DFD3]/70 dark:border-[#244C4A]/70">
                       {item.highlights.map((h, hIdx) => (
                         <span
                           key={hIdx}
-                          className="inline-flex items-center space-x-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/80 dark:bg-[#102726] border border-[#E8DFD3] dark:border-[#244C4A] text-[#292323] dark:text-[#F5EFE5]"
+                          className="text-[11px] px-2.5 py-1 rounded-md bg-white/70 dark:bg-[#102726]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-[#554C4C] dark:text-[#D0DFDE] flex items-center gap-1.5"
                         >
-                          <Check className="w-3.5 h-3.5 text-[#D66D59]" />
-                          <span>{h}</span>
+                          <span className="w-1 h-1 rounded-full bg-[#D6B56F]" />
+                          {h}
                         </span>
                       ))}
                     </div>
-
-                    <div className="pt-2">
-                      <button
-                        type="button"
-                        onClick={() => handleSelectCategory(item.name)}
-                        className="text-xs font-semibold text-[#193C3B] dark:text-[#D6B56F] hover:text-[#D66D59] inline-flex items-center space-x-1.5 group transition-colors"
-                      >
-                        <span>Include in event proposal</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F] group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Interactive Action & Botanical Footer */}
+                <div className="px-6 py-3.5 bg-black/[0.02] dark:bg-black/20 border-t border-[#E8DFD3] dark:border-[#244C4A] flex items-center justify-between text-xs">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectCategory(item.name)}
+                    className="font-medium text-[#193C3B] dark:text-[#D6B56F] hover:text-[#D66D59] inline-flex items-center gap-1.5 group/btn transition-colors"
+                  >
+                    <span>Enquire for this discipline</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F] group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                  <span className="font-display italic text-[#8A7D7D] dark:text-[#A0B0AF] flex items-center gap-1">
+                    <BotanicalBranch className="w-3.5 h-3.5 text-[#D6B56F]" />
+                    Pillar {item.num}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Quiet Proposed Disclaimer Banner */}
+          <div className="rounded-xl p-4 bg-[#FAF5ED]/80 dark:bg-[#143130]/80 border border-[#E8DFD3] dark:border-[#244C4A] text-center max-w-2xl mx-auto">
+            <p className="text-xs text-[#665C5C] dark:text-[#C8D6D5] font-light leading-relaxed">
+              <span className="font-medium text-[#193C3B] dark:text-[#D6B56F]">Proposed Production Disciplines:</span> These listings reflect our turnkey event and corporate staging capabilities. Final technical specifications, audiovisual hardware, and crew deployments are verified during event briefing.
+            </p>
           </div>
         </section>
 

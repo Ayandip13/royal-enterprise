@@ -32,7 +32,7 @@ export const HERO_CAROUSEL_IMAGES = [
     subtitle: 'Sacred Mandap Styling, Topor-Mukut & Sacred Vows',
     location: 'Kolkata Heritage Biye Bari',
     badge: 'Bespoke Biye Bari',
-    image: '/wedding-gallary/bengali-wedding-couple.jpg',
+    image: '/wedding-gallary/bengali-sindoor-daan.jpg',
     alt: 'Royal Enterprise Heritage Bengali Wedding Planning',
     accentColor: '#D6B56F',
   },
@@ -107,7 +107,7 @@ export const HeroVisualCollage = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Continuous cylindrical auto-rotation every 4.5 seconds
+  // Continuous cylindrical auto-rotation every 2.5 seconds
   // Advances so the next image (from Lower Left) rises to Upper Center
   const rotateNext = useCallback(() => {
     setActiveProminentIndex((prev) => (prev + 2) % 3);
@@ -123,7 +123,7 @@ export const HeroVisualCollage = () => {
 
     const timer = setInterval(() => {
       rotateNext();
-    }, 4500);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [isPaused, lightboxIndex, rotateNext]);

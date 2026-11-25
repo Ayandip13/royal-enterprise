@@ -65,8 +65,8 @@ const BrandIntroduction = () => {
         <div className="pt-12 sm:pt-16">
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8DFD3] dark:border-[#244C4A] aspect-[16/8] sm:aspect-[21/9] bg-[#102726] group">
             <img
-              src="/images/luxury-ballroom-venue.jpg"
-              alt="Royal Enterprise Luxury Ballroom & Event Scenography in Kolkata"
+              src="/events-gallary/20240805_235720_01.jpg"
+              alt="Royal Enterprise Five-Star Gala Ballroom & Banquet Table Setup in Kolkata"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out filter brightness-[0.88]"
             />
             {/* Ambient editorial vignette */}

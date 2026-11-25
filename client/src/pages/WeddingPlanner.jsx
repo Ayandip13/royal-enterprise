@@ -87,6 +87,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/wedding-gallary/bengali-wedding-couple.jpg',
+      imageLabel: 'Bengali Bride & Groom Couple Portrait',
       description:
         'Single-point ceremonial stewardship from timeline charting and vendor synchronization to run-of-show execution and dedicated bridal shadow coordinators on the wedding floor.',
       highlights: ['Milestone timeline schedules', 'Vendor coordination & contracts', 'Dedicated floor director & shadow'],
@@ -101,6 +102,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/wedding-gallary/20241129_183629.jpg',
+      imageLabel: 'Royal Reception Stage & Floral Arch',
       description:
         'Architectural Vedic mandap structures, fresh tuberose and marigold canopies, thematic reception sets, and photogenic floral entrance gateways crafted with botanical grace.',
       highlights: ['Vedic mandap architecture', 'Fresh seasonal floral canopies', 'Grand entrance & reception backdrops'],
@@ -115,6 +117,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/wedding-gallary/bengali-sindoor-daan.jpg',
+      imageLabel: 'Sacred Vedic Sindoor Daan Ritual',
       description:
         'Fine-art candid ritual portraiture, 4K ceremonial highlight films, traditional family documentation, and cinematic teasers capturing timeless vows.',
       highlights: ['4K cinematic teasers & films', 'Candid ritual portraiture', 'Heirloom printed family albums'],
@@ -129,6 +132,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/images/gala-stage-lighting.jpg',
+      imageLabel: 'Architectural Stage & Ambient Lighting',
       description:
         'Warm architectural uplighting, crystal chandelier rigging, sacred shehnai acoustics, and balanced reception sound systems tailored for serene conversation.',
       highlights: ['Architectural lawn uplighting', 'Acoustic shehnai & vocal sound', 'Sangeet sound reinforcement'],
@@ -143,6 +147,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/images/luxury-ballroom-venue.jpg',
+      imageLabel: 'Luxury Ballroom & Guest Seating',
       description:
         'Securing heritage Kolkata rajbaris and riverside lawns, managing airport arrivals, personalized welcome kits, hotel check-ins, and attentive elderly concierge care.',
       highlights: ['Heritage rajbari reservation', 'Airport & station greeting desks', 'Luggage & elderly concierge care'],
@@ -157,6 +162,7 @@ const WeddingPlanner = () => {
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
       image: '/wedding-gallary/bengali-wedding-2.jpg',
+      imageLabel: 'Classic Bengali Bridal Adornment',
       description:
         'Authentic pure silk Benarasi drape artistry, custom topor and mukut coordination, heirloom jewellery pairing, and professional bridal vanity scheduling.',
       highlights: ['Benarasi & zardozi draping', 'Mukut, topor & kalgi styling', 'Vanity & touch-up scheduling'],
@@ -549,9 +555,9 @@ const WeddingPlanner = () => {
                     </div>
 
                     {/* Bottom In-Image Accent */}
-                    <div className="absolute bottom-2.5 left-3 text-white/90 text-[11px] font-display italic tracking-wider flex items-center gap-1.5">
-                      <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
-                      <span>Discipline {service.num}</span>
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white/90 text-[11px] font-display italic tracking-wider flex items-center gap-1.5">
+                      <AntiqueStar className="w-3 h-3 text-[#D6B56F] shrink-0" />
+                      <span className="truncate">{service.imageLabel}</span>
                     </div>
                   </div>
 

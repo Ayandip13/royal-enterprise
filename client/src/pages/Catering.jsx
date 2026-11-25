@@ -52,6 +52,7 @@ const Catering = () => {
       bengaliTitle: 'বিবাহ ও সামাজিক আনুষ্ঠানিক মহাভোজ',
       badge: 'Proposed Catering Discipline',
       image: '/catering-gallary/20250725_195009.jpg',
+      imageLabel: 'Basanti Pulao in Chafing Handi',
       description:
         'Grand multi-course ceremonial dining for weddings, receptions, and family milestones featuring authentic heritage recipes and transparent per-plate packages.',
       highlights: ['Authentic Biye Bari courses', 'Slow-cooked Mutton Kosha & Bhetki', 'Transparent per-plate tiers'],
@@ -65,6 +66,7 @@ const Catering = () => {
       bengaliTitle: 'আকর্ষণীয় লাইভ ফুড স্টল ও স্ট্রিট ফুড',
       badge: 'Proposed Catering Discipline',
       image: '/catering-equipment/live-popcorn-machine-counter.jpg',
+      imageLabel: 'Commercial Live Popcorn Maker',
       description:
         'Interactive on-site culinary counters: artisanal phuchka, Kolkata kathi rolls, sizzling tawa kebabs, live chaat pavilions, and fresh theatre popcorn.',
       highlights: ['Interactive chef preparation', 'Hygienic live counter setups', 'Kolkata street signatures'],
@@ -78,6 +80,7 @@ const Catering = () => {
       bengaliTitle: 'ঐতিহ্যবাহী মিষ্টি ও লাইভ ডেজার্ট লাউঞ্জ',
       badge: 'Proposed Catering Discipline',
       image: '/catering-gallary/20250725_205208.jpg',
+      imageLabel: 'Clay-Pot Mishti Doi & Wooden Spoons',
       description:
         'Artisanal clay-pot Mishti Doi, live kesariya jalebi with rabdi, giant baked rosogollas, and in-house commercial soft-serve softy ice cream stations.',
       highlights: ['Earthen pot Mishti Doi', 'Live jalebi & rabdi kadhai', 'Commercial softy dispenser'],
@@ -91,6 +94,7 @@ const Catering = () => {
       bengaliTitle: 'সুসজ্জিত বুফে ও পরম শ্রদ্ধায় পঙক্তিভোজন',
       badge: 'Proposed Catering Discipline',
       image: '/catering-gallary/20250725_195041.jpg',
+      imageLabel: 'Traditional Bengali Dhokar Dalna',
       description:
         'Elegantly styled chafing buffet lines with heated plate warmers, dedicated elder table service, and traditional sit-down banana-leaf feast options.',
       highlights: ['Brass & chafing presentation', 'Dedicated elder table care', 'Traditional sit-down feasts'],
@@ -104,6 +108,7 @@ const Catering = () => {
       bengaliTitle: 'নিজস্ব কিচেনে খাঁটি ও টাটকা উপাদানে প্রস্তুত',
       badge: 'Proposed Catering Discipline',
       image: '/catering-gallary/20241019_110837.jpg',
+      imageLabel: 'Fresh Market-Sourced Bhetki Fish',
       description:
         'Morning-fresh Kolkata fish market sourcing, cold-pressed kachi ghani mustard oil, slow-cooked whole spices, and strictly zero outsourced cooking.',
       highlights: ['Morning fish market purchase', 'Cold-pressed mustard oil', '100% in-house food preparation'],
@@ -117,6 +122,7 @@ const Catering = () => {
       bengaliTitle: 'মার্জিত পোশাকধারী পরিবেশক ও উষ্ণ আতিথেয়তা',
       badge: 'Proposed Catering Discipline',
       image: '/catering-gallary/20241129_202026.jpg',
+      imageLabel: 'Uniformed Banquet Service Team',
       description:
         'Polite, uniformed serving captains, trained floor stewards, continuous chafing replenishment, and warm Bengali family hospitality honoring every guest.',
       highlights: ['Uniformed captains & stewards', 'Continuous buffet replenishment', 'Respectful Bengali hospitality'],
@@ -642,8 +648,8 @@ const Catering = () => {
               <div className="relative mx-auto max-w-[420px]">
                 <div className="relative z-10 w-full aspect-[4/5] rounded-t-[190px] rounded-b-2xl overflow-hidden shadow-2xl border-2 border-[#D6B56F]/40 bg-[#102726]">
                   <img
-                    src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
-                    alt="Royal Enterprise Gourmet Wedding Catering and Banquet Setup in Kolkata"
+                    src="/images/catering-hero-feast.jpg"
+                    alt="Royal Enterprise Authentic Bengali & North Indian Wedding Feast — Basanti Pulao, Bhetki Fry & Mutton Kosha"
                     className="w-full h-full object-cover filter brightness-[0.96]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#193C3B]/70 via-transparent to-transparent" />
@@ -779,9 +785,9 @@ const Catering = () => {
                     </div>
 
                     {/* Bottom In-Image Badge */}
-                    <div className="absolute bottom-2.5 left-3 text-white/95 text-[11px] font-sans tracking-wider uppercase flex items-center gap-1.5">
-                      <AntiqueStar className="w-3 h-3 text-[#D6B56F]" />
-                      <span className="text-[#D6B56F] font-medium">Taste Discipline {item.num}</span>
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white/95 text-[11px] font-sans tracking-wider uppercase flex items-center gap-1.5">
+                      <AntiqueStar className="w-3 h-3 text-[#D6B56F] shrink-0" />
+                      <span className="text-[#D6B56F] font-medium truncate">{item.imageLabel}</span>
                     </div>
                   </div>
 
@@ -848,14 +854,14 @@ const Catering = () => {
             {/* Left Side: Large Luxury Dining Photography */}
             <div className="lg:col-span-6 relative min-h-[380px] lg:min-h-[520px]">
               <img
-                src="/images/hero-stage.png"
-                alt="Royal Enterprise Luxurious Dining Setup & Banquet Table Arrangement"
+                src="/catering-gallary/20241129_202341.jpg"
+                alt="Royal Enterprise Curated Silver Cutlery & Hygienic Tableware Setup"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent lg:hidden" />
               <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white font-sans">
                 <span className="text-xs font-display italic text-[#D6B56F] block">The Dining Standard</span>
-                <span className="text-xs font-medium text-white">Fine Bone China & Polished Serviceware</span>
+                <span className="text-xs font-medium text-white">Curated Silver Cutlery & Hygienic Serviceware</span>
               </div>
             </div>
 
@@ -1120,10 +1126,10 @@ const Catering = () => {
                     <button
                       type="button"
                       onClick={() => handleSelectPackage(`${currentPkg.code}: ${currentPkg.name} (${currentPkg.price})`)}
-                      className="px-7 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#D66D59] hover:bg-[#BA5643] text-white shadow-md transition-all inline-flex items-center space-x-2"
+                      className="px-7 py-3 text-xs uppercase tracking-wider font-semibold rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white shadow-md transition-all inline-flex items-center space-x-2"
                     >
-                      <span>Select This Package ({currentPkg.price.split(' ')[0]})</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Select Package ({currentPkg.code} • {currentPkg.price.split(' ')[0]})</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#D6B56F]" />
                     </button>
 
                     <a
@@ -1152,98 +1158,6 @@ const Catering = () => {
               </div>
             );
           })()}
-
-          {/* 5 Packages Side-by-Side Comparison Grid */}
-          <div className="space-y-6 pt-6">
-            <div className="text-center space-y-1">
-              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#D66D59] dark:text-[#D6B56F] font-sans">
-                Quick Comparison Matrix
-              </span>
-              <h3 className="font-display text-2xl sm:text-3xl text-[#292323] dark:text-[#F5EFE5] font-normal">
-                All 5 Official Royal Banquet Tiers
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-              {ROYAL_CATERING_PACKAGES.map((pkg, idx) => {
-                const isSelected = activePackageTab === idx;
-                return (
-                  <div
-                    key={pkg.id}
-                    className={`rounded-2xl border p-5 flex flex-col justify-between transition-all duration-300 text-left ${
-                      isSelected
-                        ? 'border-[#D6B56F] bg-white dark:bg-[#102726] shadow-xl ring-2 ring-[#D6B56F]/40 scale-[1.01]'
-                        : 'border-[#E8DFD3] dark:border-[#244C4A] bg-[#FAF5ED] dark:bg-[#143130] shadow-sm hover:shadow-lg'
-                    }`}
-                  >
-                    <div className="space-y-3 font-sans">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10.5px] uppercase tracking-wider font-bold text-[#D66D59] dark:text-[#D6B56F]">
-                          {pkg.code}
-                        </span>
-                        {pkg.popular && (
-                          <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#D66D59] text-white">
-                            Best Value
-                          </span>
-                        )}
-                      </div>
-
-                      <div>
-                        <h4 className="font-display text-lg font-normal text-[#292323] dark:text-[#F5EFE5] leading-snug">
-                          {pkg.name}
-                        </h4>
-                        <span className="text-[11px] text-[#665C5C] dark:text-[#C8D6D5] block mt-0.5">
-                          {pkg.bengaliName}
-                        </span>
-                      </div>
-
-                      <div className="pt-1 pb-2 border-b border-[#E8DFD3] dark:border-[#244C4A]">
-                        <span className="font-display text-2xl font-bold text-[#193C3B] dark:text-[#D6B56F] block">
-                          {pkg.price.split(' ')[0]}
-                        </span>
-                        <span className="text-[10px] text-[#8C8282] uppercase tracking-wider">
-                          {pkg.priceUnit}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-1.5 text-[11px] text-[#292323] dark:text-[#C8D6D5]">
-                        {pkg.highlights.slice(0, 4).map((h, hIdx) => (
-                          <li key={hIdx} className="flex items-start">
-                            <CheckCircle2 className="w-3 h-3 text-[#D66D59] mr-1.5 mt-0.5 shrink-0" />
-                            <span className="font-light leading-tight line-clamp-2">{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="pt-4 mt-3 border-t border-[#E8DFD3] dark:border-[#244C4A] space-y-2 font-sans">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setActivePackageTab(idx);
-                          const el = document.getElementById('rate-charts');
-                          if (el) el.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="w-full py-2 px-2.5 rounded-lg border border-[#E8DFD3] dark:border-[#244C4A] hover:border-[#193C3B] dark:hover:border-[#D6B56F] text-[#193C3B] dark:text-[#F5EFE5] text-[11px] font-medium transition-colors bg-white/60 dark:bg-[#102726] inline-flex items-center justify-center space-x-1"
-                      >
-                        <Eye className="w-3 h-3 text-[#D6B56F]" />
-                        <span>Inspect Full Menu</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPackage(`${pkg.code}: ${pkg.name} (${pkg.price})`)}
-                        className="w-full py-2 px-2.5 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-[11px] font-semibold transition-colors shadow-sm inline-flex items-center justify-center space-x-1"
-                      >
-                        <span>Select Package</span>
-                        <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </section>
 
         {/* ========================================================================= */}

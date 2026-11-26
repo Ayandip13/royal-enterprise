@@ -93,8 +93,8 @@ const Catering = () => {
       title: 'Buffet & Table Service',
       bengaliTitle: 'সুসজ্জিত বুফে ও পরম শ্রদ্ধায় পঙক্তিভোজন',
       badge: 'Proposed Catering Discipline',
-      image: '/catering-gallary/20250725_195041.jpg',
-      imageLabel: 'Traditional Bengali Dhokar Dalna',
+      image: '/catering-gallary/kansa-brass-thali-set.jpg',
+      imageLabel: 'Traditional Bengali Kansa Thali & Bowls',
       description:
         'Elegantly styled chafing buffet lines with heated plate warmers, dedicated elder table service, and traditional sit-down banana-leaf feast options.',
       highlights: ['Brass & chafing presentation', 'Dedicated elder table care', 'Traditional sit-down feasts'],
@@ -254,6 +254,42 @@ const Catering = () => {
       ],
       idealFor: 'Banquet foyer, wedding welcome entrance, corporate summits & gala registration.',
     },
+    {
+      id: 'equip-coffee-1',
+      title: 'Atlantis Classic Hot Coffee & Tea Dispenser',
+      bengaliTitle: 'আটলান্টিস ক্লাসিক হট কফি ও চা ভেন্ডিং মেশিন',
+      category: 'Live Beverage Counter',
+      badge: 'All-Day Hospitality Staple',
+      image: '/catering-equipment/atlantis-coffee-tea-vending-machine.jpg',
+      caption: 'Commercial multi-option hot coffee, tea & hot water dispenser with digital LCD',
+      description:
+        'Commercial Atlantis Classic automatic beverage dispenser featuring dedicated Coffee, Tea, Half-Cup, and Hot Water touch controls, delivering consistent, steaming-hot café beverages throughout morning rituals and evening receptions.',
+      features: [
+        'Multi-option dispensing: Fresh Coffee, Cardamom Tea, Half-Cup & Hot Water',
+        'Digital backlit LCD status display with hygienic push-button operation',
+        'Rapid high-volume boiler keeping up with peak wedding & conference rush',
+        'Compact countertop footprint for indoor foyers & corporate breakouts',
+      ],
+      idealFor: 'Morning wedding rituals, winter receptions, corporate summits & VIP lounges.',
+    },
+    {
+      id: 'equip-gelato-1',
+      title: 'Commercial Countertop Gelato & Hard Ice Cream Maker',
+      bengaliTitle: 'কমার্শিয়াল জেলাটো ও হার্ড আইসক্রিম মেকার',
+      category: 'Live Dessert Counter',
+      badge: 'Artisanal Gelato Station',
+      image: '/catering-equipment/commercial-gelato-ice-cream-maker.jpg',
+      caption: 'Digital batch freezer with Stir, Freeze & Milkshake modes and clear viewing lid',
+      description:
+        'Stainless-steel commercial countertop batch freezer with digital LED temperature/timer control and dedicated Stir, Freeze, and Hard/Soft Ice Cream modes for crafting fresh artisanal gelato and fruit sorbets on-site.',
+      features: [
+        'Multi-mode digital controller: Hard Ice Cream, Soft Serve, Milkshake & Keep Fresh',
+        'Transparent top viewing lid for live guest-facing churning theatre',
+        'Food-grade stainless steel freezing cylinder for smooth, dense gelato',
+        'Custom flavor batching: Belgian Chocolate, Alphonso Mango & Kesar Pista',
+      ],
+      idealFor: 'Luxury wedding dessert bars, cocktail receptions & kids dessert lounges.',
+    },
   ];
 
   // =========================================================================
@@ -329,6 +365,27 @@ const Catering = () => {
       category: 'Wedding Feasts',
       image: '/catering-gallary/20241019_110837.jpg',
       location: 'In-House Fresh Sourcing',
+    },
+    {
+      id: 11,
+      title: 'Traditional Bengali Kansa (Bell Metal) Ceremonial Thali Set',
+      category: 'Wedding Feasts',
+      image: '/catering-gallary/kansa-brass-thali-set.jpg',
+      location: 'Aiburobhat & Sit-Down Service',
+    },
+    {
+      id: 12,
+      title: 'Atlantis Classic Hot Coffee & Tea Dispenser',
+      category: 'Live Counters',
+      image: '/catering-equipment/atlantis-coffee-tea-vending-machine.jpg',
+      location: 'Live Beverage & Foyer Counter',
+    },
+    {
+      id: 13,
+      title: 'Commercial Countertop Gelato & Hard Ice Cream Maker',
+      category: 'Desserts & Sweets',
+      image: '/catering-equipment/commercial-gelato-ice-cream-maker.jpg',
+      location: 'Artisanal Gelato Dessert Bar',
     },
   ];
 
@@ -1167,10 +1224,10 @@ const Catering = () => {
           <SectionHeader
             badge="In-House Event & Culinary Equipment"
             title="Live Food Theatres, Beverage Stations & Digital Hospitality"
-            subtitle="ইন-হাউস লাইভ ডেজার্ট, পপকর্ন, ফ্রোজেন মকটেল ও ডিজিটাল ওয়েলকাম কিওস্ক — We own and deploy our commercial softy dispensers, frozen slush machines, Korean bingsu snowmakers, live popcorn makers, and interactive digital welcome standees."
+            subtitle="ইন-হাউস লাইভ ডেজার্ট, কফি, পপকর্ন, ফ্রোজেন মকটেল ও ডিজিটাল ওয়েলকাম কিওস্ক — We own and deploy our commercial softy & gelato makers, frozen slush machines, Korean bingsu snowmakers, Atlantis coffee dispensers, live popcorn makers, and digital welcome standees."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {liveEquipmentItems.map((item, idx) => (
               <div
                 key={item.id}

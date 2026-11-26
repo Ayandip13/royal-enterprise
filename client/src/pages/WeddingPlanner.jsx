@@ -30,7 +30,7 @@ const WeddingPlanner = () => {
       id: 'venue',
       title: 'Heritage Venue Selection',
       tag: 'Palaces & Lawns',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80',
+      image: '/images/heritage-rajbari-venue.jpg',
       description:
         'Reserving historic Kolkata rajbaris, Five-Star luxury hotel ballrooms, and tranquil riverside lawns at honest, contracted family rates.',
       highlights: ['Rajbari courtyards', 'Five-star ballrooms', 'Open riverside lawns'],
@@ -66,7 +66,7 @@ const WeddingPlanner = () => {
       id: 'packages',
       title: 'Complete Wedding Packages',
       tag: 'End-to-End Care',
-      image: '/images/hero-stage.png',
+      image: '/images/bengali-vedic-mandap.jpg',
       description:
         'Single-point accountability encompassing Vedic mandap decor, guest logistics, authentic in-house catering, and personal bride/groom shadow managers.',
       highlights: ['100% In-house catering', '3D Mandap fabrication', 'Dedicated floor director'],
@@ -146,8 +146,8 @@ const WeddingPlanner = () => {
       bengaliTitle: 'হেরিটেজ ভেন্যু নির্বাচন ও পরম আত্মীয় আপ্যায়ন',
       badge: 'Proposed Atelier Discipline',
       status: 'Proposed Service',
-      image: '/images/luxury-ballroom-venue.jpg',
-      imageLabel: 'Luxury Ballroom & Guest Seating',
+      image: '/events-gallary/20240805_235720_01.jpg',
+      imageLabel: 'Five-Star Ballroom & Guest Seating',
       description:
         'Securing heritage Kolkata rajbaris and riverside lawns, managing airport arrivals, personalized welcome kits, hotel check-ins, and attentive elderly concierge care.',
       highlights: ['Heritage rajbari reservation', 'Airport & station greeting desks', 'Luggage & elderly concierge care'],

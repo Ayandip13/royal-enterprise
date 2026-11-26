@@ -65,9 +65,9 @@ const BrandIntroduction = () => {
         <div className="pt-12 sm:pt-16">
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8DFD3] dark:border-[#244C4A] aspect-[16/8] sm:aspect-[21/9] bg-[#102726] group">
             <img
-              src="/events-gallary/20240805_235720_01.jpg"
-              alt="Royal Enterprise Five-Star Gala Ballroom & Banquet Table Setup in Kolkata"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out filter brightness-[0.88]"
+              src="/images/kolkata-rajbari-banquet.jpg"
+              alt="Royal Enterprise Heritage Kolkata Rajbari Evening Wedding Reception & Royal Banquet"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out filter brightness-[0.9]"
             />
             {/* Ambient editorial vignette */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#193C3B]/80 via-transparent to-black/40" />

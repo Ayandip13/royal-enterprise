@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Utensils, Leaf, Drumstick, Sparkles } from 'lucide-react';
 
 const MENU_DATA = {
   starters: [
@@ -158,7 +157,6 @@ const CateringMenuSection = () => {
       </div>
 
       <div className="mt-8 p-4 bg-[#FFFDF9] dark:bg-[#1C1917] border border-[#E8E1D5] dark:border-[#38312B] rounded-[3px] text-center text-xs text-[#554F47] dark:text-[#D5CCC0] font-light shadow-sm">
-        <Sparkles className="w-3.5 h-3.5 text-gold-dark inline-block mr-1.5 -mt-0.5" />
         All menus are customizable. We provide dedicated pure vegetarian and Jain cooking kitchens with separate utensils, cold rooms, and service staff upon request.
       </div>
     </div>

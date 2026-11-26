@@ -1433,53 +1433,6 @@ const Catering = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* 8. CATERING PRICING GUIDE */}
-        {/* ========================================================================= */}
-        <section id="pricing-guide" className="bg-[#FAF5ED] dark:bg-[#143130] border border-[#E8DFD3] dark:border-[#244C4A] rounded-2xl p-8 sm:p-12 shadow-sm">
-          <SectionHeader
-            badge="Menu Benchmarks"
-            title="Catering Menu & Rate Benchmark Guide"
-            subtitle="Standard course breakdowns and authentic market plate rates to help plan your wedding or milestone banquet."
-          />
-
-          <div className="overflow-x-auto rounded-xl border border-[#E8DFD3] dark:border-[#244C4A] bg-white/70 dark:bg-[#102726] font-sans">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead className="bg-[#FAF5ED] dark:bg-[#143130] text-[#193C3B] dark:text-[#D6B56F] uppercase tracking-[0.16em] font-semibold border-b border-[#E8DFD3] dark:border-[#244C4A]">
-                <tr>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Package Tier & Rate</th>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px] w-1/4">Curated Banquet Concept</th>
-                  <th className="p-4 border-r border-[#E8DFD3] dark:border-[#244C4A] text-[11px]">Verified Course Highlights & Inclusions</th>
-                  <th className="p-4 text-[11px] text-right w-28">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E8DFD3] dark:divide-[#244C4A] text-[#292323] dark:text-[#C8D6D5]">
-                {pricingGuide.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-white/60 dark:hover:bg-[#193C3B]/40 transition-colors">
-                    <td className="p-4 font-semibold text-[#193C3B] dark:text-[#D6B56F] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.category}</td>
-                    <td className="p-4 font-medium text-[#292323] dark:text-[#F5EFE5] border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.caterer}</td>
-                    <td className="p-4 font-light text-[#665C5C] dark:text-[#C8D6D5] leading-relaxed border-r border-[#E8DFD3] dark:border-[#244C4A]">{row.highlights}</td>
-                    <td className="p-4 text-right">
-                      <button
-                        type="button"
-                        onClick={() => handleSelectPackage(row.packageRef || row.category)}
-                        className="px-3 py-1.5 rounded-lg bg-[#193C3B] hover:bg-[#102726] text-white text-[11px] font-semibold transition-colors shadow-xs inline-flex items-center space-x-1"
-                      >
-                        <span>Select</span>
-                        <ArrowRight className="w-3 h-3 text-[#D6B56F]" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-center text-xs text-[#8C8282] italic mt-6 font-light font-sans">
-            (Note: Pricing adjusts based on guest count, fish selection such as Vetki vs. Katla, and live counter additions).
-          </p>
-        </section>
-
-        {/* ========================================================================= */}
         {/* 9. DEDICATED CATERING ENQUIRY FORM */}
         {/* ========================================================================= */}
         <section id="catering-enquiry-form" className="max-w-4xl mx-auto pt-6">

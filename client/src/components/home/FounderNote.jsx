@@ -34,9 +34,9 @@ const FounderNote = () => {
                 </div>
 
                 <img
-                  src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80"
-                  alt="Behind the scenes in the Royal Enterprise kitchen in Kolkata"
-                  className="w-full h-80 sm:h-[460px] object-cover filter brightness-[0.96]"
+                  src="/images/kolkata-chef-kitchen.jpg"
+                  alt="Veteran Royal Enterprise chef cooking in our Kolkata commercial kitchen"
+                  className="w-full h-80 sm:h-[460px] object-cover object-top filter brightness-[0.98]"
                 />
                 
                 {/* On-ground caption plaque */}
